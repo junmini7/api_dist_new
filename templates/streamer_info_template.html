@@ -1,0 +1,23 @@
+<div class="col-auto col-12 col-md-6 col-lg-4 col-sm-6 col-xl-3" style="display:flex; margin-bottom: 8px;">
+    <div style=" align-self:center; margin-right: 20px">
+        <a href="/twitch/streamer_watching_streamer/?query={{login}}">
+            <img src="{{image_url}}" width="100" height="100">
+        </a>
+    </div>
+    <div style=" align-self:center;"><a href="/twitch/streamer_watching_streamer/?query={{login}}">
+        {% if is_manager %}
+        <img src="https://static-cdn.jtvnw.net/badges/v1/3267646d-33f0-4b17-b3df-f923a41db1d0/3" width="15" height="15"/>
+             {% endif %}
+        <b>{{name}}</b>
+            {% if login_disp %}
+        <font size="2em">{{login}}</font>
+    {% endif %}
+    </a>
+        <a href="https://twitch.tv/{{login}}"><i class="bi fa-brands fa-twitch"></i> </a>
+        <br>팔로워 <b>{{follower}}</b>명<br>{{country}} <b>{{rank}}</b>위
+        <a href="{{api_url}}/twitch/addlogin/?logins={{login}}&skip_already_done=false&give_chance_to_hakko=true">
+            <font size="2em">{{time}}전</font>
+        </a>
+        <br><i class="{{icon}}"></i> {{following}}
+    </div>
+</div>
