@@ -1,5 +1,3 @@
 # api
-http://woowakgood.live:8010/docs
-
-http://woowakgood.live:8010/twitch/populariswatching/woowakgood
+https://woowakgood.live/twitch/streamer_watching_streamer/
 
