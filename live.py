@@ -1,7 +1,6 @@
 from dd import Streamer, D, T
 from datetime import timedelta as td
 from datetime import datetime as dt
-
 import traceback
 from fastapi import FastAPI, HTTPException, Header, Query, Request
 from fastapi_utils.tasks import repeat_every
@@ -23,6 +22,8 @@ import itertools
 import time
 from collections import Counter
 import background
+import argparse
+import sys
 
 # pop_data = pickle.load(open('pop.pandas', 'rb'))
 
@@ -40,6 +41,19 @@ app.add_middleware(
     allow_headers=["*"],
 )
 search_data = D.streamers_search_data()
+role_to_icon = {
+    'moderators': "https://static-cdn.jtvnw.net/badges/v1/3267646d-33f0-4b17-b3df-f923a41db1d0/3",
+    'vips': "https://static-cdn.jtvnw.net/badges/v1/b817aba4-fad8-49e2-b88a-7cc744dfa6ec/3",
+    'admins': "https://static-cdn.jtvnw.net/badges/v1/9ef7e029-4cdf-4d4d-a0d5-e2b3fb2583fe/3",
+    'broadcaster': "https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/3",
+    'staff': "https://static-cdn.jtvnw.net/badges/v1/d97c37bd-a6f5-4c38-8f57-4e4bef88af34/3",
+    'global_mods': "https://static-cdn.jtvnw.net/badges/v1/9ef7e029-4cdf-4d4d-a0d5-e2b3fb2583fe/3"
+}
+temp_data = {}
+temp_working = {}
+bots_list = D.bots_list()
+role_to_ko = {'vips': 'VIP', 'moderators': '매니저', 'staff': '트위치 직원', 'admins': '트위치 운영자',
+              'global_mods': 'Global Moderators'}
 
 
 @app.middleware("http")
@@ -69,7 +83,8 @@ def mutual_follow_information(following_data: dict, followed_data: dict, broadca
     streamer_id = streamer.id
     streamer_login = streamer.login
     broadcaster_login = broadcaster.login
-    if not D.db.follow_data_information.find_one({'id': streamer_id}):
+    if not streamer.follow_crawled():
+        background.following_queue.put(streamer)
         return 0, "fa-solid fa-question", f"<a href='../following/?query={streamer_login}'>확인하기</a>"
     # try:
     #     to_to_from = to_streamer.is_following(from_streamer, False)
@@ -88,9 +103,14 @@ def mutual_follow_information(following_data: dict, followed_data: dict, broadca
 
 
 def streamer_info_maker(streamer: Streamer, broadcaster: Streamer, now: dt, following_data: dict,
-                        followed_data: dict, role: str = "") -> dict:
+                        followed_data: dict, role_data: dict) -> dict:
     mutual_info = mutual_follow_information(following_data, followed_data, broadcaster, streamer)
-    is_manager = (role != "")
+    if streamer.id in role_data:
+        role = role_data[streamer.id]["role"]
+        role_icon = f'<img src="{role_to_icon[role]}" width="15" height="15"/>'
+    else:
+        role = ''
+        role_icon = ''
     followers = streamer.followers
     rendered = streamer_info_template.render(login=streamer.login, image_url=streamer.profile_image, name=streamer.name,
                                              follower=followers, country=streamer.country,
@@ -98,7 +118,7 @@ def streamer_info_maker(streamer: Streamer, broadcaster: Streamer, now: dt, foll
                                              icon=mutual_info[1],
                                              following=mutual_info[2], api_url=api_url,
                                              login_disp=streamer.login != streamer.name.lower(),
-                                             is_manager=is_manager)
+                                             role_icon=role_icon)
 
     # role_info = D.role_check(broadcaster.id, streamer.id)
     # if streamer.followers==-1:
@@ -131,12 +151,6 @@ def streamers_search_recommend_client(query, result):
     return temp
 
 
-temp_data = {}
-temp_working = {}
-bots_list = D.bots_list()
-role_to_ko = {'vips': 'VIP', 'moderators': '매니저', 'staff': '스태프'}
-
-
 @app.get("/twitch/populariswatchingapi/", response_class=HTMLResponse)
 def watching_streamers_gui(request: Request, query: str, follower_requirements: Optional[int] = 100):
     ip = str(request.client.host)
@@ -155,10 +169,7 @@ def watching_streamers_gui(request: Request, query: str, follower_requirements: 
         if broadcaster.banned:
             return f"스트리머 {broadcaster.name}({broadcaster.login})는 {broadcaster.banned_history[-1]} 기준으로 정지된 것을 확인했습니다. "
         # 이렇게 리턴하는 이유는 어차피 지금 확인하고자 하는 특성이 ban 상태에서는 확인불가이기 때문임
-    if not D.db.follow_data_information.find_one({'id': broadcaster.id}):
-        broadcaster.update_followings()
-    assert broadcaster.followers >= 0
-    assert broadcaster.localrank
+
     # without_followers = [streamer for streamer in list(itertools.chain.from_iterable(list(watchers.values()))) if
     #                      'followers' not in streamer]
     # if without_followers:
@@ -192,6 +203,7 @@ def watching_streamers_gui(request: Request, query: str, follower_requirements: 
 def watching_streamers_maker(broadcaster: Streamer, follower_requirements: int):
     start_time = time.time()
     assert broadcaster.id in temp_data
+
     data = temp_data[broadcaster.id]
     temp = data['head'] % follower_requirements
     streamer_temp_data = [i for i in data['datas'] if i['followers'] >= max(follower_requirements, 10) or i['role']]
@@ -272,15 +284,16 @@ def watching_streamers_worker(broadcaster: Streamer):
     watchers = broadcaster.watching_streamers()
     start_time = time.time()
     for i in watchers['viewers']:
-        background.follownum_queue.put(i)  # manager는 다 팔로워 수 크롤 됨
+        background.follownum_queue.put(i)  # manager는 다 팔로워 수 크롤 됨 => 이제 없앰
     # Thread(target=D.get_follower_from_streamers, args=(watchers['streamers'], False)).start()
-    following_data = {i['to_id']: i for i in D.follow(broadcaster.id, 'from')}
-    followed_data = {i['from_id']: i for i in D.follow(broadcaster.id, 'to')}
-
+    following_data = {i['to_id']: i for i in broadcaster.follow_from()}
+    assert broadcaster.followers >= 0
+    assert broadcaster.localrank
+    followed_data = {i['from_id']: i for i in broadcaster.follow_to()}
+    role_data = {i['member_id']: i for i in broadcaster.role_broadcaster(True, False)}
     head = ""
-
-    if watchers['broadcasters']:
-        head += f'{broadcaster.name}({broadcaster.login}) 현재 Broadcaster 접속중 <a href="https://twitch.tv/{broadcaster.login}"><img src="https://woowakgood.live/twitch/broadcaster.png" width="15" height="15"/></a><br>'
+    if watchers['broadcaster']:
+        head += f'{broadcaster.name}({broadcaster.login}) 현재 Broadcaster 접속중 <a href="https://twitch.tv/{broadcaster.login}"><img src="https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/3" width="15" height="15"/></a><br>'
     head += f"{broadcaster.introduce}{tools.onlyeul(broadcaster.name)} 지금 시청 중인 {watchers['count']}명의 로그인 시청자 중 팔로워 수 %d명 이상의 스트리머"
     buttons = ["""<div class="col-12 col-md-5 col-xl-3 centering" style="margin-bottom:10px"><div class="row">
             <button class='btn btn-primary' onclick='copyToClipboard(window.location.href)'>결과 링크 복사</button></div></div>""",
@@ -300,12 +313,12 @@ def watching_streamers_worker(broadcaster: Streamer):
     for streamer in watchers['viewers']:
         if streamer.login not in bots_list and not streamer.banned and 'localrank' in streamer:
             streamer_temp_data.append(
-                streamer_info_maker(streamer, broadcaster, now, following_data, followed_data))
-    for role in watchers['managers']:
-        for streamer in watchers['managers'][role]:
-            if streamer.login not in bots_list:
-                streamer_temp_data.append(
-                    streamer_info_maker(streamer, broadcaster, now, following_data, followed_data, role))
+                streamer_info_maker(streamer, broadcaster, now, following_data, followed_data, role_data))
+    # for role in watchers['managers']:
+    #     for streamer in watchers['managers'][role]:
+    #         if streamer.login not in bots_list:
+    #             streamer_temp_data.append(
+    #                 streamer_info_maker(streamer, broadcaster, now, following_data, followed_data, role))
     streamer_temp_data.sort(key=lambda x: x['followers'], reverse=True)
     temp_data[broadcaster.id] = {'time': now, 'head': head, 'datas': streamer_temp_data, 'buttons': buttons}
     print(f"watching_streamers_worker took {time.time() - start_time}s for {broadcaster.name}")
@@ -337,7 +350,7 @@ async def loadinggif():
 
 
 @app.get("/twitch/managers/{query}", response_class=HTMLResponse)
-async def managers(request: Request, query: str):
+async def managers(request: Request, query: str,refresh:Optional[bool]=False):
     broadcaster = D.streamers_search(query)
     if not broadcaster:
         search_result = D.streamers_data_name_search(query, search_data)
@@ -348,23 +361,30 @@ async def managers(request: Request, query: str):
             # D.streamers_data_rank_refresh()
         except KeyError:
             broadcaster.update_itself()
-    managers_data = {i['member_id']: i for i in broadcaster.role_broadcaster(False)}
-    managers_infos = [Streamer(i) for i in D.db.streamers_data.find({'id': {'$in': list(managers_data.keys())}})]
+    managers_data_processed=D.role_data_to_streamers(broadcaster.role_broadcaster(False,refresh),'broadcaster')
+    manager_streamers = managers_data_processed['datas']
+    total_manager = managers_data_processed['total']
+    failed_ids = managers_data_processed['failed_ids']
+    for i in failed_ids:
+        background.id_queue.put(i)
+        # 한번 fail한건 다시 안하기?
+    for i in manager_streamers:
+        background.follownum_queue.put(i['streamer'])
     # managers_data=broadcaster.role_broadcaster(False)
     # managers_infos = {i['id']: Streamer(i) for i in D.db.streamers_data.find(
     #     {'id': {'$in': [i[f"member_id"] for i in managers_data]}})}
-    role_infos = dict(Counter([i['role'] for i in managers_data.values() if i['valid']]))
+    role_infos = dict(Counter([i['role'] for i in manager_streamers if i['valid']]))
     role_infos_gui = ', '.join([f'{role_to_ko[k]}가 {v}명' for k, v in role_infos.items()])
 
-    return f'<meta charset="utf-8">{broadcaster.introduce} 방송에서 활동하는 매니저 혹은 VIP, 스태프들은 총 {len(managers_data)}명 이며, 각각 {role_infos_gui}입니다. <br>' + '<br>'.join(
+    return f'<meta charset="utf-8">{broadcaster.introduce} 방송에서 활동하는 매니저 혹은 VIP, 스태프들은 총 {total_manager}명 이며, 각각 {role_infos_gui}입니다. <br>' + '<br>'.join(
         [
-            f"<a href='{home_url}/twitch/streamer_watching_streamer/?query={manager.login}'><img src='{manager.profile_image}' width='100' height='100'></a> {manager.name} ({manager.login}), 팔로워 {manager.followers}명, {manager.country} {manager.localrank}위, {broadcaster.name}의 방송에서 {role_to_ko[managers_data[manager.id]['role']]} {'을 했었고 현재는 해고당함' if not managers_data[manager.id]['valid'] else ''}"
-            for manager in
-            managers_infos]) + """<br><div class='text-center'><button class='btn btn-primary' id='copy_link' onclick='copyToClipboard(window.location.href)'>현재 보고 있는 결과 링크 복사하기</button></div><br>"""
+            f"""<a href='{home_url}/twitch/streamer_watching_streamer/?query={inf['streamer'].login}'><img src='{inf['streamer'].profile_image}' width='100' height='100'></a> {inf['streamer'].name} ({inf['streamer'].login}), 팔로워 {inf['streamer'].followers}명, {inf['streamer'].country} {inf['streamer'].localrank}위, {broadcaster.name}의 방송에서 {role_to_ko[inf['role']]} {f'을 했었고 현재는 해고당함' if not inf['valid'] else ''}"""
+            for inf in
+            manager_streamers]) + """<br><div class='text-center'><button class='btn btn-primary' id='copy_link' onclick='copyToClipboard(window.location.href)'>현재 보고 있는 결과 링크 복사하기</button></div><br>"""
 
 
 @app.get("/twitch/as_manager/{query}", response_class=HTMLResponse)
-async def as_manager(request: Request, query: str):
+async def as_manager(request: Request, query: str,refresh:Optional[bool]=True):
     broadcaster = D.streamers_search(query)
     if not broadcaster:
         search_result = D.streamers_data_name_search(query, search_data)
@@ -375,16 +395,17 @@ async def as_manager(request: Request, query: str):
             # D.streamers_data_rank_refresh()
         except KeyError:
             broadcaster.update_itself()
-    managers_data = {i['broadcaster_id']: i for i in broadcaster.role_member(False)}
-    managers_infos = [Streamer(i) for i in D.db.streamers_data.find({'id': {'$in': list(managers_data.keys())}})]
-    role_infos = dict(Counter([i['role'] for i in managers_data.values() if i['valid']]))
-    role_infos_gui = ', '.join([f'{role_to_ko[k]}가 {v}개' for k, v in role_infos.items()])
+    managers_data_processed=D.role_data_to_streamers(broadcaster.role_member(False),'member')
+    manager_streamers = managers_data_processed['datas']
+    total_manager = managers_data_processed['total']
+    role_infos = dict(Counter([i['role'] for i in manager_streamers if i['valid']]))
+    role_infos_gui = ', '.join([f'{role_to_ko[k]}가 {v}명' for k, v in role_infos.items()])
 
-    return f'<meta charset="utf-8">{broadcaster.introduce}가 매니저 혹은 VIP, 스태프로 활동하는 방송들은 총 {len(managers_data)}개 이며, 각각 {role_infos_gui}입니다. <br>' + '<br>'.join(
+    return f'<meta charset="utf-8">{broadcaster.introduce}가 매니저 혹은 VIP, 스태프로 활동하는 방송들은 총 {total_manager}개 이며, 각각 {role_infos_gui}입니다. <br>' + '<br>'.join(
         [
-            f"<a href='{home_url}/twitch/streamer_watching_streamer/?query={manager.login}'><img src='{manager.profile_image}' width='100' height='100'></a> {manager.name} ({manager.login}), 팔로워 {manager.followers}명, {manager.country} {manager.localrank}위, {tools.yi(broadcaster.name)} 이 방송에서 {role_to_ko[managers_data[manager.id]['role']]} {'을 했었고 현재는 해고당함' if not managers_data[manager.id]['valid'] else ''}"
-            for manager in
-            managers_infos]) + """<br><div class='text-center'><button class='btn btn-primary' id='copy_link' onclick='copyToClipboard(window.location.href)'>현재 보고 있는 결과 링크 복사하기</button></div><br>"""
+            f"<a href='{home_url}/twitch/streamer_watching_streamer/?query={inf['streamer'].login}'><img src='{inf['streamer'].profile_image}' width='100' height='100'></a> {inf['streamer'].name} ({inf['streamer'].login}), 팔로워 {inf['streamer'].followers}명, {inf['streamer'].country} {inf['streamer'].localrank}위, {tools.yi(broadcaster.name)} 이 방송에서 {role_to_ko[inf['role']]} {'을 했었고 현재는 해고당함' if not inf['valid'] else ''}" #, {inf['last_updated']}에 마지막으로 확인
+            for inf in
+            manager_streamers]) + """<br><div class='text-center'><button class='btn btn-primary' id='copy_link' onclick='copyToClipboard(window.location.href)'>현재 보고 있는 결과 링크 복사하기</button></div><br>"""
 
 
 @app.get("/twitch/following/{query}", response_class=HTMLResponse)
@@ -408,24 +429,24 @@ def following_by_popular(request: Request, query: str, by: Optional[str] = 'time
     assert broadcaster.followers >= 0
     assert broadcaster.localrank
     # 기존에 팔로우에서 나온 id를 모듈 측에서 업데이트 하려고 했지만 그걸 굳이 비실시간 모듈에서 하기 보다는 실시간 모듈에서 호출할때 해주는게 맞다.
-    follow_datas = broadcaster.follow_from(by, reverse, refresh, valid)
-    following_streamers = follow_datas['datas']
-    total_follow = follow_datas['total']
-    failed_ids = follow_datas['failed_ids']
+    follow_datas_processed = D.follow_data_to_streamers(broadcaster.follow_from(refresh, valid), 'from', by, reverse)
+    following_streamers = follow_datas_processed['datas']
+    total_follow = follow_datas_processed['total']
+    failed_ids = follow_datas_processed['failed_ids']
     # to_ids = [i['to_id'] for i in list(D.follow(broadcaster.id, 'from'))]
     # to_streamers = D.streamers_datas('id', to_ids, False)
-    print(len(failed_ids))
     for i in failed_ids:
-        print(i)
         background.id_queue.put(i)
+        # 한번 fail한건 다시 안하기?
+    for i in following_streamers:
+        background.follownum_queue.put(i['streamer'])
     # Thread(target=D.get_follower_from_streamers, args=(to_streamers, False)).start()
     return f'<meta charset="utf-8">{broadcaster.introduce}가 팔로우하는 스트리머들은 총 {total_follow}명입니다. ({order_dict[by][reverse]} 순)<br>' + (
         f'여기 안보이는 {total_follow - len(following_streamers)}명의 스트리머는 정지당하거나, 현재 업데이트 중이기 때문에 볼 수 없습니다.<br>' if total_follow - len(
             following_streamers) != 0 else '') + '<br>'.join(
         [
             f"<a href='{home_url}/twitch/streamer_watching_streamer/?query={inf['streamer'].login}'><img src='{inf['streamer'].profile_image}' width='100' height='100'></a> {inf['streamer'].name} ({inf['streamer'].login}), 팔로워 {inf['streamer'].followers}명, {inf['streamer'].country} {inf['streamer'].localrank}위, {tools.yi(broadcaster.name)} {inf['when']}에 팔로우, {inf['last_updated']}에 마지막으로 확인" if
-            inf[
-                'valid'] else f"<a href='{home_url}/twitch/streamer_watching_streamer/?query={inf['streamer'].login}'><img src='{inf['streamer'].profile_image}' width='100' height='100'></a> {inf['streamer'].name} ({inf['streamer'].login}), 팔로워 {inf['streamer'].followers}명, {inf['streamer'].country} {inf['streamer'].localrank}위, {tools.yi(broadcaster.name)} {inf['when']}에 팔로우, 및 {inf['last_updated']}에 팔로우 취소한 것 확인 (확인한 시점)"
+            inf['valid'] else f"<a href='{home_url}/twitch/streamer_watching_streamer/?query={inf['streamer'].login}'><img src='{inf['streamer'].profile_image}' width='100' height='100'></a> {inf['streamer'].name} ({inf['streamer'].login}), 팔로워 {inf['streamer'].followers}명, {inf['streamer'].country} {inf['streamer'].localrank}위, {tools.yi(broadcaster.name)} {inf['when']}에 팔로우, 및 {inf['last_updated']}에 팔로우 취소한 것 확인 (확인한 시점)"
             for inf in
             following_streamers]) + """<br><div class='text-center'><button class='btn btn-primary' id='copy_link' onclick='copyToClipboard(window.location.href)'>현재 보고 있는 결과 링크 복사하기</button></div><br>"""
 
@@ -448,8 +469,11 @@ def followed_by_popular(request: Request, query: str, by: Optional[str] = 'time'
             # if broadcaster.banned:
             #     return f"스트리머 {broadcaster.name}({broadcaster.login})는 {broadcaster.banned_history[-1]} 기준으로 정지된 것을 확인했습니다. "
     # assert broadcaster.followers >= 0
-    # assert broadcaster.localrank
-    followed_streamers = broadcaster.follow_to(by, reverse, follower_requirements, valid)
+    # assert broadcaster.localran
+    followed_streamers_processed = D.follow_data_to_streamers(broadcaster.follow_to(valid), 'to', by, reverse,
+                                                              max(follower_requirements, 10))
+    following_streamers=followed_streamers_processed['datas']
+    total_follow=followed_streamers_processed['total']
     # from_ids = [i['from_id'] for i in list(D.follow(broadcaster.id, 'to'))]
     # from_streamers = D.streamers_datas('id', from_ids, False)
 
@@ -458,13 +482,13 @@ def followed_by_popular(request: Request, query: str, by: Optional[str] = 'time'
     #     follownum_queue.put(i)
     # Thread(target=D.get_follower_from_streamers, args=(from_streamers, False)).start()
 
-    return f'<meta charset="utf-8">{broadcaster.introduce}를 팔로우하는 스트리머들 ({order_dict[by][reverse]} 순)<br>' + '<br>'.join(
+    return f'<meta charset="utf-8">{broadcaster.introduce}를 팔로우하는 {follower_requirements}명 이상의 팔로워를 가진 스트리머는 {total_follow}명입니다. ({order_dict[by][reverse]} 순)<br>' + '<br>'.join(
         [
             f"<a href='{home_url}/twitch/streamer_watching_streamer/?query={inf['streamer'].login}'><img src='{inf['streamer'].profile_image}' width='100' height='100'></a> {inf['streamer'].name} ({inf['streamer'].login}), 팔로워 {inf['streamer'].followers}명, {inf['streamer'].country} {inf['streamer'].localrank}위, {tools.eul(broadcaster.name)} {inf['when']}에 팔로우, {inf['last_updated']}에 마지막으로 확인" if
             inf[
                 'valid'] else f"<a href='{home_url}/twitch/streamer_watching_streamer/?query={inf['streamer'].login}'><img src='{inf['streamer'].profile_image}' width='100' height='100'></a> {inf['streamer'].name} ({inf['streamer'].login}), 팔로워 {inf['streamer'].followers}명, {inf['streamer'].country} {inf['streamer'].localrank}위, {tools.eul(broadcaster.name)} {inf['when']}에 팔로우, 및 {inf['last_updated']}에 팔로우 취소한 것 확인 (확인한 시점)"
             for inf in
-            followed_streamers]) + """<br><div class='text-center'><button class='btn btn-primary' id='copy_link' onclick='copyToClipboard(window.location.href)'>현재 보고 있는 결과 링크 복사하기</button></div><br>"""
+            following_streamers]) + """<br><div class='text-center'><button class='btn btn-primary' id='copy_link' onclick='copyToClipboard(window.location.href)'>현재 보고 있는 결과 링크 복사하기</button></div><br>"""
 
 
 @app.get("/twitch/relationship/", response_class=HTMLResponse)
@@ -577,14 +601,46 @@ def past_logins(request: Request, query: str):
     return f"{broadcaster.introduce}의 {', '.join([f'{tools.eun(history_to_ko[k])} {v}' for k, v in result.items()])}<br>(11월 전에는 아이디만 바뀌어도 정지되었다고 판단하는 바람에 그 당시의 정지기록은 의미가 없습니다.)"
 
 
-@app.get("/threadnum")
+@app.get("/twitch/stats", response_class=HTMLResponse)
+def statistics():
+    return f"전체 스트리머 수 {D.db.streamers_data.count_documents({})}<br>" \
+           f"팔로워 정보가 있는 스트리머 수 {D.db.streamers_data.count_documents({'followers': {'$exists': True}})}<br>" \
+           f"한국 스트리머 수 {D.db.streamers_data.count_documents({'lang': 'ko'})}<br>" \
+           f"로컬 랭크가 있는 스트리머 수 {D.db.streamers_data.count_documents({'localrank': {'$exists': True}})}<br>" \
+           f"글로벌 랭크가 있는 스트리머 수 {D.db.streamers_data.count_documents({'globalrank': {'$exists': True}})}<br>" \
+           f"밴 당한 스트리머 수 {D.db.streamers_data.count_documents({'banned': True})}<br>" \
+           f"팔로워 관계 수 {D.db.follow_data.count_documents({})}<br>" \
+           f"매니저 관계 수 {D.db.role_data.count_documents({})}<br>"
+
+
+@app.get("/threadnum", response_class=HTMLResponse)
 def thread_num():
     return threading.active_count()
 
 
-@app.get("/twitch/queue")
+@app.get("/twitch/queue", response_class=HTMLResponse)
 def queuenum():
     return f"follownum_queue:{background.follownum_queue.qsize()},real_follow_num_queue:{background.real_follownum_queue.qsize()},id_queue:{background.id_queue.qsize()},login_queue:{background.login_queue.qsize()}"
+
+
+@app.get("/twitch/add_follow_background", response_class=HTMLResponse)
+def add_follow_background():
+    new_thread = background.GetFollowersNumFromStreamer(daemon=True)
+    background.background_threads['get_followers'].append(new_thread)
+    new_thread.start()
+    return 'added new follow thread<br>' + background.thread_status()
+
+
+@app.get("/twitch/remove_follow_background", response_class=HTMLResponse)
+def remove_follow_background():
+    to_delete = background.background_threads['get_followers'].pop()
+    to_delete.stop()
+    return 'deleted new follow thread<br>' + background.thread_status()
+
+
+@app.get("/twitch/background", response_class=HTMLResponse)
+def background_stats():
+    return background.thread_status()
 
 
 @app.on_event("startup")
@@ -614,7 +670,7 @@ def update_bot_list() -> None:
 
 @app.on_event("startup")
 def init_background() -> None:
-    background.init(True)
+    background.init()
 
 
 @app.on_event("startup")
@@ -628,6 +684,10 @@ def temp_clear_daemon() -> None:
 
 
 if __name__ == "__main__":
+    # parser = argparse.ArgumentParser()
+    if len(sys.argv) > 1:
+        if sys.argv[1] == 'back':
+            background.background_add()
     uvicorn.run(
         'live:app', port=8007, host='0.0.0.0', ssl_keyfile='/etc/ssl/woowakgood.live.key',
         ssl_certfile='/etc/ssl/woowakgood.live.crt')

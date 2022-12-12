@@ -1,5 +1,4 @@
 from __future__ import annotations
-
 from pymongo import MongoClient, DeleteOne, ReplaceOne, UpdateOne, UpdateMany, InsertOne
 import tools
 import requests
@@ -7,8 +6,31 @@ import json
 from typing import List, Set, Dict, Tuple, Any
 import time
 import difflib
+from datetime import timedelta as td
+update_after = td(days=1)
 
-
+headers = {
+    'Accept': '*/*',
+    'Accept-Language': 'ko-KR',
+    'Authorization': 'OAuth k1m0skugp28vljvc3o6sza9wceiwo2',
+    'Client-Id': 'kimne78kx3ncx6brgo4mv6wki5h1ko',
+    'Client-Integrity': 'v4.public.eyJjbGllbnRfaWQiOiJraW1uZTc4a3gzbmN4NmJyZ280bXY2d2tpNWgxa28iLCJjbGllbnRfaXAiOiIxNC4zNi4xNC4yOCIsImRldmljZV9pZCI6InJtSWRHdWZFdFdLdEQxUldtdGhrZTdFeHNQeXFnNXhEIiwiZXhwIjoiMjAyMi0xMi0xMlQwMzo1Mzo0MloiLCJpYXQiOiIyMDIyLTEyLTExVDExOjUzOjQyWiIsImlzX2JhZF9ib3QiOiJmYWxzZSIsImlzcyI6IlR3aXRjaCBDbGllbnQgSW50ZWdyaXR5IiwibmJmIjoiMjAyMi0xMi0xMVQxMTo1Mzo0MloiLCJ1c2VyX2lkIjoiNTY2NzAxMzI5In0sNeAW-h1NigpB3lOjfNYHk_6g1DncXRoDRHMtaqrWRPq3wRZuZOhrXZOOgoJhzE4vAJBSuFgUlKtS0ujwmqML',
+    'Client-Session-Id': '17f57ee266d86bdb',
+    'Client-Version': 'da7047c5-0f4f-4d43-98a8-0b23fa12e223',
+    'Connection': 'keep-alive',
+    'Content-Type': 'text/plain;charset=UTF-8',
+    'Origin': 'https://www.twitch.tv',
+    'Referer': 'https://www.twitch.tv/',
+    'Sec-Fetch-Dest': 'empty',
+    'Sec-Fetch-Mode': 'cors',
+    'Sec-Fetch-Site': 'same-site',
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36',
+    'X-Device-Id': 'rmIdGufEtWKtD1RWmthke7ExsPyqg5xD',
+    'sec-ch-ua': '"Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+}
+# https://dev.twitch.tv/docs/api/reference
 """In [20]: col.find_one()
 Out[20]: {'_id': 1, 'value': {'key1': '200'}}
 
@@ -37,6 +59,7 @@ unihan
 """
 
 api_url = 'https://woowakgood.live:8007'
+roles = ['vips', 'moderators']  # , 'staff', 'admins', 'global_mods']
 
 """1. python ValueError
 2. python IndexError
@@ -160,22 +183,19 @@ class Streamer:
         self.update_with_datas(update_data)
         return self
 
-    def watching_streamers(self, follower_requirements: int = -1): # -> Dict[str, List[Streamer]]:
+    def watching_streamers(self, follower_requirements: int = -1):  # -> Dict[str, List[Streamer]]:
         start_time = time.time()
         watchers = T.view(self.login)
-        managers = self.role_update(watchers)
-        # all_the_watchers = watchers['vips'] + watchers['moderators'] + watchers['staff'] + watchers['viewers']
-        result = {'broadcasters': watchers['broadcasters'], 'count': watchers['count'],
-                  'managers': managers}
+        # managers = self.role_update(watchers) 나중에 irc 안되면 쓰기
+        every_watchers = T.role_adder(watchers) + watchers['viewers']
+        result = {'broadcaster': watchers['broadcaster'], 'count': watchers['count']}
         if follower_requirements == -1:
             # db.collection.find( { $query: {}, $orderby: { age : -1 } } )
-
             result['viewers'] = [Streamer(i) for i in
-                                 D.db.streamers_data.find({'login': {'$in': watchers['viewers']}}).sort("followers",
-                                                                                                        -1)]
+                                 D.db.streamers_data.find({'login': {'$in': every_watchers}}).sort("followers", -1)]
         else:
             result['viewers'] = [Streamer(i) for i in D.db.streamers_data.find(
-                {'login': {'$in': watchers['viewers']}, 'followers': {'$gte': max(follower_requirements, 100)}}).sort(
+                {'login': {'$in': every_watchers}, 'followers': {'$gte': max(follower_requirements, 100)}}).sort(
                 "followers",
                 -1)]
 
@@ -186,7 +206,7 @@ class Streamer:
         # cls.db.streamers_data.find({'login': {'$in': viewers}})
         with open('log_new.txt', 'a') as f:
             f.write(
-                f'{tools.now().strftime("%Y/%m/%d %H:%M:%S")} {self.abbreviate} {result["count"]} polulariswatching {" ".join([i.abbreviate for i in result["viewers"] + result["managers"]["vips"] + result["managers"]["moderators"] + result["managers"]["staff"]])}\n')
+                f'{tools.now().strftime("%Y/%m/%d %H:%M:%S")} {self.abbreviate} {result["count"]} polulariswatching {" ".join([i.abbreviate for i in result["viewers"]])}\n')
 
         print(f'watching streamer for {repr(self)} took {time.time() - start_time}s')
         return result
@@ -236,6 +256,13 @@ class Streamer:
     def ban(self):
         self.update_with_datas({'$set': {'banned': True}, '$push': {'banned_history': tools.now()}})
 
+    def update_roles(self):
+        print(f'updating roles of {self.login}')
+        start_time = time.time()
+        datas = T.role_from_broadcaster(self.login)
+        print(f'getting role api took {time.time() - start_time}s')
+        D.role_update_all(datas, self)
+
     def update_followers_num(self):
         self.update_with_datas({'$set': {'followers': T.followed(self.id, 100)['total'], 'last_updated': tools.now()}})
 
@@ -252,66 +279,55 @@ class Streamer:
     # 매니저들은 어차피 전부 포함하므로 role update의 결과로 사용
     # $in으로 잘 찾기(시간복잡도)
     # Streamer 객체로 모두 전달하기
+    def follow_crawled(self):
+        data=D.db.follow_data_information.find_one({'id': self.id})
+        if not data:
+            return False
+        if tools.now()-data['last_updated']>update_after:
+            return False
+        return data
 
-    def follow_from(self, sort_by: str = 'time', reverse: bool = False,
-                    refresh: bool = False,
-                    valid_necessary: bool = True) -> Dict[str, List[Dict] | int]:
-        if not D.db.follow_data_information.find_one({'id': self.id}) or refresh:
+
+    def follow_from(self, refresh: bool = False, valid_necessary: bool = True):
+        if not self.follow_crawled() or refresh:
             self.update_followings()
-        follow_data = D.follow(self.id, 'from', valid_necessary)
-        result = D.follow_data_to_streamers(follow_data, 'from', sort_by, reverse)
+        return D.follow(self.id, 'from', valid_necessary)
         # assert not valid_necessary or D.db.follow_data_information.find_one({'id': self.id})['following_num'] == len(result)
         # follow reqments 쓰면 assert 성립 X
-        return result
 
     def is_following(self, to_streamer: Streamer, update_following=True, valid_necessary=True):
-        if not D.db.follow_data_information.find_one({'id': self.id}):
+        if not self.follow_crawled():
             if update_following:
                 self.update_followings()
             else:
                 raise FileNotFoundError
         return D.follow_check(self.id, to_streamer.id, valid_necessary)
 
-    def follow_to(self, sort_by='time', reverse=False, follower_requirements=3000, valid_necessary=True):
-        return D.follow_data_to_streamers(D.follow(self.id, 'to', valid_necessary), 'to', sort_by, reverse,
-                                          follower_requirements)['datas']
+    def follow_to(self, valid_necessary=True):
+        return D.follow(self.id, 'to', valid_necessary)
 
-    def role_broadcaster(self, valid_necessary=True):
-        return list(D.role(self.id, 'broadcaster', valid_necessary))
+    def role_crawled(self):
+        return D.db.role_data_information.find_one({'id': self.id})
+
+    def role_broadcaster(self, valid_necessary=True, refresh: bool = False):
+        if not self.role_crawled() or refresh:
+            try:
+                self.update_roles()
+            except:
+                open('twitchapierror.txt', 'a').write(f"{self}, {tools.now()}\n")
+        return D.role(self.id, 'broadcaster', valid_necessary)
 
     def role_member(self, valid_necessary=True):
-        return list(D.role(self.id, 'member', valid_necessary))
+        return D.role(self.id, 'member', valid_necessary)
 
-    def role_update(self, watchers):
-        assert isinstance(watchers, dict)
-        managers = watchers['vips'] + watchers['moderators'] + watchers['staff']
-        # managers=list(set(managers))
-        streamers = {}
+    """
+    By default :meth:find_one_and_update returns the original version of the document before the update was applied. To return the updated version of the document instead, use the return_document option.
 
-        viewers = watchers['viewers']
-        all_managers = self.role_broadcaster()
-        all_managers_login = {D.id_to_login(i['member_id']): i['member_id'] for i in
-                              all_managers}
-        managers_data = D.update_from_login(managers, skip=True)['data']
-        D.get_follower_from_streamers(managers_data, False)
-        # assert len(managers_data) == len(managers)
-        for role in ['vips', 'moderators', 'staff']:
-            streamers[role] = []
-            for i in watchers[role]:
-                member = D.streamers_data('login', i)
-                streamers[role].append(member)
-                member_id = member.id
-                D.db.role_data.find_one_and_update(
-                    {'broadcaster_id': self.id, 'member_id': member_id},
-                    {'$set': {'broadcaster_id': self.id, 'member_id': member_id, 'role': role, 'valid': True,
-                              'last_updated': tools.now()}}, upsert=True)  # ,projection={'_id':0}
-                # push로 역할 변경 감시?
-            # D.db.role_data.update_many({'from_id': self.id, 'to_id': {'$in': role_member_id},'role':{'$ne':role}},{'$set': {'valid': False, 'last_updated': tools.now()}})
-        fired_managers = set(all_managers_login) & set(viewers)
-        fired_ids = [all_managers_login[i] for i in fired_managers]
-        D.db.role_data.update_many({'from_id': self.id, 'to_id': {'$in': fired_ids}},
-                                   {'$set': {'valid': False, 'last_updated': tools.now()}})
-        return streamers
+You can limit the fields returned with the projection option.
+
+The upsert option can be used to create the document if it doesn't already exist.
+
+If multiple documents match filter, a sort can be applied."""
 
     # 만약 없을수도 있는 특성이라면 -1 돌려보내서 에러는 안나게, 다만 사용하는 측에서 있는경우에만 사용하도록 만들면 됨
     @property
@@ -767,7 +783,7 @@ class D:
         start_time = time.time()
         reverse_option = -1 if reverse == (sort_by == 'time') else 1
         counter_direction = 'from' if direction == 'to' else 'to'
-        counter_key=f"{counter_direction}_id"
+        counter_key = f"{counter_direction}_id"
         if sort_by == 'time':
             # converted follow_datas to streamers in 0.17582106590270996s
             # follow_infos = {i[counter_key]: i for i in follow_datas.sort('when', reverse_option)}
@@ -785,7 +801,7 @@ class D:
             # converted follow_datas to streamers in 0.15557217597961426s
             follow_infos = list(follow_datas.sort('when', reverse_option))
             total_follow = len(follow_infos)
-            follow_ids=[i[counter_key] for i in follow_infos]
+            follow_ids = [i[counter_key] for i in follow_infos]
             if follower_requirements != -1:
                 streamer_infos = {i['id']: Streamer(i) for i in cls.db.streamers_data.find(
                     {'id': {'$in': follow_ids},
@@ -793,11 +809,11 @@ class D:
             else:
                 streamer_infos = {i['id']: Streamer(i) for i in cls.db.streamers_data.find(
                     {'id': {'$in': follow_ids}})}
-            failed_ids=list(set(follow_ids)-set(streamer_infos))
+            failed_ids = list(set(follow_ids) - set(streamer_infos))
             datas = [{'valid': i['valid'], 'last_updated': i['last_updated'], 'when': i['when'],
                       'streamer': streamer_infos[i[counter_key]]} for i in follow_infos if
                      i[counter_key] in streamer_infos]
-        else: # elif sort_by == 'follow':
+        else:  # elif sort_by == 'follow':
             follow_infos = {i[counter_key]: i for i in follow_datas}
             total_follow = len(follow_infos)
             if follower_requirements != -1:
@@ -815,14 +831,14 @@ class D:
             datas = [{'valid': follow_infos[i['id']]['valid'], 'last_updated': follow_infos[i['id']]['last_updated'],
                       'when': follow_infos[i['id']]['when'],
                       'streamer': Streamer(i)} for i in cls.db.streamers_data.aggregate(query)]
-            failed_ids=list(set(follow_infos.keys())-{i['streamer'].id for i in datas})
+            failed_ids = list(set(follow_infos.keys()) - {i['streamer'].id for i in datas})
         # cls.db.streamers_data.find(
         # {'id': {'$in': list(follow_infos.keys())}, 'followers': {'$gte': follower_requirements}}).sort(
         # 'followers', reverse_option)
         # 팔로워 정보 없으면 queue 에 추가하고, 나머지는 시간 순?
 
         print(f"converted follow_datas to streamers in {time.time() - start_time}s")
-        return {'datas': datas, 'total': total_follow,'failed_ids':failed_ids}
+        return {'datas': datas, 'total': total_follow, 'failed_ids': failed_ids}
 
     # 이건 진짜로 진위 여부 확인 X, 아직 확인 안했을수 있으므로
     @classmethod
@@ -848,8 +864,9 @@ class D:
         assert isinstance(streamer_in_interest, Streamer)
         from_id = streamer_in_interest.id
         # assert datas[0]['from_id'] == streamer_in_interest.id
-        cls.db.follow_data_information.insert_one(
-            {'id': from_id, 'last_updated': tools.now(), 'following_num': len(datas)})
+        cls.db.follow_data_information.update_one({'id': from_id}, {'$set': {'id': from_id, 'last_updated': tools.now(),
+                                                                             'following_num': len(datas)}}
+                                                  , upsert=True)
         updated_ids = [i['to_id'] for i in datas]
         print(f"updating {len(updated_ids)} ids from follow_update_all")
         # Thread(target=cls.update_from_id, args=(updated_ids,)).start()
@@ -876,7 +893,6 @@ class D:
         # update many, find and modify 등등 bulk update를 생각해볼 수 있지만 upsert 때문에 별개로 해야 함
         start_time = time.time()
         cls.db.follow_data.delete_many({'from_id': from_id, 'to_id': {'$in': updated_ids}, 'valid': True})
-
         # cls.db.follow_data.delete_many({'from_id': from_id, '$expr': {'$in': [{'to_id': '$to_id', 'when': '$when'}, [{'to_id': i['to_id'], 'when': i['when']} for i in datas]]}})
         updated_result = cls.db.follow_data.insert_many(datas)
         deleted_result = cls.db.follow_data.update_many(
@@ -975,6 +991,111 @@ class D:
                 del j['_id']
                 o.update(j)
                 cls.db.streamers_data.delete_one({'_id': j_id})
+
+    @classmethod
+    def fix_double_follow_inf(cls):
+        double_ids = cls.db.follow_data_information.aggregate([
+            {"$group": {"_id": "$id", "count": {"$sum": 1}}},
+            {"$match": {"_id": {"$ne": None}, "count": {"$gt": 1}}},
+            {"$project": {"id": "$_id", "_id": 0}}
+        ])
+        double_ids = [i['id'] for i in double_ids]
+        for i in double_ids:
+            b = list(cls.db.follow_data_information.find({'id': i}).sort('last_updated', 1))
+            first_id = b[0]['_id']
+            for j in b[1:]:  # 예전것부터 업데이트
+                j_id = j['_id']
+                del j['_id']
+                print(j)
+                cls.db.follow_data_information.update_one({'_id': first_id}, {'$set': j})
+                cls.db.follow_data_information.delete_one({'_id': j_id})
+
+    @classmethod
+    def role_update_all(cls, datas, streamer_in_interest: Streamer):
+        start_time = time.time()
+        assert isinstance(datas, dict)
+        assert isinstance(streamer_in_interest, Streamer)
+        broadcaster_id = streamer_in_interest.id
+
+        # assert datas[0]['broadcaster_id'] == streamer_in_interest.id
+        cls.db.role_data_information.update_one({'id': broadcaster_id},
+                                                {'$set': {'id': broadcaster_id, 'last_updated': tools.now(),
+                                                          'vips_num': len(datas['vips']),
+                                                          'moderators_num': len(datas['moderators'])}}, upsert=True)
+        now = tools.now()
+        for role in roles:
+            this_data = datas[role]
+            if this_data:
+                role_ids = [i['id'] for i in this_data]
+                cls.db.role_data.delete_many(
+                    {'broadcaster_id': broadcaster_id, 'member_id': {'$in': role_ids}, 'valid': True, 'role': role})
+                cls.db.role_data.insert_many(
+                    [{'broadcaster_id': broadcaster_id, 'member_id': member_id, 'role': role, 'valid': True,
+                      'last_updated': now} for member_id in role_ids])
+                cls.db.role_data.update_many(
+                    {'broadcaster_id': broadcaster_id, 'member_id': {'$nin': role_ids}, 'valid': True, 'role': role},
+                    {'$set': {'valid': False, 'last_updated': now}})
+        print(f"updating role took {time.time() - start_time}s")
+        # find and modify is deprecated...
+
+    def role_update_from_watchers(self, watchers):
+        assert isinstance(watchers, dict)
+        managers = T.role_adder(watchers)
+        # managers=list(set(managers))
+        streamers = {}
+
+        viewers = watchers['viewers']
+        all_managers = self.role_broadcaster()
+        all_managers_login = {D.id_to_login(i['member_id']): i['member_id'] for i in
+                              all_managers}
+        managers_data = D.update_from_login(managers, skip=True)['data']
+        D.get_follower_from_streamers(managers_data, False)
+        # assert len(managers_data) == len(managers)
+        for role in roles:
+            streamers[role] = []
+            for i in watchers[role]:
+                member = D.streamers_data('login', i)
+                streamers[role].append(member)
+                member_id = member.id
+                D.db.role_data.find_one_and_update(
+                    {'broadcaster_id': self.id, 'member_id': member_id},
+                    {'$set': {'broadcaster_id': self.id, 'member_id': member_id, 'role': role, 'valid': True,
+                              'last_updated': tools.now()}}, upsert=True)  # ,projection={'_id':0}
+                # push로 역할 변경 감시?
+            # D.db.role_data.update_many({'from_id': self.id, 'to_id': {'$in': role_member_id},'role':{'$ne':role}},{'$set': {'valid': False, 'last_updated': tools.now()}})
+        fired_managers = set(all_managers_login) & set(viewers)
+        fired_ids = [all_managers_login[i] for i in fired_managers]
+        D.db.role_data.update_many({'from_id': self.id, 'to_id': {'$in': fired_ids}},
+                                   {'$set': {'valid': False, 'last_updated': tools.now()}})
+        return streamers
+
+    @classmethod
+    def role_data_to_streamers(cls, role_datas, direction: str) -> Dict[str, List[Dict] | int]:
+        start_time = time.time()
+        counter_direction = 'broadcaster' if direction == 'member' else 'member'
+        counter_key = f"{counter_direction}_id"
+        managers_infos = {i[counter_key]: i for i in role_datas}
+        # 기본으로 팔로워 많은 순
+        total_managers = len(managers_infos)
+        query = [
+            {'$match': {'id': {'$in': list(managers_infos.keys())}}},
+            {'$sort': {'followers': -1}}
+        ]
+
+        datas = [{'valid': managers_infos[i['id']]['valid'], 'last_updated': managers_infos[i['id']]['last_updated'],
+                  'role': managers_infos[i['id']]['role'], 'streamer': Streamer(i)}
+                 if 'last_updated' in managers_infos[i['id']]
+                 else {'valid': managers_infos[i['id']]['valid'], 'role': managers_infos[i['id']]['role'],
+                       'streamer': Streamer(i)}
+                 for i in cls.db.streamers_data.aggregate(query)]
+        failed_ids = list(set(managers_infos.keys()) - {i['streamer'].id for i in datas})
+        # cls.db.streamers_data.find(
+        # {'id': {'$in': list(follow_infos.keys())}, 'followers': {'$gte': follower_requirements}}).sort(
+        # 'followers', reverse_option)
+        # 팔로워 정보 없으면 queue 에 추가하고, 나머지는 시간 순?
+
+        print(f"converted role datas to streamers in {time.time() - start_time}s")
+        return {'datas': datas, 'total': total_managers, 'failed_ids': failed_ids}
 
 
 # 오로지 id만
@@ -1234,6 +1355,20 @@ class T:
         # logins_data.update([i['login'] for i in temp_follow])
         return req
 
+    @classmethod
+    def role_from_broadcaster(cls, channel):
+        data = '[{"operationName":"VIPs","variables":{"login":"%s"},"extensions":{"persistedQuery":{"version":1,"sha256Hash":"612a574d07afe5db2f9e878e290225224a0b955e65b5d1235dcd4b68ff668218"}}}]' % channel
+        response = \
+            requests.post('https://gql.twitch.tv/gql', headers=headers, data=data).json()[0]['data']['user']['vips'][
+                'edges']
+        vips_list = [i['node'] for i in response]
+        data = '[{"operationName":"Mods","variables":{"login":"%s"},"extensions":{"persistedQuery":{"version":1,"sha256Hash":"cb912a7e0789e0f8a4c85c25041a08324475831024d03d624172b59498caf085"}}}]' % channel
+        response = \
+            requests.post('https://gql.twitch.tv/gql', headers=headers, data=data).json()[0]['data']['user']['mods'][
+                'edges']
+        mods_list = [i['node'] for i in response]
+        return {'vips': vips_list, 'moderators': mods_list}
+
     now_working_on_view = []
     temp_view = {}
 
@@ -1262,28 +1397,19 @@ class T:
         response = requests.get('https://tmi.twitch.tv/group/user/%s/chatters' % login)
 
         data = json.loads(response.text)
-        viewers = data['chatters']['viewers']
-        broadcasters = data['chatters']['broadcaster']
-
-        vips = data['chatters']['vips']
-
-        moderators = data['chatters']['moderators']
-        staff = data['chatters']['staff']
-        count = int(data['chatter_count'])
+        data['chatters']['count'] = int(data['chatter_count'])
         cls.temp_view[login] = {
-            'view': {'broadcasters': broadcasters, 'staff': staff, 'moderators': moderators, 'vips': vips,
-                     'viewers': viewers, 'count': count}, 'time': time.time()}
+            'view': data['chatters'],
+            'time': time.time()}
         tools.remove_all(cls.now_working_on_view, login)
         print(f'view finished {login}')
         print(cls.now_working_on_view)
-        return {'broadcasters': broadcasters, 'staff': staff, 'moderators': moderators, 'vips': vips,
-                'viewers': viewers,
-                'count': count}
+        return data['chatters']
 
     @classmethod
     def every_view(cls, login):
         temp_data = cls.view(login)
-        return temp_data['staff'] + temp_data['moderators'] + temp_data['vips'] + temp_data['viewers']
+        return cls.role_adder(temp_data) + temp_data['viewers']
 
     @classmethod
     def viewer_intersection(cls, streamers_logins):
@@ -1303,6 +1429,14 @@ class T:
         assert isinstance(bots_list, list)
         D.db.bots_list.update_one({}, {'$set': {'all': list(set(D.bots_list(False)) | set(bots_list)),
                                                 'online': list(set(D.bots_list()) | set(bots_list))}}, upsert=True)
+
+    @classmethod
+    def role_adder(cls, data: dict):
+        assert isinstance(data, dict)
+        result = []
+        for role in roles:
+            result += data[role]
+        return result
 
 
 try:
