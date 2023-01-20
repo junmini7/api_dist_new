@@ -1,0 +1,8 @@
+update_after,2
+viewer_minimum,100
+popular_count,100
+tolerance_for_watching_broadcasts,500
+temp_view_clear_period,1000
+view_elapsed_maximum_default,60
+refresh_maximum_default,100
+wait_while_doing_default,300

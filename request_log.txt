@@ -1,0 +1,1605 @@
+2022-10-25 19:26:42.786031 127.0.0.1 GET /twitch/populariswatching/
+2022-10-25 19:27:04.592750 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳
+2022-10-25 19:27:28.101142 127.0.0.1 GET /twitch/refreshdata
+2022-10-25 19:27:45.308380 127.0.0.1 GET /twitch/populariswatching/
+2022-10-25 19:27:48.887445 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳
+2022-10-25 19:27:49.009657 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳
+2022/10/25 19:32:48 127.0.0.1 GET /statistics {} 
+2022/10/25 19:32:54 127.0.0.1 GET /twitch/statistics {} 
+2022/10/25 20:01:58 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/25 20:02:01 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} 
+2022/10/25 20:02:14 127.0.0.1 GET /twitch/populariswatchingapi/침착맨 {} 
+2022/10/25 20:04:20 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/25 20:04:25 127.0.0.1 GET /twitch/populariswatchingapi/침착매 {} 
+2022/10/25 20:04:25 127.0.0.1 GET /twitch/populariswatchingapi/침착매 {} 
+2022/10/25 20:04:26 127.0.0.1 GET /twitch/populariswatchingapi/침착맨 {} 
+2022/10/25 20:04:37 127.0.0.1 GET /twitch/wae/ {} 
+2022/10/25 20:07:24 127.0.0.1 GET /twitch/wae/ {} 
+2022/10/25 20:07:25 127.0.0.1 GET /twitch/wae/ {} 
+2022/10/25 20:07:28 127.0.0.1 GET /twitch/makerror/ {} 
+2022/10/25 20:07:36 127.0.0.1 GET /makerror/ {} 
+2022/10/25 20:07:51 127.0.0.1 GET /makerror {} 
+2022/10/25 20:08:16 127.0.0.1 GET /makerror {} 
+2022/10/25 20:08:42 127.0.0.1 GET /makeerror {} 
+2022/10/25 20:10:24 127.0.0.1 GET /makeerror {} 
+2022/10/25 20:11:35 127.0.0.1 GET /makeerror {} 
+2022/10/25 20:20:26 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/25 20:20:26 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/25 20:20:58 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/25 20:20:58 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/25 20:21:10 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/25 20:21:17 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/25 20:21:17 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/25 20:21:19 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/25 20:21:21 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/25 20:21:41 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/25 20:21:41 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/25 20:21:44 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/25 20:21:50 127.0.0.1 GET /twitch/populariswatchingapi/침착맨 {} 
+2022/10/25 20:21:58 127.0.0.1 GET /twitch/populariswatchingapi/침착맨 {} 
+2022/10/25 20:23:38 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/25 20:23:39 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/25 20:24:03 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/25 20:24:03 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/25 20:24:30 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/25 20:24:31 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/25 20:38:02 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/25 20:38:06 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} 
+2022/10/25 20:39:12 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} 
+2022/10/25 20:40:43 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} 
+2022/10/25 20:42:18 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/25 20:42:21 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} 
+2022/10/25 20:44:32 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/25 20:44:36 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} 
+2022/10/25 20:45:56 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/25 20:46:03 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/25 20:46:03 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/25 20:46:53 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/25 20:47:55 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 14:57:10 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 14:57:10 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 14:57:11 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 14:57:12 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 14:57:14 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 14:57:14 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 14:57:30 127.0.0.1 GET /twitch/banned {} 
+2022/10/26 14:57:31 127.0.0.1 GET /twitch/banned/ {} 
+2022/10/26 14:57:34 127.0.0.1 GET /twitch/addlogin/ {} logins=baalzebb&logins=juank&logins=moogrr1211&logins=heewitch&logins=hasinyang&logins=vvv969800&logins=kimsun8311&logins=vkvk7777&logins=bgoodgirl&logins=onix2800&logins=rancciiii&logins=earthrealmkr&logins=choms97&logins=felix_overwatch&logins=heatfps1&logins=north_station&logins=heugcheo&logins=hsera&logins=dustmonkeygames&logins=owquartz&logins=n__97a_&logins=mit0094&skip_already_done=false
+2022/10/26 14:59:03 127.0.0.1 GET /twitch/banned/ {} 
+2022/10/26 14:59:08 127.0.0.1 GET /twitch/addlogin/ {} logins=baalzebb&logins=moogrr1211&logins=heewitch&logins=hasinyang&logins=vvv969800&logins=kimsun8311&logins=vkvk7777&logins=bgoodgirl&logins=onix2800&logins=rancciiii&logins=earthrealmkr&logins=choms97&logins=felix_overwatch&logins=heatfps1&logins=north_station&logins=heugcheo&logins=hsera&logins=dustmonkeygames&logins=owquartz&logins=n__97a_&logins=mit0094&skip_already_done=false&give_chance_to_banned=true
+2022/10/26 15:29:03 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 15:29:03 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 15:29:06 127.0.0.1 GET /twitch/banned {} 
+2022/10/26 15:29:06 127.0.0.1 GET /twitch/banned/ {} 
+2022/10/26 15:29:08 127.0.0.1 GET /twitch/addlogin/ {} logins=baalzebb&logins=juank&logins=moogrr1211&logins=heewitch&logins=hasinyang&logins=vvv969800&logins=kimsun8311&logins=vkvk7777&logins=bgoodgirl&logins=onix2800&logins=rancciiii&logins=earthrealmkr&logins=choms97&logins=felix_overwatch&logins=heatfps1&logins=north_station&logins=heugcheo&logins=hsera&logins=dustmonkeygames&logins=owquartz&logins=n__97a_&logins=mit0094&skip_already_done=false&give_chance_to_banned=true
+2022/10/26 15:32:23 127.0.0.1 GET /twitch/addlogin/ {} logins=baalzebb&logins=juank&logins=moogrr1211&logins=heewitch&logins=hasinyang&logins=vvv969800&logins=kimsun8311&logins=vkvk7777&logins=bgoodgirl&logins=onix2800&logins=rancciiii&logins=earthrealmkr&logins=choms97&logins=felix_overwatch&logins=heatfps1&logins=north_station&logins=heugcheo&logins=hsera&logins=dustmonkeygames&logins=owquartz&logins=n__97a_&logins=mit0094&skip_already_done=false&give_chance_to_banned=true
+2022/10/26 15:35:33 127.0.0.1 GET /twitch/banned/ {} 
+2022/10/26 15:35:43 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 15:35:44 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 15:36:52 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 15:36:52 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 15:37:26 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 15:45:54 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 15:45:55 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 15:45:58 127.0.0.1 GET /twitch/banned {} 
+2022/10/26 15:45:58 127.0.0.1 GET /twitch/banned/ {} 
+2022/10/26 15:46:34 127.0.0.1 GET /twitch/banned/ {} 
+2022/10/26 15:47:03 127.0.0.1 GET /twitch/banned/ {} 
+2022/10/26 19:16:40 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/26 19:16:40 127.0.0.1 GET /favicon.ico {} 
+2022/10/26 19:16:43 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} 
+2022/10/26 19:36:46 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 19:36:46 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 19:36:50 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} 
+2022/10/26 19:36:55 127.0.0.1 GET /twitch/banned {} 
+2022/10/26 19:36:55 127.0.0.1 GET /twitch/banned/ {} 
+2022/10/26 19:36:58 127.0.0.1 GET /twitch/addlogin/ {} logins=baalzebb&logins=moogrr1211&logins=heewitch&logins=hasinyang&logins=vvv969800&logins=kimsun8311&logins=vkvk7777&logins=bgoodgirl&logins=onix2800&logins=rancciiii&logins=earthrealmkr&logins=choms97&logins=felix_overwatch&logins=heatfps1&logins=north_station&logins=heugcheo&logins=hsera&logins=dustmonkeygames&logins=owquartz&logins=n__97a_&logins=mit0094&skip_already_done=false&give_chance_to_banned=true
+2022/10/26 19:39:28 127.0.0.1 GET /twitch/addlogin/ {} logins=baalzebb&logins=moogrr1211&logins=heewitch&logins=hasinyang&logins=vvv969800&logins=kimsun8311&logins=vkvk7777&logins=bgoodgirl&logins=onix2800&logins=rancciiii&logins=earthrealmkr&logins=choms97&logins=felix_overwatch&logins=heatfps1&logins=north_station&logins=heugcheo&logins=hsera&logins=dustmonkeygames&logins=owquartz&logins=n__97a_&logins=mit0094&skip_already_done=false&give_chance_to_banned=true
+2022/10/26 19:39:58 127.0.0.1 GET /twitch/banned/ {} 
+2022/10/26 19:40:02 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} 
+2022/10/26 20:48:29 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/26 20:48:34 127.0.0.1 GET /twitch/populariswatchingapi/아이네 {} 
+2022/10/26 20:48:34 127.0.0.1 GET /twitch/populariswatchingapi/아이네 {} 
+2022/10/26 20:48:35 127.0.0.1 GET /twitch/populariswatching/아이네_ {} 
+2022/10/26 20:48:35 127.0.0.1 GET /twitch/populariswatchingapi/아이네_ {} 
+2022/10/26 20:56:20 127.0.0.1 GET /twitch/populariswatchingapi/아이네_ {} 
+2022/10/26 20:58:08 127.0.0.1 GET /twitch/populariswatching/아이네_ {} 
+2022/10/26 20:58:08 127.0.0.1 GET /twitch/populariswatchingapi/아이네_ {} 
+2022/10/26 20:58:36 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} 
+2022/10/26 20:59:30 127.0.0.1 GET /twitch/populariswatching/아이네_ {} 
+2022/10/26 20:59:31 127.0.0.1 GET /twitch/populariswatchingapi/아이네_ {} 
+2022/10/26 21:00:14 127.0.0.1 GET /twitch/populariswatching/아이네_ {} 
+2022/10/26 21:00:14 127.0.0.1 GET /twitch/populariswatchingapi/아이네_ {} 
+2022/10/26 21:02:11 127.0.0.1 GET /twitch/populariswatching/아이네_ {} 
+2022/10/26 21:02:11 127.0.0.1 GET /twitch/populariswatchingapi/아이네_ {} 
+2022/10/26 21:02:44 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/26 21:02:47 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} 
+2022/10/26 21:03:13 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/26 21:03:15 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} 
+2022/10/26 21:03:56 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/26 21:03:58 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} 
+2022/10/26 21:04:58 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/26 21:05:00 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} 
+2022/10/26 21:05:24 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/26 21:05:26 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} 
+2022/10/26 22:36:42 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/26 22:37:12 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:12 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:12 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:13 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:13 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:13 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:13 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:13 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:13 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:13 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:13 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:13 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:14 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:14 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:14 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:14 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:14 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:14 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:14 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:14 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:14 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:14 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:15 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:15 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:15 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:15 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:15 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:15 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:15 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:15 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:15 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:15 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:15 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:15 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:15 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:15 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:15 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:15 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:15 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:15 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:15 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:15 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:15 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:15 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:16 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:16 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:16 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:16 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:16 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:16 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:16 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:16 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:16 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:16 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:16 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:16 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:16 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:16 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:16 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:16 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:16 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:16 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:16 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:16 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:16 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:16 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:16 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:16 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:17 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:17 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:17 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:17 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:17 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:17 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:17 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:17 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:17 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:17 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:17 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:17 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:17 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:17 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:17 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:18 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:18 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:18 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:18 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:18 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:18 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:18 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:18 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:18 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:18 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:18 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:18 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:18 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:18 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:18 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:18 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:18 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:19 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:19 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:19 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:19 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:19 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:19 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:19 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:19 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:19 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:19 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:19 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:19 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:19 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:19 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:37:19 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:37:19 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:39:29 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/26 22:39:30 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:39:37 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/26 22:39:57 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} 
+2022/10/26 22:40:02 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/26 22:40:17 127.0.0.1 GET /twitch/populariswatchingapi/개냥이 {} 
+2022/10/26 22:40:17 127.0.0.1 GET /twitch/populariswatchingapi/개냥이 {} 
+2022/10/26 22:40:18 127.0.0.1 GET /twitch/populariswatching/옥냥이 {} 
+2022/10/26 22:40:19 127.0.0.1 GET /twitch/populariswatchingapi/옥냥이 {} 
+2022/10/26 22:40:28 127.0.0.1 GET /twitch/addlogingui/ {} 
+2022/10/26 22:40:31 127.0.0.1 GET /twitch/addlogin/ {} logins=%E3%85%81&skip_already_done=false
+2022/10/26 22:41:02 127.0.0.1 GET /twitch/addlogingui/ {} 
+2022/10/26 22:41:06 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/26 22:41:08 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} 
+2022/10/26 22:42:10 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/26 22:42:25 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=followbypopular&rank=10
+2022/10/26 22:43:13 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=10
+2022/10/26 23:46:47 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=13
+2022/10/26 23:52:32 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=130
+2022/10/27 00:17:49 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=130
+2022/10/27 00:24:30 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=130
+2022/10/27 00:24:54 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=130
+2022/10/27 00:31:11 198.98.59.132 GET / {} 
+2022/10/27 00:59:10 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/27 00:59:10 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/27 15:03:11 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/27 15:03:11 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/27 15:03:17 127.0.0.1 GET /twitch/populariswatchingapi/침착맨 {} 
+2022/10/27 16:44:32 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/27 16:44:32 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/27 16:44:37 127.0.0.1 GET /twitch/followedbypopular/woowakgood {} 
+2022/10/27 16:44:40 127.0.0.1 GET /twitch/following/woowakgood {} 
+2022/10/27 16:44:42 127.0.0.1 GET /twitch/addlogin/ {} logins=vo_ine&logins=woowakgood&skip_already_done=false&give_chance_to_hakko=true
+2022/10/27 16:45:21 127.0.0.1 GET /twitch/addlogin/ {} logins=vo_ine&logins=woowakgood&skip_already_done=false&give_chance_to_hakko=true
+2022/10/27 16:45:58 127.0.0.1 GET /twitch/addlogin/ {} logins=vo_ine&logins=woowakgood&skip_already_done=false&give_chance_to_hakko=true
+2022/10/27 16:46:17 127.0.0.1 GET /twitch/populariswatchingapi/junmini7 {} 
+2022/10/27 16:49:56 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/27 16:49:56 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} 
+2022/10/27 16:49:59 127.0.0.1 GET /twitch/populariswatchingapi/junmini7 {} 
+2022/10/27 16:53:35 127.0.0.1 GET /twitch/populariswatching/junmini7 {} 
+2022/10/27 16:54:37 127.0.0.1 GET /twitch/populariswatching/junmini7 {} 
+2022/10/27 16:54:43 127.0.0.1 GET /twitch/populariswatching/junmini7 {} 
+2022/10/27 16:54:49 127.0.0.1 GET /twitch/populariswatchingapi/junmini7 {} follower_requirements=3000
+2022/10/27 16:55:46 127.0.0.1 GET /twitch/populariswatching/junmini7 {} follower_requirements=3000
+2022/10/27 16:55:46 127.0.0.1 GET /twitch/populariswatchingapi/junmini7 {} follower_requirements=3000
+2022/10/27 16:56:02 127.0.0.1 GET /twitch/populariswatching/junmini7 {} follower_requirements=3000
+2022/10/27 16:56:02 127.0.0.1 GET /twitch/populariswatchingapi/junmini7 {} follower_requirements=3000
+2022/10/27 16:57:20 127.0.0.1 GET /twitch/populariswatching/junmini7 {} follower_requirements=3000
+2022/10/27 16:57:20 127.0.0.1 GET /twitch/populariswatchingapi/junmini7 {} follower_requirements=3000
+2022/10/27 16:57:24 127.0.0.1 GET /twitch/populariswatching/junmini7 {} follower_requirements=3000
+2022/10/27 16:57:24 127.0.0.1 GET /twitch/populariswatchingapi/junmini7 {} follower_requirements=3000
+2022/10/27 16:57:42 127.0.0.1 GET /twitch/addlogingui/ {} 
+2022/10/27 16:58:05 127.0.0.1 GET /twitch/addlogingui/ {} 
+2022/10/27 16:58:06 127.0.0.1 GET /twitch/addlogingui/ {} 
+2022/10/27 16:58:08 127.0.0.1 GET /twitch/populariswatching/junmini7 {} follower_requirements=3000
+2022/10/27 16:58:08 127.0.0.1 GET /twitch/populariswatchingapi/junmini7 {} follower_requirements=3000
+2022/10/27 16:58:47 127.0.0.1 GET /twitch/addlogingui/ {} 
+2022/10/27 16:58:49 127.0.0.1 GET /twitch/populariswatching/junmini7 {} follower_requirements=3000
+2022/10/27 16:58:49 127.0.0.1 GET /twitch/populariswatchingapi/junmini7 {} follower_requirements=3000
+2022/10/27 16:59:46 127.0.0.1 GET /twitch/populariswatching/침착맨 {} 
+2022/10/27 16:59:47 127.0.0.1 GET /twitch/populariswatchingapi/침착맨 {} follower_requirements=3000
+2022/10/27 17:00:07 127.0.0.1 GET /twitch/populariswatching/침착맨 {} follower_requirements=3000
+2022/10/27 17:00:07 127.0.0.1 GET /twitch/populariswatchingapi/침착맨 {} follower_requirements=3000
+2022/10/27 17:00:48 127.0.0.1 GET /twitch/populariswatching/침착맨 {} follower_requirements=3000
+2022/10/27 17:00:49 127.0.0.1 GET /twitch/populariswatchingapi/침착맨 {} follower_requirements=3000
+2022/10/27 17:00:58 127.0.0.1 GET /twitch/populariswatchingapi/침착맨 {} follower_requirements=1000
+2022/10/27 17:01:01 127.0.0.1 GET /twitch/following/zilioner {} 
+2022/10/27 17:01:04 127.0.0.1 GET /twitch/followedbypopular/zilioner {} by=time&reverse=False
+2022/10/27 17:01:06 127.0.0.1 GET /twitch/addlogin/ {} logins=parknem&logins=malkadia_ow&logins=zilioner&skip_already_done=false&give_chance_to_hakko=true
+2022/10/27 17:02:51 127.0.0.1 GET /twitch/addlogin/ {} logins=parknem&logins=malkadia_ow&logins=zilioner&skip_already_done=false&give_chance_to_hakko=true
+2022/10/27 17:10:30 127.0.0.1 GET /twitch/populariswatching/침착맨 {} follower_requirements=1000
+2022/10/27 17:10:30 127.0.0.1 GET /twitch/populariswatchingapi/침착맨 {} follower_requirements=3000
+2022/10/27 17:10:33 127.0.0.1 GET /twitch/addlogin/ {} logins=parknem&logins=malkadia_ow&logins=zilioner&skip_already_done=false&give_chance_to_hakko=true
+2022/10/27 17:10:51 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=crawling
+2022/10/27 17:10:56 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=130
+2022/10/27 17:10:58 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=13
+2022/10/27 17:12:41 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=13
+2022/10/27 17:12:43 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=1
+2022/10/27 17:12:46 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=4
+2022/10/27 17:12:55 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=13
+2022/10/27 17:14:39 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=13
+2022/10/27 17:14:39 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=itself&rank=100
+2022/10/27 17:14:42 127.0.0.1 GET /favicon.ico {} 
+2022/10/27 17:15:41 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=itself&rank=100&update_follow=false
+2022/10/27 17:15:57 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=itself&rank=1000&update_follow=false
+2022/10/27 17:22:37 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/27 17:22:37 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 17:23:11 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=13
+2022/10/27 17:23:13 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=13
+2022/10/27 17:23:33 127.0.0.1 GET /twitch/addlogingui/ {} 
+2022/10/27 17:23:46 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/27 17:23:48 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/27 17:23:52 127.0.0.1 GET /twitch/populariswatching/woowakgood {} follower_requirements=3000
+2022/10/27 17:23:52 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 17:23:55 127.0.0.1 GET /twitch/populariswatching/woowakgood {} follower_requirements=3000
+2022/10/27 17:23:55 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 17:23:56 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/27 17:24:02 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/27 17:24:02 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 17:24:05 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/27 17:24:52 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/27 17:30:09 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=13
+2022/10/27 17:30:12 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=allloginsdata
+2022/10/27 17:31:39 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=allloginsdata
+2022/10/27 17:32:02 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=itself&rank=1000&update_follow=false
+2022/10/27 17:33:34 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=allloginsdata
+2022/10/27 17:34:28 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=allloginsdata
+2022/10/27 17:36:13 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=allloginsdata
+2022/10/27 17:37:47 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=allloginsdata
+2022/10/27 17:43:07 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=allloginsdata
+2022/10/27 17:43:53 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=allloginsdata
+2022/10/27 18:06:48 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/27 18:06:48 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 18:06:52 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/27 18:06:52 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 18:06:57 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/27 18:06:57 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 18:06:59 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/27 18:07:00 127.0.0.1 GET /twitch/populariswatching/3혀ㅑ {} 
+2022/10/27 18:07:00 127.0.0.1 GET /twitch/populariswatchingapi/3혀ㅑ {} follower_requirements=3000
+2022/10/27 18:07:30 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/27 18:07:31 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 18:07:31 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/27 18:07:31 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 18:07:32 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/27 18:07:33 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 18:07:41 127.0.0.1 GET /makeerror {} 
+2022/10/27 19:16:53 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/27 19:16:53 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 19:16:55 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/27 19:16:55 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 19:16:56 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/27 19:16:56 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 19:16:59 127.0.0.1 GET /twitch/populariswatchingapi/릴파_ {} follower_requirements=3000
+2022/10/27 19:17:06 127.0.0.1 GET /twitch/following/kimhs6325 {} refresh=true
+2022/10/27 19:17:08 127.0.0.1 GET /twitch/following/kimhs6325 {} by=time&reverse=True
+2022/10/27 19:17:12 127.0.0.1 GET /twitch/populariswatchingapi/릴파_ {} follower_requirements=3000
+2022/10/27 19:31:31 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/27 19:31:31 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 19:31:34 127.0.0.1 GET /twitch/followedbypopular/woowakgood {} 
+2022/10/27 19:33:07 127.0.0.1 GET /twitch/populariswatching/릴파_ {} follower_requirements=3000
+2022/10/27 19:33:07 127.0.0.1 GET /twitch/populariswatchingapi/릴파_ {} follower_requirements=3000
+2022/10/27 19:33:22 127.0.0.1 GET /twitch/following/rioskywalker {} 
+2022/10/27 19:33:26 127.0.0.1 GET /twitch/populariswatching/릴파_ {} follower_requirements=3000
+2022/10/27 19:33:26 127.0.0.1 GET /twitch/populariswatchingapi/릴파_ {} follower_requirements=3000
+2022/10/27 19:33:43 127.0.0.1 GET /twitch/populariswatching/릴파_ {} follower_requirements=3000
+2022/10/27 19:33:43 127.0.0.1 GET /twitch/populariswatchingapi/릴파_ {} follower_requirements=3000
+2022/10/27 19:33:52 127.0.0.1 GET /twitch/following/soundhealerkr {} 
+2022/10/27 19:33:55 127.0.0.1 GET /twitch/populariswatchingapi/릴파_ {} follower_requirements=3000
+2022/10/27 19:34:51 127.0.0.1 GET /twitch/following/soundhealerkr {} refresh=true
+2022/10/27 19:35:06 127.0.0.1 GET /twitch/following/soundhealerkr {} refresh=true
+2022/10/27 19:36:23 127.0.0.1 GET /twitch/following/soundhealerkr {} refresh=true
+2022/10/27 19:36:24 127.0.0.1 GET /twitch/following/soundhealerkr {} refresh=true
+2022/10/27 19:36:25 127.0.0.1 GET /twitch/following/soundhealerkr {} refresh=true
+2022/10/27 19:37:26 127.0.0.1 GET /twitch/following/soundhealerkr {} refresh=true
+2022/10/27 19:38:09 127.0.0.1 GET /twitch/populariswatching/릴파_ {} follower_requirements=3000
+2022/10/27 19:38:09 127.0.0.1 GET /twitch/populariswatchingapi/릴파_ {} follower_requirements=3000
+2022/10/27 19:38:21 127.0.0.1 GET /twitch/following/sirusiru1818 {} refresh=true
+2022/10/27 19:39:06 127.0.0.1 GET /twitch/populariswatchingapi/괴물쥐 {} follower_requirements=3000
+2022/10/27 19:39:08 127.0.0.1 GET /twitch/populariswatching/괴물쥐123 {} 
+2022/10/27 19:39:08 127.0.0.1 GET /twitch/populariswatchingapi/괴물쥐123 {} follower_requirements=3000
+2022/10/27 19:39:20 127.0.0.1 GET /twitch/populariswatchingapi/오킹 {} follower_requirements=3000
+2022/10/27 19:39:29 127.0.0.1 GET /twitch/following/caroline9071 {} refresh=true
+2022/10/27 19:39:34 127.0.0.1 GET /twitch/following/caroline9071 {} by=time&reverse=True
+2022/10/27 19:39:41 127.0.0.1 GET /twitch/following/ymg2007 {} 
+2022/10/27 19:39:46 127.0.0.1 GET /twitch/populariswatchingapi/릴카 {} follower_requirements=3000
+2022/10/27 19:39:52 127.0.0.1 GET /twitch/populariswatchingapi/오킹 {} follower_requirements=3000
+2022/10/27 19:39:55 127.0.0.1 GET /twitch/following/ymg2007 {} refresh=true
+2022/10/27 19:39:56 127.0.0.1 GET /twitch/following/ymg2007 {} refresh=true
+2022/10/27 19:40:02 127.0.0.1 GET /twitch/following/ymg2007 {} by=time&reverse=True
+2022/10/27 19:40:04 127.0.0.1 GET /twitch/following/ymg2007 {} by=time&reverse=False
+2022/10/27 19:40:05 127.0.0.1 GET /twitch/following/ymg2007 {} by=time&reverse=True
+2022/10/27 19:40:13 127.0.0.1 GET /twitch/populariswatching/오킹 {} follower_requirements=3000
+2022/10/27 19:40:13 127.0.0.1 GET /twitch/populariswatchingapi/오킹 {} follower_requirements=3000
+2022/10/27 19:40:17 127.0.0.1 GET /twitch/populariswatchingapi/릴카 {} follower_requirements=3000
+2022/10/27 19:40:20 127.0.0.1 GET /twitch/following/wonjoon1730s {} 
+2022/10/27 19:40:24 127.0.0.1 GET /twitch/populariswatchingapi/릴카 {} follower_requirements=3000
+2022/10/27 19:40:25 127.0.0.1 GET /twitch/following/wonjoon1730s {} refresh=true
+2022/10/27 19:40:45 127.0.0.1 GET /twitch/following/wonjoon1730s {} by=follow&reverse=False
+2022/10/27 19:41:00 127.0.0.1 GET /twitch/populariswatchingapi/릴파_ {} follower_requirements=3000
+2022/10/27 19:42:15 127.0.0.1 GET /twitch/populariswatchingapi/릴파_ {} follower_requirements=3000
+2022/10/27 19:42:51 127.0.0.1 GET /twitch/following/sirusiru1818 {} refresh=true
+2022/10/27 19:43:00 127.0.0.1 GET /twitch/following/dokun {} refresh=true
+2022/10/27 19:45:48 127.0.0.1 GET /twitch/populariswatchingapi/릴파_ {} follower_requirements=3000
+2022/10/27 19:45:58 127.0.0.1 GET /twitch/following/sirusiru1818 {} refresh=true
+2022/10/27 19:46:41 127.0.0.1 GET /twitch/following/soundhealerkr {} 
+2022/10/27 19:47:17 127.0.0.1 GET /twitch/following/dokun {} refresh=true
+2022/10/27 20:06:09 127.0.0.1 GET /twitch/populariswatching/우왁굳 {} follower_requirements=3000
+2022/10/27 20:06:09 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 20:06:23 127.0.0.1 GET /twitch/addlogin/ {} logins=woowakgood&skip_already_done=false&give_chance_to_hakko=true
+2022/10/27 20:06:35 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 20:06:40 127.0.0.1 GET /twitch/addlogin/ {} logins=2chamcham2&logins=vo_ine&logins=jingburger&logins=mawang0216&logins=rusuk_&logins=ow_opal&logins=ymj129&logins=tldus5&logins=ujjoong&logins=ksh0162&logins=jksssssstv&logins=bublej&logins=dogcat0926&logins=h_neez&logins=byny007&logins=xorudwns&logins=dn817&logins=star_tree&logins=nollan_tv&logins=kimbanpoon&logins=woowakgood&skip_already_done=false&give_chance_to_hakko=true
+2022/10/27 20:08:45 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=1
+2022/10/27 20:43:15 127.0.0.1 GET /twitch/populariswatching/우왁굳 {} follower_requirements=1
+2022/10/27 20:43:15 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 20:43:53 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=1
+2022/10/27 20:44:15 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=1
+2022/10/27 20:51:59 127.0.0.1 GET /twitch/populariswatching/우왁굳 {} follower_requirements=1
+2022/10/27 20:52:00 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 20:52:10 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=1
+2022/10/27 21:17:47 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/27 21:17:47 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:17:57 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:18:03 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:18:03 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:18:03 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:18:04 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:18:04 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:18:04 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:18:04 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:18:04 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:18:04 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:18:05 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:18:05 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:18:05 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:18:05 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:18:05 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:18:06 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:26:01 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/27 21:26:04 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/27 21:26:14 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/27 21:26:25 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:26:28 127.0.0.1 GET /twitch/populariswatchingapi/우와국ㄷ {} follower_requirements=3000
+2022/10/27 21:26:32 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:27:12 127.0.0.1 GET /twitch/populariswatchingapi/릴파_ {} follower_requirements=3000
+2022/10/27 21:27:14 127.0.0.1 GET /twitch/populariswatchingapi/릴파_ {} follower_requirements=3000
+2022/10/27 21:43:44 127.0.0.1 GET /twitch/populariswatching/릴파_ {} follower_requirements=3000
+2022/10/27 21:43:44 127.0.0.1 GET /twitch/populariswatchingapi/릴파_ {} follower_requirements=3000
+2022/10/27 21:43:51 127.0.0.1 GET /twitch/populariswatchingapi/릴파_ {} follower_requirements=3000
+2022/10/27 21:43:51 127.0.0.1 GET /twitch/populariswatchingapi/릴파_ {} follower_requirements=3000
+2022/10/27 21:44:14 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:44:16 127.0.0.1 GET /twitch/populariswatching/우왁굳 {} follower_requirements=3000
+2022/10/27 21:44:19 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:44:24 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:44:25 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:44:26 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:44:27 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:44:28 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:44:29 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:44:30 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:44:31 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:44:33 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:44:34 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:44:35 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:44:36 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:44:37 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:44:38 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:44:39 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:44:40 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:44:52 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:44:55 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:44:57 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:44:59 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:45:02 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:45:05 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:45:07 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:45:09 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:45:12 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:45:16 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:45:18 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:45:21 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:45:25 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:45:31 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:46:57 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:47:02 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:47:04 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:47:06 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:47:08 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:47:19 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:47:22 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:47:27 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:47:30 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:47:32 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:47:34 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:47:36 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:47:39 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:50:11 127.0.0.1 GET /twitch/populariswatching/우왁굳 {} follower_requirements=3000
+2022/10/27 21:50:12 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 21:54:31 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/27 21:54:31 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:54:58 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:54:59 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:54:59 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:55:03 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:55:04 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:55:04 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:55:05 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:55:05 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:55:05 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:55:05 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:55:05 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:55:06 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:55:06 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 21:57:49 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 22:11:38 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/27 22:11:38 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 22:11:44 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=10
+2022/10/27 22:11:47 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=10
+2022/10/27 22:11:50 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=100
+2022/10/27 22:12:08 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=10000
+2022/10/27 22:12:14 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=100000
+2022/10/27 22:14:47 127.0.0.1 GET /twitch/populariswatching/woowakgood {} follower_requirements=100000
+2022/10/27 22:14:47 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 22:16:08 127.0.0.1 GET /twitch/populariswatching/woowakgood {} follower_requirements=3000
+2022/10/27 22:16:08 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 22:16:17 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=10
+2022/10/27 22:16:20 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=1000
+2022/10/27 22:16:24 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 22:16:32 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=1000
+2022/10/27 22:16:33 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=10000
+2022/10/27 22:35:08 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/27 22:35:08 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 22:35:19 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 22:35:20 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 22:35:20 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 22:35:42 127.0.0.1 GET /twitch/populariswatchingapi/풍월량 {} follower_requirements=3000
+2022/10/27 22:35:49 127.0.0.1 GET /twitch/populariswatchingapi/풍월량 {} follower_requirements=3000
+2022/10/27 22:35:53 127.0.0.1 GET /twitch/following/s2ptember {} 
+2022/10/27 22:36:00 127.0.0.1 GET /twitch/populariswatchingapi/풍월량 {} follower_requirements=3000
+2022/10/27 22:36:01 127.0.0.1 GET /twitch/populariswatchingapi/풍월량 {} follower_requirements=3000
+2022/10/27 22:36:03 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 22:36:13 127.0.0.1 GET /twitch/populariswatchingapi/괴물쥐123 {} follower_requirements=3000
+2022/10/27 22:36:17 127.0.0.1 GET /twitch/populariswatchingapi/한동숙 {} follower_requirements=3000
+2022/10/27 22:36:23 127.0.0.1 GET /twitch/populariswatchingapi/오킹 {} follower_requirements=3000
+2022/10/27 22:36:30 127.0.0.1 GET /twitch/following/u_grandmother {} 
+2022/10/27 22:36:35 127.0.0.1 GET /twitch/following/caroline9071 {} refresh=true
+2022/10/27 22:36:41 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 22:50:28 127.0.0.1 GET /twitch/populariswatching/woowakgood {} 
+2022/10/27 22:50:28 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 22:50:38 127.0.0.1 GET /twitch/populariswatching/woowakgood {} follower_requirements=3000
+2022/10/27 22:50:38 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 22:50:39 127.0.0.1 GET /twitch/populariswatching/woowakgood {} follower_requirements=3000
+2022/10/27 22:50:39 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 22:50:40 127.0.0.1 GET /twitch/populariswatching/woowakgood {} follower_requirements=3000
+2022/10/27 22:50:40 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 22:50:40 127.0.0.1 GET /twitch/populariswatching/woowakgood {} follower_requirements=3000
+2022/10/27 22:50:40 127.0.0.1 GET /twitch/populariswatchingapi/woowakgood {} follower_requirements=3000
+2022/10/27 23:15:21 127.0.0.1 GET /twitch/populariswatchingapi/마젠타 {} follower_requirements=10
+2022/10/27 23:15:22 127.0.0.1 GET /twitch/populariswatching/마젠타_ {} 
+2022/10/27 23:15:23 127.0.0.1 GET /twitch/populariswatchingapi/마젠타_ {} follower_requirements=3000
+2022/10/27 23:15:26 127.0.0.1 GET /twitch/populariswatchingapi/랄로 {} follower_requirements=3000
+2022/10/27 23:15:31 127.0.0.1 GET /twitch/populariswatchingapi/소람잉 {} follower_requirements=3000
+2022/10/27 23:15:33 127.0.0.1 GET /twitch/populariswatchingapi/랄로 {} follower_requirements=3000
+2022/10/27 23:15:36 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 23:15:44 127.0.0.1 GET /twitch/populariswatchingapi/파카9999 {} follower_requirements=3000
+2022/10/27 23:16:00 127.0.0.1 GET /twitch/populariswatching/파카9999 {} follower_requirements=3000
+2022/10/27 23:16:00 127.0.0.1 GET /twitch/populariswatchingapi/파카9999 {} follower_requirements=3000
+2022/10/27 23:16:03 127.0.0.1 GET /twitch/populariswatching/파카9999 {} follower_requirements=3000
+2022/10/27 23:16:03 127.0.0.1 GET /twitch/populariswatchingapi/파카9999 {} follower_requirements=3000
+2022/10/27 23:16:05 127.0.0.1 GET /twitch/populariswatching/파카9999 {} follower_requirements=3000
+2022/10/27 23:16:05 127.0.0.1 GET /twitch/populariswatchingapi/파카9999 {} follower_requirements=3000
+2022/10/27 23:16:14 127.0.0.1 GET /twitch/following/paka9999 {} 
+2022/10/27 23:16:30 127.0.0.1 GET /twitch/populariswatchingapi/파카 {} follower_requirements=3000
+2022/10/27 23:16:33 127.0.0.1 GET /twitch/populariswatchingapi/파카9999 {} follower_requirements=3000
+2022/10/27 23:16:35 127.0.0.1 GET /twitch/populariswatchingapi/고세구 {} follower_requirements=3000
+2022/10/27 23:16:36 127.0.0.1 GET /twitch/populariswatching/고세구___ {} 
+2022/10/27 23:16:36 127.0.0.1 GET /twitch/populariswatchingapi/고세구___ {} follower_requirements=3000
+2022/10/27 23:16:42 127.0.0.1 GET /twitch/populariswatchingapi/우왁굳 {} follower_requirements=3000
+2022/10/27 23:16:44 127.0.0.1 GET /twitch/following/jinnytty {} 
+2022/10/28 03:51:20 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/28 03:51:24 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/28 03:51:26 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=allloginsdata
+2022/10/28 03:51:30 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=allloginsdata
+2022/10/28 03:51:30 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=13
+2022/10/28 03:51:33 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=1
+2022/10/28 03:51:34 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=13
+2022/10/28 03:51:34 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=20
+2022/10/28 03:52:12 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=20
+2022/10/28 03:52:23 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=20
+2022/10/28 03:52:24 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=13
+2022/10/28 03:52:24 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=30
+2022/10/28 03:52:31 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=30
+2022/10/28 03:52:31 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=13
+2022/10/28 03:52:31 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=4
+2022/10/28 03:52:32 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=4
+2022/10/28 03:52:32 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=50
+2022/10/28 04:04:34 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=50
+2022/10/28 04:05:10 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/28 04:05:20 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/28 04:05:24 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/28 04:05:26 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/28 04:05:39 127.0.0.1 GET /twitch/populariswatching/ {} 
+2022/10/28 04:05:40 127.0.0.1 GET /twitch/banned/ {} 
+2022/10/28 04:05:42 127.0.0.1 GET /twitch/banned/ {} 
+2022/10/28 04:08:49 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=50
+2022/10/28 04:09:29 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=50
+2022/10/28 04:09:29 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=54
+2022/10/28 04:15:11 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=13
+2022/10/28 04:15:12 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=10
+2022/10/28 04:15:49 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=1
+2022/10/28 04:15:49 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=13
+2022/10/28 04:15:50 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=40
+2022/10/28 04:16:01 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=4
+2022/10/28 04:16:02 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=13
+2022/10/28 04:16:02 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=50
+2022/10/28 04:16:12 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=54
+2022/10/28 04:16:12 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=13
+2022/10/28 04:16:12 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=10
+2022/10/28 04:16:12 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&rank=100
+2022/10/28 04:38:16 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=allloginsdata
+2022/10/28 04:38:17 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=allloginsdata
+2022/10/28 04:41:13 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=allloginsdata
+2022/10/28 22:48:57 127.0.0.1 OPTIONS /twitch/populariswatchingapi {} query=woowakgood&follower_requirements=3000
+2022/10/28 22:48:57 127.0.0.1 GET /twitch/populariswatchingapi {} query=woowakgood&follower_requirements=3000
+2022/10/28 22:48:57 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/28 22:48:57 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/28 23:53:29 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/10/28 23:53:29 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/10/29 04:52:54 127.0.0.1 GET /twitch/refreshdata {} 
+2022/10/29 04:52:54 127.0.0.1 GET /favicon.ico {} 
+2022/10/29 04:53:05 127.0.0.1 GET /twitch/refreshdata {} password=pw1234
+2022/10/29 05:36:12 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&skip_already_done=True&update_follow=True
+2022/10/29 05:52:59 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&skip_already_done=True&update_follow=True
+2022/10/29 05:53:46 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&skip_already_done=True&update_follow=True
+2022/10/29 05:53:46 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&skip_already_done=True&update_follow=True
+2022/10/29 05:54:09 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&skip_already_done=True&update_follow=True
+2022/10/29 05:57:35 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&skip_already_done=True&update_follow=True&rank=10
+2022/10/29 05:57:44 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&skip_already_done=True&update_follow=True&rank=13
+2022/10/29 05:57:50 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&skip_already_done=True&update_follow=True&rank=20
+2022/10/29 05:57:57 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&skip_already_done=True&update_follow=True&rank=40
+2022/10/29 05:58:07 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&skip_already_done=True&update_follow=True&rank=80
+2022/10/29 05:59:04 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=popularsfollow&skip_already_done=True&update_follow=True&rank=100
+2022/10/29 06:00:42 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/10/29 06:00:42 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/10/29 06:04:37 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=203306&follower_requirements=3000
+2022/10/29 06:04:37 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=203306&follower_requirements=3000
+2022/10/29 06:07:25 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=203306&follower_requirements=3000
+2022/10/29 14:37:26 127.0.0.1 GET /twitch/populariswatchingapi/rlgus1000 {} 
+2022/10/29 14:37:26 127.0.0.1 GET /favicon.ico {} 
+2022/10/29 14:37:32 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=rlgus1000
+2022/10/29 14:38:18 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=rlgus1000
+2022/10/29 14:40:03 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=amadeuscho
+2022/10/29 14:41:23 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=8_soon_2
+2022/10/29 14:42:14 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=5tjarak
+2022/10/29 14:43:25 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=aoing01
+2022/10/29 14:44:20 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=ashenlordd
+2022/10/29 14:44:55 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=aoing01
+2022/10/29 14:46:36 127.0.0.1 GET /twitch/populariswatching/ {} query=appleqrt
+2022/10/29 14:46:50 127.0.0.1 GET /twitch/populariswatchingapi {} query=appleqrt
+2022/10/29 14:46:51 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=appleqrt
+2022/10/29 14:47:43 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=atk7777
+2022/10/29 14:48:31 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=bookamy
+2022/10/29 14:53:03 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=bug8907
+2022/10/29 20:56:05 127.0.0.1 GET / {} 
+2022/10/29 20:56:07 127.0.0.1 GET /twitch/populariswatchingapi/rlgus1000 {} 
+2022/10/29 20:56:12 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=rlgus1000
+2022/10/29 20:56:16 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood
+2022/10/29 20:56:56 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood
+2022/10/29 21:22:35 127.0.0.1 GET / {} 
+2022/10/29 21:22:37 127.0.0.1 GET /twitch/populariswatchingapi/rlgus1000 {} 
+2022/10/29 21:22:39 127.0.0.1 GET /twitch/populariswatchingapi/rlgus1000 {} 
+2022/10/29 21:22:41 127.0.0.1 GET /twitch/populariswatchingapi {} query=woowakgood
+2022/10/29 21:22:41 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood
+2022/10/29 21:23:30 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood
+2022/10/29 21:23:30 127.0.0.1 GET /favicon.ico {} 
+2022/10/29 21:23:40 127.0.0.1 GET /twitch/streamer_watching_streamer/ {} query=chunyangkr
+2022/10/29 21:24:41 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood
+2022/10/29 21:26:50 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood
+2022/10/29 21:27:55 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood
+2022/10/31 14:12:23 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood
+2022/10/31 14:14:46 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood
+2022/10/31 14:14:48 127.0.0.1 GET /favicon.ico {} 
+2022/10/31 14:15:21 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood
+2022/10/31 14:16:01 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood
+2022/10/31 14:20:08 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:20:08 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:20:17 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:21:58 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:22:31 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=lck_korea&follower_requirements=3000
+2022/10/31 14:22:31 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=lck_korea&follower_requirements=3000
+2022/10/31 14:22:57 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:23:45 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:23:49 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:23:50 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:24:16 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:24:17 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:24:19 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=lck_korea&follower_requirements=3000
+2022/10/31 14:24:26 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:24:27 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:24:42 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:24:44 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:25:35 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:25:37 127.0.0.1 OPTIONS /twitch/following/xndb004 {} reverse=False&by=time
+2022/10/31 14:25:37 127.0.0.1 GET /twitch/following/xndb004 {} reverse=False&by=time
+2022/10/31 14:25:41 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:25:42 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:25:43 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:25:44 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:25:44 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:25:44 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:25:44 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:25:45 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:25:45 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:25:45 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:25:46 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:25:46 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:25:47 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:25:47 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:25:48 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:25:52 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:27:47 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:28:50 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:28:53 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:29:39 127.0.0.1 GET /twitch/following/xndb004 {} reverse=False&by=time
+2022/10/31 14:56:09 127.0.0.1 GET /twitch/banned/ {} 
+2022/10/31 14:56:19 127.0.0.1 GET / {} 
+2022/10/31 14:56:30 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:56:30 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/10/31 14:56:36 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/11/03 04:42:18 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 04:42:18 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 04:44:39 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 04:45:37 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 04:46:01 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 04:49:59 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:17:55 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:17:55 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:18:17 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:20:17 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:26:41 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:26:47 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:27:25 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:27:28 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:28:58 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:28:58 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:29:05 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:29:37 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:32:22 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:33:16 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:33:16 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:35:34 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:36:03 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:36:05 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:36:07 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:37:15 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:37:16 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:38:22 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:38:26 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:38:45 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:38:46 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:39:11 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:39:20 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:39:27 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:58:01 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:58:01 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 05:58:10 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3__&follower_requirements=3000
+2022/11/03 05:58:10 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3__&follower_requirements=3000
+2022/11/03 05:58:13 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EB%B9%84%EC%B1%A4&follower_requirements=3000
+2022/11/03 05:58:13 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%B9%84%EC%B1%A4&follower_requirements=3000
+2022/11/03 05:58:18 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EB%8F%84%ED%8C%8C&follower_requirements=3000
+2022/11/03 05:58:18 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%8F%84%ED%8C%8C&follower_requirements=3000
+2022/11/03 05:58:21 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=dopa&follower_requirements=3000
+2022/11/03 05:58:21 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=dopa&follower_requirements=3000
+2022/11/03 05:58:41 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=do+pa&follower_requirements=3000
+2022/11/03 05:58:41 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=do+pa&follower_requirements=3000
+2022/11/03 05:58:43 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=do_pa&follower_requirements=3000
+2022/11/03 05:58:43 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=do_pa&follower_requirements=3000
+2022/11/03 05:58:45 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%A3%BC%EB%A5%B4%EB%A5%B4&follower_requirements=3000
+2022/11/03 05:58:45 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%A3%BC%EB%A5%B4%EB%A5%B4&follower_requirements=3000
+2022/11/03 05:58:47 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%95%84%EC%9D%B4%EB%84%A4&follower_requirements=3000
+2022/11/03 05:58:47 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%95%84%EC%9D%B4%EB%84%A4&follower_requirements=3000
+2022/11/03 05:58:54 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%E3%85%88%E3%85%81%EB%8C%80%E3%85%91%E3%85%88%E3%84%B7&follower_requirements=3000
+2022/11/03 05:58:54 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%E3%85%88%E3%85%81%EB%8C%80%E3%85%91%E3%85%88%E3%84%B7&follower_requirements=3000
+2022/11/03 05:58:57 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%A3%BC%EB%A3%A8%EB%A7%81&follower_requirements=3000
+2022/11/03 05:58:57 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%A3%BC%EB%A3%A8%EB%A7%81&follower_requirements=3000
+2022/11/03 05:59:00 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%A3%BC%EB%A5%B4%EB%A6%AC&follower_requirements=3000
+2022/11/03 05:59:00 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%A3%BC%EB%A5%B4%EB%A6%AC&follower_requirements=3000
+2022/11/03 06:09:21 127.0.0.1 GET /makeerror {} 
+2022/11/03 06:33:08 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/11/03 06:33:08 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/11/03 06:34:53 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/11/03 06:34:54 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/11/03 06:35:08 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/11/03 06:35:23 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/11/03 06:37:14 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/11/03 06:39:50 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/11/03 06:40:47 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/11/03 06:41:27 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/11/03 06:42:00 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/11/03 06:42:38 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/11/03 06:43:10 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/11/03 06:43:10 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/11/03 06:44:18 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/11/03 06:45:46 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/11/03 06:45:53 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/11/03 06:46:31 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/11/03 10:17:59 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 10:17:59 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 15:45:03 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 15:45:03 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:00:16 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:00:16 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:00:33 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:02:11 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:04:01 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:04:34 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:04:36 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:04:56 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:07:03 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:07:57 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:26:02 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:26:02 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:26:26 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:28:48 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:30:47 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:31:20 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:31:29 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:34:00 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:41:19 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:41:19 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:42:20 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:43:34 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:47:58 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:48:37 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:50:54 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:52:00 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:52:00 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:53:09 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 16:54:16 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 17:04:44 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 17:05:39 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 17:05:40 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 17:09:30 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 17:09:30 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 17:14:19 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 19:42:20 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 19:42:20 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 19:44:18 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 19:44:39 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 19:48:59 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 19:49:52 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 19:53:42 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 19:53:42 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 19:54:20 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 19:54:57 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 19:56:08 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/03 19:57:06 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/04 00:19:55 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/04 00:19:55 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/04 00:23:12 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/04 00:23:51 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/04 00:26:12 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/04 00:28:06 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/04 00:29:45 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/04 00:31:22 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/04 00:31:22 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/04 00:33:29 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/04 00:34:24 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/04 00:35:18 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/04 00:36:10 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/04 00:36:37 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/04 00:40:20 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/04 00:41:19 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/04 00:41:46 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/04 00:41:46 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/04 13:45:39 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%98%A4%ED%82%B9&follower_requirements=3000
+2022/11/04 13:45:39 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%98%A4%ED%82%B9&follower_requirements=3000
+2022/11/04 13:47:13 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=makeerror&follower_requirements=3000
+2022/11/04 13:47:13 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=makeerror&follower_requirements=3000
+2022/11/04 13:48:47 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=makeerror&follower_requirements=3000
+2022/11/04 14:42:22 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=makeerror&follower_requirements=3000
+2022/11/04 14:42:22 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=makeerror&follower_requirements=3000
+2022/11/04 14:44:10 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=makeerror&follower_requirements=3000
+2022/11/04 14:44:11 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=makeerror&follower_requirements=3000
+2022/11/04 14:44:33 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=makeerror&follower_requirements=3000
+2022/11/04 14:44:36 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=makeerror&follower_requirements=3000
+2022/11/04 14:44:37 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=makeerror&follower_requirements=3000
+2022/11/04 14:44:37 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=makeerror&follower_requirements=3000
+2022/11/04 14:44:38 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=makeerror&follower_requirements=3000
+2022/11/04 14:44:40 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=makeerror&follower_requirements=3000
+2022/11/04 14:44:44 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=makeerror&follower_requirements=3000
+2022/11/04 14:44:46 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=makeerror&follower_requirements=3000
+2022/11/04 14:45:38 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=makeerror&follower_requirements=3000
+2022/11/04 14:45:39 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=makeerror&follower_requirements=3000
+2022/11/04 14:46:10 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=makeerror&follower_requirements=3000
+2022/11/04 14:46:12 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=makeerror&follower_requirements=3000
+2022/11/04 14:46:29 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=makeerror&follower_requirements=3000
+2022/11/04 14:46:30 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=makeerror&follower_requirements=3000
+2022/11/04 14:46:31 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=makeerror&follower_requirements=3000
+2022/11/04 14:47:32 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=makeerror&follower_requirements=3000
+2022/11/04 14:48:06 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=makeerror&follower_requirements=3000
+2022/11/04 14:48:10 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=makeerror&follower_requirements=3000
+2022/11/04 14:48:14 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%98%A4%ED%82%B9&follower_requirements=3000
+2022/11/04 14:48:14 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%98%A4%ED%82%B9&follower_requirements=3000
+2022/11/04 14:49:23 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%98%A4%ED%82%B9&follower_requirements=3000
+2022/11/04 14:49:26 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=makeerror&follower_requirements=3000
+2022/11/04 15:03:13 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=makeerror&follower_requirements=3000
+2022/11/04 15:03:13 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=makeerror&follower_requirements=3000
+2022/11/04 15:43:17 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%B9%A8%EC%B0%A9%EB%A7%A8&follower_requirements=3000
+2022/11/04 15:43:17 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%B9%A8%EC%B0%A9%EB%A7%A8&follower_requirements=3000
+2022/11/04 15:47:13 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%B9%A8%EC%B0%A9%EB%A7%A8&follower_requirements=3000
+2022/11/04 15:54:50 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%B9%A8%EC%B0%A9%EB%A7%A8&follower_requirements=3000
+2022/11/04 15:54:50 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%B9%A8%EC%B0%A9%EB%A7%A8&follower_requirements=3000
+2022/11/04 15:54:56 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EB%B9%84%EC%B1%A4&follower_requirements=3000
+2022/11/04 15:54:56 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%B9%84%EC%B1%A4&follower_requirements=3000
+2022/11/05 02:22:11 127.0.0.1 GET /twitch/refreshdata {} password=pw1234&by=allloginsdata
+2022/11/05 02:22:25 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/05 02:22:25 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/05 02:22:31 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EB%A6%B4%ED%8C%8C&follower_requirements=3000
+2022/11/05 02:22:31 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%A6%B4%ED%8C%8C&follower_requirements=3000
+2022/11/05 02:22:33 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EA%B3%A0%EC%84%B8%EA%B5%AC&follower_requirements=3000
+2022/11/05 02:22:33 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EA%B3%A0%EC%84%B8%EA%B5%AC&follower_requirements=3000
+2022/11/05 02:22:37 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%A6%B4%ED%8C%8C&follower_requirements=3000
+2022/11/05 02:22:38 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%A6%B4%ED%8C%8C&follower_requirements=3000
+2022/11/05 02:51:02 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/05 02:51:02 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/11/05 02:51:11 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EB%A6%B4%ED%8C%8C&follower_requirements=3000
+2022/11/05 02:51:11 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%A6%B4%ED%8C%8C&follower_requirements=3000
+2022/11/05 02:51:13 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%A7%95%EB%B2%84%EA%B1%B0&follower_requirements=3000
+2022/11/05 02:51:13 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%A7%95%EB%B2%84%EA%B1%B0&follower_requirements=3000
+2022/11/05 02:51:14 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EB%B9%84%EC%B1%A4&follower_requirements=3000
+2022/11/05 02:51:14 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%B9%84%EC%B1%A4&follower_requirements=3000
+2022/11/05 06:57:25 127.0.0.1 GET /twitch/refreshdata {} by=itself&password=pw1234&start_rank=11&end_rank=100&skip_already_done=false&update_follow=True
+2022/11/05 06:58:06 127.0.0.1 GET /twitch/refreshdata {} by=itself&password=pw1234&start_rank=1&end_rank=10&skip_already_done=false&update_follow=True
+2022/11/05 07:00:07 127.0.0.1 GET /twitch/refreshdata {} by=itself&password=pw1234&start_rank=1&end_rank=10&skip_already_done=false&update_follow=True
+2022/11/05 07:19:05 127.0.0.1 GET /twitch/refreshdata {} by=itself&password=pw1234&start_rank=1&end_rank=10&skip_already_done=false&update_follow=True
+2022/11/07 22:18:10 127.0.0.1 GET /twitch/refreshdata {} by=allloginsdata&password=pw1234&skip_already_done=False&update_follow=False
+2022/11/08 01:20:10 127.0.0.1 GET /twitch/refreshdata {} by=allloginsdata&password=pw1234&skip_already_done=False&update_follow=False&start_rank=1&end_rank=100
+2022/11/08 01:20:10 127.0.0.1 GET /favicon.ico {} 
+2022/11/08 01:20:16 127.0.0.1 GET /twitch/refreshdata {} by=allloginsdata&password=pw1234&skip_already_done=False&update_follow=False&start_rank=1&end_rank=100
+2022/11/08 01:21:12 127.0.0.1 GET /twitch/refreshdata {} by=allloginsdata&password=pw1234&skip_already_done=False&update_follow=False&start_rank=1&end_rank=100
+2022/11/08 01:22:09 127.0.0.1 GET /twitch/refreshdata {} by=allloginsdata&password=pw1234&skip_already_done=False&update_follow=False&start_rank=1&end_rank=100
+2022/11/08 01:48:59 127.0.0.1 GET /twitch/refreshdata {} by=follow&password=pw1234&start_rank=1200&end_rank=1210
+2022/11/08 01:49:06 127.0.0.1 GET /twitch/refreshdata {} by=follow&password=pw1234&start_rank=1200&end_rank=1210
+2022/11/08 01:49:10 127.0.0.1 GET /twitch/refreshdata {} by=follow&password=pw1234&start_rank=1200&end_rank=121000
+2022/11/08 01:50:57 127.0.0.1 GET /twitch/refreshdata {} by=follow&password=pw1234&start_rank=1200&end_rank=121000
+2022/11/08 01:50:57 127.0.0.1 GET /twitch/refreshdata {} by=follow&password=pw1234&start_rank=1200&end_rank=1210
+2022/11/08 01:50:57 127.0.0.1 GET /twitch/refreshdata {} by=follow&password=pw1234&start_rank=1200&end_rank=121000
+2022/11/08 01:50:58 127.0.0.1 GET /twitch/refreshdata {} by=follow&password=pw1234&start_rank=1200&end_rank=1210
+2022/11/08 05:39:49 127.0.0.1 GET / {} 
+2022/11/08 05:40:01 127.0.0.1 GET /exec/ {} pw=9090&cmd=streamers_data
+2022/11/08 05:40:13 127.0.0.1 GET /exec/ {} pw=9090&cmd=streamers_data
+2022/11/08 05:40:33 127.0.0.1 GET /exec/ {} pw=9090&cmd=streamers_data
+2022/11/08 06:22:32 127.0.0.1 GET /twitch/refreshdata {} by=itself&password=pw1234&start_rank=1&end_rank=10&skip_already_done=false&update_follow=True
+2022/11/08 06:22:33 127.0.0.1 GET /twitch/banned/ {} 
+2022/11/08 06:22:33 127.0.0.1 GET /twitch/banned/ {} 
+2022/11/08 06:22:35 127.0.0.1 GET /twitch/banned/ {} 
+2022/11/08 06:23:42 127.0.0.1 GET /twitch/banned/ {} 
+2022/11/12 01:09:40 127.0.0.1 GET /twitch/popularwatchingapi {} 
+2022/11/12 01:09:40 127.0.0.1 GET /favicon.ico {} 
+2022/11/12 01:09:44 127.0.0.1 GET /twitch/popularwatchingapi {} query=%EB%B9%84%EC%B1%A4
+2022/11/12 01:09:51 127.0.0.1 GET /twitch/popularwatchinㅎ {} query=%EB%B9%84%EC%B1%A4
+2022/11/12 01:09:53 127.0.0.1 GET /twitch/popularwatching {} query=%EB%B9%84%EC%B1%A4
+2022/11/12 01:10:02 127.0.0.1 GET /twitch/popularwatchinggui {} query=%EB%B9%84%EC%B1%A4
+2022/11/12 01:10:05 127.0.0.1 GET /twitch/popularwatchingapi {} query=%EB%B9%84%EC%B1%A4
+2022/11/12 01:10:37 127.0.0.1 GET /twitch/populariswatchingapi {} query=%EB%B9%84%EC%B1%A4
+2022/11/12 01:10:37 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%B9%84%EC%B1%A4
+2022/11/12 01:11:06 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%A3%BC%EB%A5%B4%EB%A5%B4
+2022/11/12 01:11:27 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%ED%83%AC%ED%83%AC%EB%B2%84%EB%A6%B0
+2022/11/12 01:14:12 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%ED%83%AC%ED%83%AC%EB%B2%84%EB%A6%B0
+2022/12/04 23:09:54 127.0.0.1 OPTIONS /twitch/ranking/ {} 
+2022/12/04 23:09:54 127.0.0.1 GET /twitch/ranking/ {} 
+2022/12/04 23:09:55 127.0.0.1 GET /twitch/ranking/ {} 
+2022/12/04 23:10:07 127.0.0.1 GET /twitch/ranking/ {} 
+2022/12/04 23:10:47 127.0.0.1 GET /twitch/ranking/ {} 
+2022/12/04 23:10:47 127.0.0.1 GET /favicon.ico {} 
+2022/12/04 23:10:53 127.0.0.1 GET /twitch/ranking/ {} 
+2022/12/04 23:11:24 127.0.0.1 GET /twitch/ranking/ {} 
+2022/12/04 23:12:25 127.0.0.1 GET /twitch/ranking/ {} 
+2022/12/04 23:12:42 127.0.0.1 GET /twitch/ranking/ {} 
+2022/12/04 23:13:18 127.0.0.1 GET /twitch/ranking/ {} 
+2022/12/04 23:14:20 127.0.0.1 GET /twitch/ranking/ {} 
+2022/12/04 23:14:21 127.0.0.1 GET /twitch/ranking/ {} 
+2022/12/04 23:14:53 127.0.0.1 GET /twitch/ranking/ {} 
+2022/12/04 23:15:08 127.0.0.1 GET /twitch/banned/ {} 
+2022/12/04 23:15:57 127.0.0.1 GET /twitch/banned/ {} 
+2022/12/04 23:15:58 127.0.0.1 GET /twitch/banned/ {} 
+2022/12/04 23:16:26 127.0.0.1 GET /twitch/banned/ {} 
+2022/12/04 23:16:27 127.0.0.1 GET /twitch/banned/ {} 
+2022/12/04 23:16:27 127.0.0.1 GET /twitch/banned/ {} 
+2022/12/04 23:16:27 127.0.0.1 GET /twitch/banned/ {} 
+2022/12/04 23:17:12 127.0.0.1 GET /twitch/banned/ {} 
+2022/12/04 23:17:33 127.0.0.1 GET /twitch/add_logins/ {} logins=nodolly
+2022/12/04 23:17:41 127.0.0.1 GET /twitch/addlogin/ {} logins=nodolly
+2022/12/04 23:18:13 127.0.0.1 GET /twitch/addlogin/ {} logins=nodolly
+2022/12/04 23:19:30 127.0.0.1 GET /twitch/addlogin/ {} logins=nodolly
+2022/12/04 23:19:55 127.0.0.1 GET /twitch/addlogin/ {} logins=nodolly
+2022/12/04 23:20:05 127.0.0.1 GET /twitch/banned/ {} 
+2022/12/04 23:20:51 127.0.0.1 OPTIONS /twitch/ranking/ {} 
+2022/12/04 23:20:51 127.0.0.1 GET /twitch/ranking/ {} 
+2022/12/04 23:21:01 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/12/04 23:21:01 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=3000
+2022/12/04 23:25:17 127.0.0.1 OPTIONS /twitch/banned/ {} 
+2022/12/04 23:25:17 127.0.0.1 GET /twitch/banned/ {} 
+2022/12/04 23:25:30 127.0.0.1 GET /twitch/addlogin/ {} logins=nabinya&logins=nadotv86&logins=kimsun8311&logins=e_seoa&logins=heugcheo&logins=uuiell&logins=yas_d_rox&logins=lazmall&logins=ckdjdmfk123&logins=czukasz&skip_already_done=false&give_chance_to_banned=true
+2022/12/04 23:25:58 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/12/04 23:25:58 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/12/04 23:28:27 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=3000
+2022/12/04 23:30:06 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=300
+2022/12/04 23:30:06 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=300
+2022/12/04 23:31:36 127.0.0.1 OPTIONS /twitch/ranking/ {} 
+2022/12/04 23:31:36 127.0.0.1 OPTIONS /twitch/ranking/ {} 
+2022/12/04 23:31:36 127.0.0.1 GET /twitch/ranking/ {} 
+2022/12/04 23:31:36 127.0.0.1 GET /twitch/ranking/ {} 
+2022/12/04 23:40:16 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=300
+2022/12/04 23:40:16 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=300
+2022/12/04 23:40:41 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=300
+2022/12/04 23:40:45 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=300
+2022/12/04 23:40:55 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=300
+2022/12/04 23:40:59 127.0.0.1 GET /favicon.ico {} 
+2022/12/04 23:40:59 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=300
+2022/12/04 23:41:03 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=300
+2022/12/04 23:42:08 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=300
+2022/12/04 23:42:13 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=300
+2022/12/04 23:42:18 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=300
+2022/12/05 01:39:32 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=300
+2022/12/05 01:39:32 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=300
+2022/12/05 01:41:19 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=300
+2022/12/07 14:45:19 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EB%A6%B4%EC%B9%B4&follower_requirements=3000
+2022/12/07 14:45:19 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%A6%B4%EC%B9%B4&follower_requirements=3000
+2022/12/07 14:46:17 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%A6%B4%EC%B9%B4&follower_requirements=3000
+2022/12/07 14:47:41 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%A6%B4%EC%B9%B4&follower_requirements=3000
+2022/12/07 14:51:59 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%A6%B4%EC%B9%B4&follower_requirements=3000
+2022/12/07 14:54:00 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%A6%B4%EC%B9%B4&follower_requirements=3000
+2022/12/07 14:54:49 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%A6%B4%EC%B9%B4&follower_requirements=3000
+2022/12/07 14:55:51 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EB%A6%B4%EC%B9%B4&follower_requirements=3000
+2022/12/07 14:55:51 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%A6%B4%EC%B9%B4&follower_requirements=3000
+2022/12/07 14:58:08 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%A6%B4%EC%B9%B4&follower_requirements=3000
+2022/12/07 15:02:04 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%A6%B4%EC%B9%B4&follower_requirements=3000
+2022/12/07 15:02:14 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%A6%B4%EC%B9%B4&follower_requirements=3000
+2022/12/07 15:02:17 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%A6%B4%EC%B9%B4&follower_requirements=3000
+2022/12/07 15:03:15 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EB%A6%B4%EC%B9%B4&follower_requirements=0
+2022/12/07 15:03:15 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%A6%B4%EC%B9%B4&follower_requirements=0
+2022/12/07 15:05:16 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%A6%B4%EC%B9%B4&follower_requirements=0
+2022/12/07 15:05:51 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%A6%B4%EC%B9%B4&follower_requirements=0
+2022/12/07 15:05:58 127.0.0.1 OPTIONS /twitch/ranking/ {} 
+2022/12/07 15:05:58 127.0.0.1 GET /twitch/ranking/ {} 
+2022/12/07 15:06:06 127.0.0.1 OPTIONS /twitch/banned/ {} 
+2022/12/07 15:06:06 127.0.0.1 GET /twitch/banned/ {} 
+2022/12/07 15:06:15 127.0.0.1 OPTIONS /twitch/followedbypopular/woowakgood {} follower_requirements=0&reverse=False&by=time
+2022/12/07 15:06:15 127.0.0.1 GET /twitch/followedbypopular/woowakgood {} follower_requirements=0&reverse=False&by=time
+2022/12/07 15:14:07 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EB%A6%B4%EC%B9%B4&follower_requirements=0
+2022/12/07 15:14:43 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EB%A6%B4%EC%B9%B4&follower_requirements=0
+2022/12/07 15:14:43 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%A6%B4%EC%B9%B4&follower_requirements=0
+2022/12/07 16:38:17 127.0.0.1 OPTIONS /twitch/following/148580412 {} reverse=False&by=time
+2022/12/07 16:38:17 127.0.0.1 GET /twitch/following/148580412 {} reverse=False&by=time
+2022/12/07 16:44:46 127.0.0.1 GET /twitch/following/148580412 {} reverse=False&by=time
+2022/12/07 16:51:54 127.0.0.1 OPTIONS /twitch/following/780696185 {} reverse=False&by=time
+2022/12/07 16:51:54 127.0.0.1 GET /twitch/following/780696185 {} reverse=False&by=time
+2022/12/07 16:57:21 127.0.0.1 GET /twitch/following/780696185 {} reverse=False&by=time
+2022/12/07 16:57:30 127.0.0.1 GET /twitch/following/780696185 {} reverse=False&by=time
+2022/12/07 16:57:38 127.0.0.1 OPTIONS /twitch/following/오킹 {} reverse=False&by=time
+2022/12/07 16:57:38 127.0.0.1 GET /twitch/following/오킹 {} reverse=False&by=time
+2022/12/07 16:57:51 127.0.0.1 GET /twitch/following/오킹 {} reverse=False&by=time
+2022/12/07 16:57:59 127.0.0.1 OPTIONS /twitch/followedbypopular/오킹 {} follower_requirements=0&reverse=False&by=time
+2022/12/07 16:57:59 127.0.0.1 GET /twitch/followedbypopular/오킹 {} follower_requirements=0&reverse=False&by=time
+2022/12/07 16:58:08 127.0.0.1 GET /twitch/followedbypopular/오킹 {} follower_requirements=0&reverse=False&by=time
+2022/12/07 16:59:09 127.0.0.1 GET /twitch/followedbypopular/오킹 {} follower_requirements=0&reverse=False&by=time
+2022/12/07 16:59:15 127.0.0.1 GET /twitch/followedbypopular/오킹 {} follower_requirements=0&reverse=False&by=time
+2022/12/07 17:10:19 127.0.0.1 GET / {} 
+2022/12/07 17:10:19 127.0.0.1 GET /apple-touch-icon-precomposed.png {} 
+2022/12/07 17:10:19 127.0.0.1 GET /apple-touch-icon.png {} 
+2022/12/07 17:10:19 127.0.0.1 GET /favicon.ico {} 
+2022/12/07 17:10:19 127.0.0.1 GET /twitch/refreshdata {} by=itself&password=pw1234&start_rank=1&end_rank=10&skip_already_done=false&update_follow=True
+2022/12/07 17:10:20 127.0.0.1 GET /threadnum {} 
+2022/12/07 17:10:21 127.0.0.1 GET /threadnum {} 
+2022/12/07 17:10:30 127.0.0.1 GET /threadnum {} 
+2022/12/07 17:10:32 127.0.0.1 GET /threadnum {} 
+2022/12/07 17:10:33 127.0.0.1 GET /threadnum {} 
+2022/12/07 17:12:21 127.0.0.1 GET /threadnum {} 
+2022/12/07 18:03:27 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EB%A6%B4%EC%B9%B4&follower_requirements=3000
+2022/12/07 18:03:27 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%A6%B4%EC%B9%B4&follower_requirements=3000
+2022/12/07 18:04:17 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%A6%B4%EC%B9%B4&follower_requirements=3000
+2022/12/07 18:04:18 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%A6%B4%EC%B9%B4&follower_requirements=3000
+2022/12/07 18:04:24 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EB%A6%B4%EC%B9%B4&follower_requirements=0
+2022/12/07 18:04:24 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%A6%B4%EC%B9%B4&follower_requirements=0
+2022/12/07 18:13:13 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%A6%B4%EC%B9%B4&follower_requirements=0
+2022/12/07 18:44:15 127.0.0.1 OPTIONS /twitch/following/우왁굳 {} reverse=False&by=time
+2022/12/07 18:44:15 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time
+2022/12/07 18:50:04 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time
+2022/12/07 18:52:10 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time
+2022/12/07 18:52:24 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time
+2022/12/07 18:52:45 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time
+2022/12/07 18:53:25 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time
+2022/12/07 18:54:29 127.0.0.1 OPTIONS /twitch/following/junmini7 {} reverse=False&by=time
+2022/12/07 18:54:29 127.0.0.1 GET /twitch/following/junmini7 {} reverse=False&by=time
+2022/12/07 18:54:43 127.0.0.1 GET /twitch/following/junmini7 {} reverse=False&by=time
+2022/12/07 18:54:45 127.0.0.1 GET /twitch/following/junmini7 {} reverse=False&by=time
+2022/12/07 18:54:46 127.0.0.1 GET /twitch/following/junmini7 {} reverse=False&by=time
+2022/12/07 18:54:48 127.0.0.1 GET /twitch/following/junmini7 {} reverse=False&by=time
+2022/12/07 18:54:49 127.0.0.1 GET /twitch/following/junmini7 {} reverse=False&by=time
+2022/12/07 18:55:04 127.0.0.1 GET /twitch/following/junmini7 {} reverse=False&by=time
+2022/12/07 18:55:08 127.0.0.1 OPTIONS /twitch/following/junmini7 {} reverse=False&by=time
+2022/12/07 18:55:08 127.0.0.1 GET /twitch/following/junmini7 {} reverse=False&by=time
+2022/12/07 18:55:09 127.0.0.1 GET /twitch/following/junmini7 {} reverse=False&by=time
+2022/12/07 18:55:18 127.0.0.1 GET /twitch/following/junmini7 {} reverse=False&by=time
+2022/12/07 18:55:22 127.0.0.1 GET /twitch/following/junmini7 {} reverse=False&by=time&refresh=true
+2022/12/07 18:55:40 127.0.0.1 GET /twitch/following/junmini7 {} reverse=False&by=time&refresh=true
+2022/12/07 18:59:30 127.0.0.1 OPTIONS /twitch/following/우왁굳 {} reverse=False&by=time&refresh=undefined
+2022/12/07 18:59:30 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time&refresh=undefined
+2022/12/07 18:59:35 127.0.0.1 OPTIONS /twitch/following/우왁굳 {} reverse=False&by=time&refresh=False
+2022/12/07 18:59:35 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time&refresh=False
+2022/12/07 18:59:41 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time&refresh=undefined
+2022/12/07 18:59:51 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time&refresh=undefined
+2022/12/07 19:00:22 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time&refresh=undefined
+2022/12/07 19:00:24 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time&refresh=undefined
+2022/12/07 19:00:37 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time&refresh=undefined
+2022/12/07 19:00:50 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time&refresh=undefined
+2022/12/07 19:01:37 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time&refresh=undefined
+2022/12/07 19:02:22 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time&refresh=False
+2022/12/07 19:02:24 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time&refresh=False
+2022/12/07 19:02:29 127.0.0.1 OPTIONS /twitch/following/우왁굳 {} reverse=False&by=time&refresh=True
+2022/12/07 19:02:29 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time&refresh=True
+2022/12/07 19:03:10 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time&refresh=False
+2022/12/07 19:03:12 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time&refresh=False
+2022/12/07 19:04:39 127.0.0.1 OPTIONS /twitch/following/junmini7 {} reverse=False&by=time&refresh=False
+2022/12/07 19:04:39 127.0.0.1 GET /twitch/following/junmini7 {} reverse=False&by=time&refresh=False
+2022/12/07 19:19:54 127.0.0.1 GET /twitch/managers/woowakgood {} 
+2022/12/07 19:22:19 127.0.0.1 GET /twitch/managers/woowakgood {} 
+2022/12/07 19:22:23 127.0.0.1 GET /twitch/as_manger/woowakgood {} 
+2022/12/07 19:22:28 127.0.0.1 GET /twitch/as_manager/woowakgood {} 
+2022/12/07 19:22:59 127.0.0.1 GET /twitch/as_manager/woowakgood {} 
+2022/12/07 19:28:14 127.0.0.1 OPTIONS /twitch/as_manager/우왁굳 {} 
+2022/12/07 19:28:14 127.0.0.1 GET /twitch/as_manager/우왁굳 {} 
+2022/12/07 19:28:24 127.0.0.1 OPTIONS /twitch/as_manager/고세구 {} 
+2022/12/07 19:28:24 127.0.0.1 GET /twitch/as_manager/고세구 {} 
+2022/12/07 19:29:17 127.0.0.1 GET /twitch/as_manager/고세구 {} 
+2022/12/07 19:30:23 127.0.0.1 OPTIONS /twitch/managers/우왁굳 {} 
+2022/12/07 19:30:23 127.0.0.1 GET /twitch/managers/우왁굳 {} 
+2022/12/07 19:30:34 127.0.0.1 GET /twitch/managers/우왁굳 {} 
+2022/12/07 19:30:36 127.0.0.1 GET /twitch/managers/우왁굳 {} 
+2022/12/07 22:10:47 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/07 22:10:47 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/07 22:10:59 127.0.0.1 OPTIONS /twitch/following/우왁굳 {} reverse=False&by=time&refresh=False
+2022/12/07 22:10:59 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time&refresh=False
+2022/12/07 22:11:07 127.0.0.1 OPTIONS /twitch/following/우왁굳 {} reverse=False&by=time&refresh=True
+2022/12/07 22:11:07 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time&refresh=True
+2022/12/07 22:11:09 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/07 22:20:24 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EA%B3%A0%EC%84%B8%EA%B5%AC&follower_requirements=100
+2022/12/07 22:20:24 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EA%B3%A0%EC%84%B8%EA%B5%AC&follower_requirements=100
+2022/12/07 22:20:24 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/07 22:47:17 127.0.0.1 OPTIONS /twitch/following/hyeonu11 {} reverse=False&by=time&refresh=False
+2022/12/07 22:47:17 127.0.0.1 GET /twitch/following/hyeonu11 {} reverse=False&by=time&refresh=False
+2022/12/07 22:53:57 127.0.0.1 OPTIONS /twitch/following/퍼브 {} reverse=False&by=time&refresh=False
+2022/12/07 22:53:57 127.0.0.1 GET /twitch/following/퍼브 {} reverse=False&by=time&refresh=False
+2022/12/07 22:56:11 127.0.0.1 OPTIONS /twitch/following/숭늉님 {} reverse=False&by=time&refresh=False
+2022/12/07 22:56:11 127.0.0.1 GET /twitch/following/숭늉님 {} reverse=False&by=time&refresh=False
+2022/12/07 23:18:57 127.0.0.1 OPTIONS /twitch/following/쿠라시온 {} reverse=False&by=time&refresh=False
+2022/12/07 23:18:57 127.0.0.1 GET /twitch/following/쿠라시온 {} reverse=False&by=time&refresh=False
+2022/12/07 23:49:26 127.0.0.1 OPTIONS /twitch/following/호키__ {} reverse=False&by=time&refresh=False
+2022/12/07 23:49:26 127.0.0.1 GET /twitch/following/호키__ {} reverse=False&by=time&refresh=False
+2022/12/07 23:49:44 127.0.0.1 OPTIONS /twitch/following/퍼뜩 {} reverse=False&by=time&refresh=False
+2022/12/07 23:49:44 127.0.0.1 GET /twitch/following/퍼뜩 {} reverse=False&by=time&refresh=False
+2022/12/07 23:50:05 127.0.0.1 OPTIONS /twitch/following/junmini7 {} reverse=False&by=time&refresh=False
+2022/12/07 23:50:05 127.0.0.1 GET /twitch/following/junmini7 {} reverse=False&by=time&refresh=False
+2022/12/07 23:50:16 127.0.0.1 OPTIONS /twitch/following/junmini7 {} reverse=False&by=time&refresh=True
+2022/12/07 23:50:16 127.0.0.1 GET /twitch/following/junmini7 {} reverse=False&by=time&refresh=True
+2022/12/08 00:04:28 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EA%B3%A0%EC%84%B8%EA%B5%AC&follower_requirements=100
+2022/12/08 00:04:28 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EA%B3%A0%EC%84%B8%EA%B5%AC&follower_requirements=100
+2022/12/08 00:04:49 127.0.0.1 OPTIONS /twitch/following/junmini7 {} reverse=False&by=time&refresh=True
+2022/12/08 00:04:49 127.0.0.1 GET /twitch/following/junmini7 {} reverse=False&by=time&refresh=True
+2022/12/08 00:04:58 127.0.0.1 OPTIONS /twitch/following/junmini7 {} reverse=False&by=time&refresh=True&valid=False
+2022/12/08 00:04:58 127.0.0.1 GET /twitch/following/junmini7 {} reverse=False&by=time&refresh=True&valid=False
+2022/12/08 00:07:32 127.0.0.1 OPTIONS /twitch/followedbypopular/woowakgood {} follower_requirements=0&reverse=False&by=time&valid=False
+2022/12/08 00:07:32 127.0.0.1 GET /twitch/followedbypopular/woowakgood {} follower_requirements=0&reverse=False&by=time&valid=False
+2022/12/08 01:27:34 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 01:27:34 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 01:27:43 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 01:33:32 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 01:35:41 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 01:47:15 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EA%B3%A0%EC%84%B8%E3%85%9C%E3%84%B1&follower_requirements=100
+2022/12/08 01:47:15 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EA%B3%A0%EC%84%B8%E3%85%9C%E3%84%B1&follower_requirements=100
+2022/12/08 01:47:17 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EA%B3%A0%EC%84%B8%EA%B5%AC&follower_requirements=100
+2022/12/08 01:47:17 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EA%B3%A0%EC%84%B8%EA%B5%AC&follower_requirements=100
+2022/12/08 01:55:40 127.0.0.1 OPTIONS /twitch/history/우왁굳 {} 
+2022/12/08 01:55:40 127.0.0.1 GET /twitch/history/우왁굳 {} 
+2022/12/08 01:55:43 127.0.0.1 OPTIONS /twitch/history/발젭 {} 
+2022/12/08 01:55:43 127.0.0.1 GET /twitch/history/발젭 {} 
+2022/12/08 01:59:15 127.0.0.1 GET /twitch/history/발젭 {} 
+2022/12/08 11:17:16 127.0.0.1 GET /follownum_queue {} 
+2022/12/08 11:17:20 127.0.0.1 GET /twitch/follownum_queue {} 
+2022/12/08 11:17:24 127.0.0.1 GET /twitch/follownumqueue {} 
+2022/12/08 11:17:39 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:17:44 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EB%9E%84%EB%A1%9C&follower_requirements=100
+2022/12/08 11:17:44 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%9E%84%EB%A1%9C&follower_requirements=100
+2022/12/08 11:17:46 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:17:47 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:17:47 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:17:48 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:17:48 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:17:49 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:17:49 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:17:53 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:17:53 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:17:54 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:17:54 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:20:35 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%9E%84%EB%A1%9C&follower_requirements=100
+2022/12/08 11:20:37 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:20:38 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:20:38 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:20:38 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:20:49 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:20:49 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:20:50 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:20:50 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:20:50 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:20:50 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:20:51 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:20:51 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:20:51 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:20:56 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:20:57 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:20:57 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:20:57 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:20:57 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:20:57 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:25:00 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%9E%84%EB%A1%9C&follower_requirements=100
+2022/12/08 11:25:05 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:25:05 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:25:06 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%9E%84%EB%A1%9C&follower_requirements=100
+2022/12/08 11:25:09 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:25:10 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%9E%84%EB%A1%9C&follower_requirements=100
+2022/12/08 11:25:10 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:25:11 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%9E%84%EB%A1%9C&follower_requirements=100
+2022/12/08 11:25:11 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%9E%84%EB%A1%9C&follower_requirements=100
+2022/12/08 11:25:12 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:25:12 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%9E%84%EB%A1%9C&follower_requirements=100
+2022/12/08 11:26:14 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:26:15 127.0.0.1 GET /twitch/followqueuenum {} 
+2022/12/08 11:28:32 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EB%9E%84%EB%A1%9C&follower_requirements=1
+2022/12/08 11:28:32 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%9E%84%EB%A1%9C&follower_requirements=1
+2022/12/08 19:53:38 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 19:53:38 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 19:54:22 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 19:55:22 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 22:03:57 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%E3%85%81&follower_requirements=100
+2022/12/08 22:03:57 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%E3%85%81&follower_requirements=100
+2022/12/08 22:04:00 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 22:04:00 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 22:04:48 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 22:05:00 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 22:05:45 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 22:07:07 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 22:09:18 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 22:09:41 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 22:09:55 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 22:10:43 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 22:15:00 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 22:15:00 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 22:28:15 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 22:28:15 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 22:29:06 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 22:29:10 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 22:29:13 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 22:29:37 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 22:30:01 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 22:30:08 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/08 22:38:08 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=d&follower_requirements=100
+2022/12/08 22:38:08 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=d&follower_requirements=100
+2022/12/08 22:38:09 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=d&follower_requirements=100
+2022/12/08 22:38:14 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=100
+2022/12/08 22:38:14 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=100
+2022/12/09 02:44:54 127.0.0.1 GET /queue {} 
+2022/12/09 02:44:59 127.0.0.1 GET /twitch/queue {} 
+2022/12/09 02:45:00 127.0.0.1 GET /twitch/queue {} 
+2022/12/09 02:45:00 127.0.0.1 GET /favicon.ico {} 
+2022/12/09 02:45:01 127.0.0.1 GET /twitch/queue {} 
+2022/12/09 02:45:01 127.0.0.1 GET /twitch/queue {} 
+2022/12/09 02:45:31 127.0.0.1 GET /twitch/queue {} 
+2022/12/09 02:45:31 127.0.0.1 GET /twitch/queue {} 
+2022/12/09 02:45:32 127.0.0.1 GET /twitch/queue {} 
+2022/12/09 02:45:32 127.0.0.1 GET /twitch/queue {} 
+2022/12/09 02:45:33 127.0.0.1 GET /twitch/queue {} 
+2022/12/09 02:45:33 127.0.0.1 GET /twitch/queue {} 
+2022/12/09 02:45:34 127.0.0.1 GET /twitch/queue {} 
+2022/12/09 02:45:34 127.0.0.1 GET /twitch/queue {} 
+2022/12/09 02:45:35 127.0.0.1 GET /twitch/queue {} 
+2022/12/09 02:45:35 127.0.0.1 GET /twitch/queue {} 
+2022/12/09 02:46:13 127.0.0.1 GET /twitch/queue {} 
+2022/12/09 02:46:14 127.0.0.1 GET /twitch/queue {} 
+2022/12/09 02:46:52 127.0.0.1 GET /twitch/queue {} 
+2022/12/09 02:46:52 127.0.0.1 GET /twitch/queue {} 
+2022/12/09 03:22:17 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/09 03:22:17 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/09 03:24:03 127.0.0.1 OPTIONS /twitch/following/우왁굳 {} reverse=False&by=time&refresh=False&valid=False
+2022/12/09 03:24:03 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time&refresh=False&valid=False
+2022/12/09 03:24:09 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time&refresh=False&valid=False
+2022/12/09 03:27:10 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time&refresh=False&valid=False
+2022/12/09 03:27:57 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time&refresh=False&valid=False
+2022/12/09 14:55:58 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EB%B9%84%EC%B1%A4&follower_requirements=100
+2022/12/09 14:55:58 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%B9%84%EC%B1%A4&follower_requirements=100
+2022/12/09 14:57:44 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%B9%84%EC%B1%A4&follower_requirements=100
+2022/12/09 14:58:16 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EB%B9%84%EC%B1%A4&follower_requirements=100
+2022/12/09 15:56:31 127.0.0.1 GET /twitch/banned/ {} 
+2022/12/09 15:56:34 127.0.0.1 GET /twitch/queue/ {} 
+2022/12/09 15:56:34 127.0.0.1 GET /twitch/queue {} 
+2022/12/09 15:56:45 127.0.0.1 GET /twitch/background {} 
+2022/12/12 17:35:21 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=100
+2022/12/12 17:35:21 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=100
+2022/12/12 17:38:12 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=woowakgood&follower_requirements=100
+2022/12/12 17:38:20 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%A3%BC%EB%A5%B4%EB%A5%B4&follower_requirements=100
+2022/12/12 17:38:20 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%A3%BC%EB%A5%B4%EB%A5%B4&follower_requirements=100
+2022/12/12 18:30:04 127.0.0.1 OPTIONS /twitch/following/우왁굳 {} reverse=False&by=time&refresh=False&valid=False
+2022/12/12 18:30:04 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time&refresh=False&valid=False
+2022/12/12 18:30:06 127.0.0.1 OPTIONS /twitch/following/우왁굳 {} reverse=False&by=time&refresh=True&valid=False
+2022/12/12 18:30:06 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time&refresh=True&valid=False
+2022/12/12 18:33:31 127.0.0.1 GET /twitch/following/우왁굳 {} reverse=False&by=time&refresh=True&valid=False
+2022/12/12 18:33:58 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%B2%9C%EC%96%91&follower_requirements=100
+2022/12/12 18:33:58 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%B2%9C%EC%96%91&follower_requirements=100
+2022/12/12 18:34:21 127.0.0.1 OPTIONS /twitch/managers/천양 {} 
+2022/12/12 18:34:21 127.0.0.1 GET /twitch/managers/천양 {} 
+2022/12/12 18:39:12 127.0.0.1 GET /twitch/managers/천양 {} 
+2022/12/12 18:41:15 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%A3%BC%EB%A5%B4%EB%A5%B4&follower_requirements=100
+2022/12/12 18:41:15 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%A3%BC%EB%A5%B4%EB%A5%B4&follower_requirements=100
+2022/12/12 18:46:27 127.0.0.1 GET /twitch/background {} 
+2022/12/12 18:46:27 127.0.0.1 GET /favicon.ico {} 
+2022/12/12 18:46:34 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%A3%BC%EB%A5%B4%EB%A5%B4&follower_requirements=100
+2022/12/12 18:46:49 127.0.0.1 GET /twitch/background {} 
+2022/12/12 18:46:51 127.0.0.1 GET /twitch/queue {} 
+2022/12/12 18:46:53 127.0.0.1 GET /twitch/queue {} 
+2022/12/12 18:46:54 127.0.0.1 GET /twitch/queue {} 
+2022/12/12 18:47:00 127.0.0.1 GET /twitch/queue {} 
+2022/12/12 18:47:00 127.0.0.1 GET /twitch/queue {} 
+2022/12/12 18:47:01 127.0.0.1 GET /twitch/queue {} 
+2022/12/12 18:51:16 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%A3%BC%EB%A5%B4%EB%A5%B4&follower_requirements=100
+2022/12/12 18:51:16 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%A3%BC%EB%A5%B4%EB%A5%B4&follower_requirements=100
+2022/12/12 18:52:05 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%A3%BC%EB%A5%B4%EB%A5%B4&follower_requirements=100
+2022/12/12 19:06:12 127.0.0.1 OPTIONS /twitch/managers/최홍자 {} 
+2022/12/12 19:06:12 127.0.0.1 GET /twitch/managers/최홍자 {} 
+2022/12/12 19:07:29 127.0.0.1 GET /twitch/managers/최홍자 {} 
+2022/12/12 19:15:39 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%A3%BC%EB%A5%B4%EB%A5%B4&follower_requirements=100
+2022/12/12 19:15:39 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%A3%BC%EB%A5%B4%EB%A5%B4&follower_requirements=100
+2022/12/12 19:41:59 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%98%A4%EA%B0%80%EA%B5%B3&follower_requirements=100
+2022/12/12 19:41:59 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%98%A4%EA%B0%80%EA%B5%B3&follower_requirements=100
+2022/12/12 19:42:03 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/12 19:42:03 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/12 19:42:47 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/19 01:34:36 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/19 01:34:36 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/19 01:34:48 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/19 01:35:17 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3%E3%85%97&follower_requirements=100
+2022/12/19 01:35:17 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3%E3%85%97&follower_requirements=100
+2022/12/19 01:35:31 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3%E3%85%97%E3%85%97%E3%85%A0&follower_requirements=100
+2022/12/19 01:35:31 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3%E3%85%97%E3%85%97%E3%85%A0&follower_requirements=100
+2022/12/19 01:35:46 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3%EC%95%99&follower_requirements=100
+2022/12/19 01:35:46 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3%EC%95%99&follower_requirements=100
+2022/12/19 01:36:31 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/19 01:36:31 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/19 01:56:22 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/19 01:56:22 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/19 01:56:28 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/19 01:56:28 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/19 01:56:33 127.0.0.1 GET /twitch/banned/ {} 
+2022/12/19 01:56:34 127.0.0.1 GET /favicon.ico {} 
+2022/12/19 01:56:36 127.0.0.1 GET /twitch/queue]/ {} 
+2022/12/19 01:56:38 127.0.0.1 GET /twitch/queue/ {} 
+2022/12/19 01:56:38 127.0.0.1 GET /twitch/queue {} 
+2022/12/19 01:56:41 127.0.0.1 GET /twitch/queue {} 
+2022/12/19 01:56:44 127.0.0.1 GET /twitch/memoery {} 
+2022/12/19 01:56:46 127.0.0.1 GET /twitch/memory {} 
+2022/12/19 01:57:03 127.0.0.1 GET /twitch/memory {} 
+2022/12/19 01:57:28 127.0.0.1 GET /twitch/memory {} 
+2022/12/19 01:57:28 127.0.0.1 GET /twitch/memory {} 
+2022/12/19 02:02:42 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/19 02:02:49 127.0.0.1 GET /twitch/memory {} 
+2022/12/19 02:07:25 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/19 02:07:25 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/19 02:07:32 127.0.0.1 GET /twitch/memory {} 
+2022/12/19 02:07:50 127.0.0.1 GET /twitch/queue {} 
+2022/12/19 02:07:52 127.0.0.1 GET /twitch/memory {} 
+2022/12/19 02:07:52 127.0.0.1 GET /twitch/memory {} 
+2022/12/19 02:08:11 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/19 02:10:10 127.0.0.1 GET /twitch/memory {} 
+2022/12/19 02:10:12 127.0.0.1 GET /twitch/memory {} 
+2022/12/19 02:10:27 127.0.0.1 GET /twitch/memory {} 
+2022/12/19 02:19:36 127.0.0.1 GET /twitch/memory {} 
+2022/12/19 02:19:43 127.0.0.1 GET /twitch/queue {} 
+2022/12/19 02:28:04 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/19 02:28:04 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/19 02:28:34 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%ED%95%9C%EB%8F%99%EC%88%99&follower_requirements=100
+2022/12/19 02:28:34 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%ED%95%9C%EB%8F%99%EC%88%99&follower_requirements=100
+2022/12/19 03:24:17 127.0.0.1 GET /twitch/memory {} 
+2022/12/19 03:24:48 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%ED%95%9C%EB%8F%99%EC%88%99&follower_requirements=100
+2022/12/19 03:24:48 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%ED%95%9C%EB%8F%99%EC%88%99&follower_requirements=100
+2022/12/19 03:53:40 127.0.0.1 GET / {} 
+2022/12/19 03:53:40 127.0.0.1 GET /favicon.ico {} 
+2022/12/19 03:53:40 127.0.0.1 GET /apple-touch-icon-precomposed.png {} 
+2022/12/19 03:53:40 127.0.0.1 GET /apple-touch-icon.png {} 
+2022/12/19 03:53:41 127.0.0.1 GET / {} 
+2022/12/19 03:53:42 127.0.0.1 GET /twitch/refreshdata {} by=itself&password=pw1234&start_rank=1&end_rank=10&skip_already_done=false&update_follow=True
+2022/12/19 03:53:44 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 03:54:02 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 03:55:44 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 03:56:38 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 04:06:45 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 04:08:05 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 04:08:55 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 04:13:35 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 04:13:36 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 04:14:04 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 04:14:34 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 04:14:52 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 04:24:21 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 04:25:04 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 04:25:59 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 04:25:59 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 04:26:00 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 04:26:00 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 04:44:17 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 05:35:43 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 05:36:17 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 05:37:18 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 05:37:18 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 05:37:41 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 05:39:31 127.0.0.1 OPTIONS /twitch/streams/ {} 
+2022/12/19 05:39:31 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 05:39:31 127.0.0.1 OPTIONS /twitch/streams {} 
+2022/12/19 05:39:31 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 05:55:11 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/19 05:55:11 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/19 05:56:42 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/19 05:57:06 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/19 20:53:42 127.0.0.1 OPTIONS /twitch/streams/ {} 
+2022/12/19 20:53:42 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 20:53:43 127.0.0.1 OPTIONS /twitch/streams {} 
+2022/12/19 20:53:43 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:02:03 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:02:03 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:04:57 127.0.0.1 OPTIONS /twitch/streams/ {} 
+2022/12/19 21:04:57 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:04:57 127.0.0.1 OPTIONS /twitch/streams {} 
+2022/12/19 21:04:57 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:04:58 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:04:58 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:05:08 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:05:08 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:05:09 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:05:09 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:06:59 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:06:59 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:08:47 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:08:47 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:09:15 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:09:15 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:09:56 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:09:56 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:10:08 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:10:08 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:10:19 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:10:19 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:10:43 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:10:43 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:10:44 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:10:44 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:10:55 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:10:55 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:12:21 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/19 21:12:21 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/19 21:14:08 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:14:08 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:14:08 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:14:08 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:14:54 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:14:54 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:15:56 127.0.0.1 OPTIONS /twitch/streams/ {} 
+2022/12/19 21:15:56 127.0.0.1 OPTIONS /twitch/streams {} 
+2022/12/19 21:15:57 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:15:57 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:15:57 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:15:57 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:18:12 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:18:12 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:18:30 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:18:30 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:19:02 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:19:02 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:19:04 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:19:04 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:19:50 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:19:50 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:20:08 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:20:08 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:21:05 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:21:05 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:48:20 127.0.0.1 OPTIONS /twitch/streams/ {} 
+2022/12/19 21:48:20 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:48:21 127.0.0.1 OPTIONS /twitch/streams {} 
+2022/12/19 21:48:21 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:48:47 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/19 21:48:47 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/19 21:49:02 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:49:02 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:50:46 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:50:46 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 21:50:48 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 21:50:48 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 22:02:39 127.0.0.1 OPTIONS /twitch/streams/ {} 
+2022/12/19 22:02:39 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 22:02:39 127.0.0.1 OPTIONS /twitch/streams {} 
+2022/12/19 22:02:39 127.0.0.1 GET /twitch/streams {} 
+2022/12/19 22:36:39 127.0.0.1 OPTIONS /twitch/watchingbroadcasts/탬탬버린 {} 
+2022/12/19 22:36:39 127.0.0.1 GET /twitch/watchingbroadcasts/탬탬버린 {} 
+2022/12/19 22:36:39 127.0.0.1 GET /twitch/watchingbroadcasts/탬탬버린 {} 
+2022/12/19 22:39:15 127.0.0.1 OPTIONS /twitch/watchingbroadcasts {} query=%ED%83%AC%ED%83%AC%EB%B2%84%EB%A6%B0
+2022/12/19 22:39:15 127.0.0.1 GET /twitch/watchingbroadcasts {} query=%ED%83%AC%ED%83%AC%EB%B2%84%EB%A6%B0
+2022/12/19 22:39:19 127.0.0.1 GET /twitch/watchingbroadcasts {} query=%ED%83%AC%ED%83%AC%EB%B2%84%EB%A6%B0
+2022/12/19 22:39:53 127.0.0.1 GET /twitch/watchingbroadcasts {} query=%ED%83%AC%ED%83%AC%EB%B2%84%EB%A6%B0
+2022/12/19 22:39:55 127.0.0.1 GET /twitch/watchingbroadcasts {} query=%ED%83%AC%ED%83%AC%EB%B2%84%EB%A6%B0
+2022/12/19 22:39:56 127.0.0.1 GET /twitch/watchingbroadcasts {} query=%ED%83%AC%ED%83%AC%EB%B2%84%EB%A6%B0
+2022/12/19 22:40:00 127.0.0.1 GET /twitch/watchingbroadcasts {} query=%ED%83%AC%ED%83%AC%EB%B2%84%EB%A6%B0
+2022/12/19 22:40:14 127.0.0.1 GET /twitch/watchingbroadcasts {} query=%ED%83%AC%ED%83%AC%EB%B2%84%EB%A6%B0
+2022/12/19 22:44:13 127.0.0.1 OPTIONS /twitch/watchingbroadcasts {} query=%ED%83%AC%ED%83%AC%EB%B2%84%EB%A6%B0
+2022/12/19 22:44:13 127.0.0.1 GET /twitch/watchingbroadcasts {} query=%ED%83%AC%ED%83%AC%EB%B2%84%EB%A6%B0
+2022/12/19 22:44:27 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/19 22:44:27 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/19 22:44:34 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%EC%9A%B0%EC%99%81%EA%B5%B3&follower_requirements=100
+2022/12/19 22:44:55 127.0.0.1 GET /twitch/watchingbroadcasts {} query=%ED%83%AC%ED%83%AC%EB%B2%84%EB%A6%B0
+2022/12/19 22:46:27 127.0.0.1 GET /twitch/watchingbroadcasts {} query=%ED%83%AC%ED%83%AC%EB%B2%84%EB%A6%B0
+2022/12/19 22:46:31 127.0.0.1 GET /twitch/watchingbroadcasts {} query=%ED%83%AC%ED%83%AC%EB%B2%84%EB%A6%B0
+2022/12/19 23:27:52 127.0.0.1 OPTIONS /twitch/streams/ {} 
+2022/12/19 23:27:52 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/19 23:27:52 127.0.0.1 OPTIONS /twitch/streams {} 
+2022/12/19 23:27:52 127.0.0.1 GET /twitch/streams {} 
+2022/12/20 01:06:19 127.0.0.1 OPTIONS /twitch/streams/ {} 
+2022/12/20 01:06:19 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/20 01:06:19 127.0.0.1 OPTIONS /twitch/streams {} 
+2022/12/20 01:06:19 127.0.0.1 GET /twitch/streams {} 
+2022/12/20 01:06:23 127.0.0.1 OPTIONS /twitch/watchingbroadcasts {} query=%EC%9A%B8%ED%94%84
+2022/12/20 01:06:23 127.0.0.1 GET /twitch/watchingbroadcasts {} query=%EC%9A%B8%ED%94%84
+2022/12/20 01:09:20 127.0.0.1 GET /twitch/watchingbroadcasts {} query=%EC%9A%B8%ED%94%84
+2022/12/20 01:10:09 127.0.0.1 GET /twitch/watchingbroadcasts {} query=%EC%9A%B8%ED%94%84
+2022/12/20 01:11:00 127.0.0.1 GET /twitch/watchingbroadcasts {} query=%EC%9A%B8%ED%94%84
+2022/12/20 01:12:07 127.0.0.1 GET /twitch/watchingbroadcasts {} query=%EC%9A%B8%ED%94%84
+2022/12/20 01:12:08 127.0.0.1 GET /twitch/watchingbroadcasts {} query=%EC%9A%B8%ED%94%84
+2022/12/20 01:12:09 127.0.0.1 GET /twitch/watchingbroadcasts {} query=%EC%9A%B8%ED%94%84
+2022/12/20 11:28:27 127.0.0.1 OPTIONS /twitch/streams/ {} 
+2022/12/20 11:28:27 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/20 11:28:27 127.0.0.1 OPTIONS /twitch/streams {} 
+2022/12/20 11:28:27 127.0.0.1 GET /twitch/streams {} 
+2022/12/22 05:55:13 127.0.0.1 GET / {} 
+2022/12/22 05:55:15 127.0.0.1 GET / {} 
+2022/12/22 05:55:16 127.0.0.1 GET /twitch/streams {} 
+2022/12/22 05:55:18 127.0.0.1 GET /twitch/queue {} 
+2022/12/22 05:55:19 127.0.0.1 GET /twitch/queue {} 
+2022/12/22 05:55:19 127.0.0.1 GET /twitch/queue {} 
+2022/12/22 05:55:21 127.0.0.1 GET /twitch/banned/ {} 
+2022/12/22 05:55:22 127.0.0.1 GET /twitch/streams {} 
+2022/12/22 05:55:22 127.0.0.1 GET /twitch/thread {} 
+2022/12/22 05:55:38 127.0.0.1 GET /twitch/thread_status {} 
+2022/12/22 05:55:41 127.0.0.1 GET /twitch/thread_status {} 
+2022/12/22 05:56:20 127.0.0.1 GET /twitch/thread_manage {} name=get_followers&num=3%5C
+2022/12/22 05:56:24 127.0.0.1 GET /twitch/thread_manage {} name=get_followers&num=3
+2022/12/22 05:56:28 127.0.0.1 GET /twitch/thread_manage {} name=get_followers&num=3
+2022/12/22 05:56:28 127.0.0.1 GET /twitch/thread_manage {} name=get_followers&num=0
+2022/12/22 05:56:29 127.0.0.1 GET /twitch/thread_status {} 
+2022/12/22 05:56:30 127.0.0.1 GET /twitch/thread_status {} 
+2022/12/22 05:56:42 127.0.0.1 OPTIONS /twitch/streams/ {} 
+2022/12/22 05:56:42 127.0.0.1 GET /twitch/streams/ {} 
+2022/12/22 05:56:42 127.0.0.1 OPTIONS /twitch/streams {} 
+2022/12/22 05:56:42 127.0.0.1 GET /twitch/streams {} 
+2022/12/22 05:56:51 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%ED%95%9C%EB%8F%84%EC%9B%83%E3%85%85&follower_requirements=100
+2022/12/22 05:56:51 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%ED%95%9C%EB%8F%84%EC%9B%83%E3%85%85&follower_requirements=100
+2022/12/22 05:56:54 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=%ED%95%9C%EB%8F%99%EC%88%99&follower_requirements=100
+2022/12/22 05:56:54 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=%ED%95%9C%EB%8F%99%EC%88%99&follower_requirements=100
+2023/01/21 03:14:15 127.0.0.1 OPTIONS /twitch/populariswatchingapi/ {} query=
+2023/01/21 03:14:15 127.0.0.1 GET /twitch/populariswatchingapi/ {} query=
+2023/01/21 03:18:33 127.0.0.1 OPTIONS /twitch/menu/ {} remove=watching
+2023/01/21 03:18:33 127.0.0.1 GET /twitch/menu/ {} remove=watching
+2023/01/21 03:18:33 127.0.0.1 OPTIONS /twitch/menu {} remove=watching
+2023/01/21 03:18:33 127.0.0.1 GET /twitch/menu {} remove=watching
+2023/01/21 03:58:01 127.0.0.1 GET /twitch/menu {} 
+2023/01/21 03:58:01 127.0.0.1 GET /favicon.ico {} 
+2023/01/21 03:58:40 127.0.0.1 GET /twitch/menu {} 
+2023/01/21 03:58:50 127.0.0.1 GET /twitch/menu {} remove=stream

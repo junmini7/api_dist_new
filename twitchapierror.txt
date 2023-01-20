@@ -1,0 +1,207 @@
+최홍자(hongja1027), 2022-12-12 19:06:14.549236
+(False, {'_id': ObjectId('639702ed4afd7e5c715a3325'), 'id': '46834933', 'last_updated': datetime.datetime(2022, 12, 17, 2, 39, 52, 176000), 'moderators_num': 7, 'vips_num': 27}), 연두는말안드뤄(rudbeckia7), 2022-12-19 22:38:29.436553
+Traceback (most recent call last):
+  File "/Users/junmin/github/api/./dd.py", line 337, in role_broadcaster
+    self.update_roles()
+  File "/Users/junmin/github/api/./dd.py", line 274, in update_roles
+    D.role_update_all(datas, self)
+  File "/Users/junmin/github/api/./dd.py", line 1058, in role_update_all
+    role_ids = [i['id'] for i in this_data]
+  File "/Users/junmin/github/api/./dd.py", line 1058, in <listcomp>
+    role_ids = [i['id'] for i in this_data]
+TypeError: 'NoneType' object is not subscriptable
+
+(False, False), 최순대(choi1137), 2022-12-19 23:27:51.415358
+Traceback (most recent call last):
+  File "/Users/junmin/github/api/./dd.py", line 304, in follow_from
+    self.update_followings()
+  File "/Users/junmin/github/api/./dd.py", line 281, in update_followings
+    req = T.following(self.id, end)
+  File "/Users/junmin/github/api/./dd.py", line 1432, in following
+    cursor = req['pagination']['cursor']
+KeyError: 'cursor'
+
+(False, False), 흰동_(h_doung), 2022-12-20 01:06:22.843076
+Traceback (most recent call last):
+  File "/Users/junmin/github/api/./dd.py", line 304, in follow_from
+    self.update_followings()
+  File "/Users/junmin/github/api/./dd.py", line 281, in update_followings
+    req = T.following(self.id, end)
+  File "/Users/junmin/github/api/./dd.py", line 1432, in following
+    cursor = req['pagination']['cursor']
+KeyError: 'cursor'
+
+(False, False), 小老虎虎虎虎(max00428), 2022-12-20 01:06:49.807056
+Traceback (most recent call last):
+  File "/Users/junmin/github/api/./dd.py", line 304, in follow_from
+    self.update_followings()
+  File "/Users/junmin/github/api/./dd.py", line 281, in update_followings
+    req = T.following(self.id, end)
+  File "/Users/junmin/github/api/./dd.py", line 1432, in following
+    cursor = req['pagination']['cursor']
+KeyError: 'cursor'
+
+(False, False), 흰동_(h_doung), 2022-12-20 01:09:45.427322
+Traceback (most recent call last):
+  File "/Users/junmin/github/api/./dd.py", line 304, in follow_from
+    self.update_followings()
+  File "/Users/junmin/github/api/./dd.py", line 281, in update_followings
+    req = T.following(self.id, end)
+  File "/Users/junmin/github/api/./dd.py", line 1432, in following
+    cursor = req['pagination']['cursor']
+KeyError: 'cursor'
+
+(False, False), 흰동_(h_doung), 2022-12-20 01:10:35.920711
+Traceback (most recent call last):
+  File "/Users/junmin/github/api/./dd.py", line 304, in follow_from
+    self.update_followings()
+  File "/Users/junmin/github/api/./dd.py", line 281, in update_followings
+    req = T.following(self.id, end)
+  File "/Users/junmin/github/api/./dd.py", line 1432, in following
+    cursor = req['pagination']['cursor']
+KeyError: 'cursor'
+
+(False, False), 小老虎虎虎虎(max00428), 2022-12-20 01:10:44.796857
+Traceback (most recent call last):
+  File "/Users/junmin/github/api/./dd.py", line 304, in follow_from
+    self.update_followings()
+  File "/Users/junmin/github/api/./dd.py", line 281, in update_followings
+    req = T.following(self.id, end)
+  File "/Users/junmin/github/api/./dd.py", line 1432, in following
+    cursor = req['pagination']['cursor']
+KeyError: 'cursor'
+
+(False, False), 흰동_(h_doung), 2022-12-20 01:11:31.850022
+Traceback (most recent call last):
+  File "/Users/junmin/github/api/./dd.py", line 304, in follow_from
+    self.update_followings()
+  File "/Users/junmin/github/api/./dd.py", line 281, in update_followings
+    req = T.following(self.id, end)
+  File "/Users/junmin/github/api/./dd.py", line 1432, in following
+    cursor = req['pagination']['cursor']
+KeyError: 'cursor'
+
+(False, False), 小老虎虎虎虎(max00428), 2022-12-20 01:11:40.697401
+Traceback (most recent call last):
+  File "/Users/junmin/github/api/./dd.py", line 304, in follow_from
+    self.update_followings()
+  File "/Users/junmin/github/api/./dd.py", line 281, in update_followings
+    req = T.following(self.id, end)
+  File "/Users/junmin/github/api/./dd.py", line 1432, in following
+    cursor = req['pagination']['cursor']
+KeyError: 'cursor'
+
+(False, False), 흰동_(h_doung), 2022-12-20 01:12:43.104663
+Traceback (most recent call last):
+  File "/Users/junmin/github/api/./dd.py", line 304, in follow_from
+    self.update_followings()
+  File "/Users/junmin/github/api/./dd.py", line 281, in update_followings
+    req = T.following(self.id, end)
+  File "/Users/junmin/github/api/./dd.py", line 1432, in following
+    cursor = req['pagination']['cursor']
+KeyError: 'cursor'
+
+(False, False), 小老虎虎虎虎(max00428), 2022-12-20 01:12:51.967953
+Traceback (most recent call last):
+  File "/Users/junmin/github/api/./dd.py", line 304, in follow_from
+    self.update_followings()
+  File "/Users/junmin/github/api/./dd.py", line 281, in update_followings
+    req = T.following(self.id, end)
+  File "/Users/junmin/github/api/./dd.py", line 1432, in following
+    cursor = req['pagination']['cursor']
+KeyError: 'cursor'
+
+(False, False), Torelol(torelol), 2022-12-20 01:14:11.471560
+Traceback (most recent call last):
+  File "/Users/junmin/github/api/./dd.py", line 304, in follow_from
+    self.update_followings()
+  File "/Users/junmin/github/api/./dd.py", line 281, in update_followings
+    req = T.following(self.id, end)
+  File "/Users/junmin/github/api/./dd.py", line 1432, in following
+    cursor = req['pagination']['cursor']
+KeyError: 'cursor'
+
+(False, False), 흰동_(h_doung), 2022-12-20 01:17:43.346071
+Traceback (most recent call last):
+  File "/Users/junmin/github/api/./dd.py", line 304, in follow_from
+    self.update_followings()
+  File "/Users/junmin/github/api/./dd.py", line 281, in update_followings
+    req = T.following(self.id, end)
+  File "/Users/junmin/github/api/./dd.py", line 1432, in following
+    cursor = req['pagination']['cursor']
+KeyError: 'cursor'
+
+(False, False), 小老虎虎虎虎(max00428), 2022-12-20 01:18:08.157172
+Traceback (most recent call last):
+  File "/Users/junmin/github/api/./dd.py", line 304, in follow_from
+    self.update_followings()
+  File "/Users/junmin/github/api/./dd.py", line 281, in update_followings
+    req = T.following(self.id, end)
+  File "/Users/junmin/github/api/./dd.py", line 1432, in following
+    cursor = req['pagination']['cursor']
+KeyError: 'cursor'
+
+(False, False), 흰동_(h_doung), 2022-12-20 01:22:45.203328
+Traceback (most recent call last):
+  File "/Users/junmin/github/api/./dd.py", line 304, in follow_from
+    self.update_followings()
+  File "/Users/junmin/github/api/./dd.py", line 281, in update_followings
+    req = T.following(self.id, end)
+  File "/Users/junmin/github/api/./dd.py", line 1432, in following
+    while len(req['data']) < end:
+KeyError: 'cursor'
+
+(False, False), 小老虎虎虎虎(max00428), 2022-12-20 01:22:54.188908
+Traceback (most recent call last):
+  File "/Users/junmin/github/api/./dd.py", line 304, in follow_from
+    self.update_followings()
+  File "/Users/junmin/github/api/./dd.py", line 281, in update_followings
+    req = T.following(self.id, end)
+  File "/Users/junmin/github/api/./dd.py", line 1432, in following
+    while len(req['data']) < end:
+KeyError: 'cursor'
+
+(False, False), 흰동_(h_doung), 2022-12-20 01:27:46.382112
+Traceback (most recent call last):
+  File "/Users/junmin/github/api/./dd.py", line 304, in follow_from
+    self.update_followings()
+  File "/Users/junmin/github/api/./dd.py", line 281, in update_followings
+    req = T.following(self.id, end)
+  File "/Users/junmin/github/api/./dd.py", line 1432, in following
+    while len(req['data']) < end:
+KeyError: 'cursor'
+
+(False, False), 흰동_(h_doung), 2022-12-22 03:32:08.132043
+Traceback (most recent call last):
+  File "/Users/junmin/github/api/dd.py", line 328, in follow_from
+    self.update_followings()
+  File "/Users/junmin/github/api/dd.py", line 305, in update_followings
+    req = T.following(self.id, end)
+  File "/Users/junmin/github/api/dd.py", line 1673, in following
+    cursor = req["pagination"]["cursor"]
+KeyError: 'cursor'
+
+(False, False), 흰동_(h_doung), 2022-12-22 03:34:02.210968
+Traceback (most recent call last):
+  File "/Users/junmin/github/api/dd.py", line 328, in follow_from
+    self.update_followings()
+  File "/Users/junmin/github/api/dd.py", line 305, in update_followings
+    req = T.following(self.id, end)
+  File "/Users/junmin/github/api/dd.py", line 1673, in following
+    cursor = req["pagination"]["cursor"]
+KeyError: 'cursor'
+
+(False, {'_id': ObjectId('6396fe6b4afd7e5c7159c729'), 'id': '489558844', 'last_updated': datetime.datetime(2022, 12, 15, 20, 58, 1, 763000), 'moderators_num': 19, 'vips_num': 42}), irelking3(irelking3), 2023-01-21 03:14:14.199205
+Traceback (most recent call last):
+  File "/Users/junmin/github/api/core.py", line 363, in role_broadcaster
+    self.update_roles()
+  File "/Users/junmin/github/api/core.py", line 286, in update_roles
+    D.role_update_all(datas, self)
+  File "/Users/junmin/github/api/core.py", line 1134, in role_update_all
+    role_ids = [i["id"] for i in this_data]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/junmin/github/api/core.py", line 1134, in <listcomp>
+    role_ids = [i["id"] for i in this_data]
+                ~^^^^^^
+TypeError: 'NoneType' object is not subscriptable
+
