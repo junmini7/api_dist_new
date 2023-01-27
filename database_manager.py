@@ -12,7 +12,7 @@ from threading import Thread
 import copy
 import settings
 import jinja2
-
+from tools import button_templete
 
 settings.init()
 
@@ -140,7 +140,6 @@ class Streamer:
             login_disp=self.login != self.name.lower(),
         )
 
-
     def __eq__(self, other):
         if not isinstance(other, Streamer):
             # don't attempt to compare against unrelated types
@@ -157,13 +156,34 @@ class Streamer:
     def abbreviate(self) -> str:
         return f"{self.id},{self.login}"
 
+    def buttons(self, remove: List[str] = []):
+        dic = {
+            "streamer_watching_streamer": f"{self.name}의 방송을 보는 스트리머",
+            "watching_broadcasts": self.name + "이 보는 방송",
+            "following": f"{tools.yi(self.name)} 팔로우하는 스트리머",
+            "followed": f"{tools.eul(self.name)} 팔로우하는 스트리머",
+            "managers": f"{self.name}의 매니저 목록",
+            "as_manager": f"{tools.yi(self.name)} 매니저인 방송",
+            "history": f"{self.name}의 과거 아이디 및 이름들",
+        }
+        result = [
+            """<div class="col-12 col-md-5 col-xl-3 centering" style="margin-bottom:10px"><div class="row">
+                <button class='btn btn-primary' onclick='copyToClipboard(window.location.href)'>결과 링크 복사</button></div></div>"""
+        ]
+        for menu in dic:
+            if not menu in remove:
+                result.append(
+                    button_templete(f"/twitch/{menu}?query={self.login}", dic[menu])
+                )
+        return result
+
     def refresh(self):
-        self.data = D.db.streamers_data.find_one({"_id": self._id})
+        self.data = DatabaseHandler.db.streamers_data.find_one({"_id": self._id})
 
     def update_with_datas(self, update_data):
         # 왠만하면 _id로 찾아서 업데이트, 개빠름
         try:
-            D.db.streamers_data.update_one({"_id": self._id}, update_data)
+            DatabaseHandler.db.streamers_data.update_one({"_id": self._id}, update_data)
         except:
             print(update_data)
         self.refresh()
@@ -191,7 +211,7 @@ class Streamer:
     """
 
     def update_itself(self):
-        result = D.update_from_id([self.id], False)
+        result = DatabaseHandler.update_from_id([self.id], False)
         self.refresh()
         return result
 
@@ -215,7 +235,7 @@ class Streamer:
         self, follower_requirements: int = -1, limit=None
     ) -> Dict[str, List[Streamer] | List[str] | int]:
         start_time = time.time()
-        watchers = T.view(self.login)
+        watchers = RequestHandler.view(self.login)
         # managers = self.role_update(watchers) 나중에 irc 안되면 쓰기
         result = {
             "broadcaster": watchers["broadcaster"],
@@ -225,12 +245,12 @@ class Streamer:
         if follower_requirements == -1:
 
             # db.collection.find( { $query: {}, $orderby: { age : -1 } } )
-            datas = D.db.streamers_data.find(
+            datas = DatabaseHandler.db.streamers_data.find(
                 {"login": {"$in": watchers["viewers"]}}
             ).sort("followers", -1)
 
         else:
-            datas = D.db.streamers_data.find(
+            datas = DatabaseHandler.db.streamers_data.find(
                 {
                     "login": {"$in": watchers["viewers"]},
                     "followers": {"$gte": max(follower_requirements, 100)},
@@ -304,15 +324,15 @@ class Streamer:
     def update_roles(self):
         print(f"updating roles of {self.login}")
         start_time = time.time()
-        datas = T.role_from_broadcaster(self.login)
+        datas = RequestHandler.role_from_broadcaster(self.login)
         print(f"getting role api took {time.time() - start_time}s")
-        D.role_update_all(datas, self)
+        DatabaseHandler.role_update_all(datas, self)
 
     def update_followers_num(self):
         self.update_with_datas(
             {
                 "$set": {
-                    "followers": T.followed(self.id, 100)["total"],
+                    "followers": RequestHandler.followed(self.id, 100)["total"],
                     "last_updated": tools.now(),
                 }
             }
@@ -328,16 +348,16 @@ class Streamer:
     def update_followings(self):
         print(f"updating following of {self.login}")
         start_time = time.time()
-        data = T.following(self.id)
+        data = RequestHandler.following(self.id)
         open("following_api.txt", "a").write(f"{self} {tools.now()}")
         print(f"getting following api took {time.time() - start_time}s")
-        D.follow_update_all(data, self)
+        DatabaseHandler.follow_update_all(data, self)
 
     # 매니저들은 어차피 전부 포함하므로 role update의 결과로 사용
     # $in으로 잘 찾기(시간복잡도)
     # Streamer 객체로 모두 전달하기
     def follow_crawled(self):
-        data = D.db.follow_data_information.find_one({"id": self.id})
+        data = DatabaseHandler.db.follow_data_information.find_one({"id": self.id})
         if not data:
             return False, False
         if tools.now() - data["last_updated"] > settings.update_after:
@@ -354,7 +374,7 @@ class Streamer:
                     f"{str(crawled_inf)}, {self}, {tools.now()}\n{traceback.format_exc()}\n"
                 )
 
-        return D.follow(self.id, "from", valid_necessary)
+        return DatabaseHandler.follow(self.id, "from", valid_necessary)
         # assert not valid_necessary or D.db.follow_data_information.find_one({'id': self.id})['following_num'] == len(result)
         # follow reqments 쓰면 assert 성립 X
 
@@ -366,13 +386,13 @@ class Streamer:
                 self.update_followings()
             else:
                 raise FileNotFoundError
-        return D.follow_check(self.id, to_streamer.id, valid_necessary)
+        return DatabaseHandler.follow_check(self.id, to_streamer.id, valid_necessary)
 
     def follow_to(self, valid_necessary=True):
-        return D.follow(self.id, "to", valid_necessary)
+        return DatabaseHandler.follow(self.id, "to", valid_necessary)
 
     def role_crawled(self):
-        data = D.db.role_data_information.find_one({"id": self.id})
+        data = DatabaseHandler.db.role_data_information.find_one({"id": self.id})
         if not data:
             return False, False
         if tools.now() - data["last_updated"] > settings.update_after:
@@ -388,10 +408,10 @@ class Streamer:
                 open("twitchapierror.txt", "a").write(
                     f"{str(crawled_inf)}, {self}, {tools.now()}\n{traceback.format_exc()}\n"
                 )
-        return D.role(self.id, "broadcaster", valid_necessary)
+        return DatabaseHandler.role(self.id, "broadcaster", valid_necessary)
 
     def role_member(self, valid_necessary=True):
-        return D.role(self.id, "member", valid_necessary)
+        return DatabaseHandler.role(self.id, "member", valid_necessary)
 
     """
     By default :meth:find_one_and_update returns the original version of the document before the update was applied. To return the updated version of the document instead, use the return_document option.
@@ -487,7 +507,7 @@ If multiple documents match filter, a sort can be applied."""
             return -1
 
 
-class D:
+class DatabaseHandler:
     client = MongoClient()
     db = client.api
 
@@ -639,13 +659,14 @@ class D:
         known_streamers, unknown_logins = cls.streamers_datas("login", logins_queue)
         # cls.streamers_data_multiple('login', logins_queue)
         if unknown_logins:
-            reqs, failed = T.streamers_info_api_from_login(unknown_logins)
+            reqs, failed = RequestHandler.streamers_info_api_from_login(unknown_logins)
         else:
             reqs, failed = [], []
         if not skip:
-            reqs_temp, banned_streamers = T.streamers_info_api_from_streamer(
-                known_streamers
-            )
+            (
+                reqs_temp,
+                banned_streamers,
+            ) = RequestHandler.streamers_info_api_from_streamer(known_streamers)
             reqs += reqs_temp
         else:
             banned_streamers = []
@@ -671,13 +692,14 @@ class D:
         known_streamers, unknown_ids = cls.streamers_datas("id", ids_queue)
         # cls.streamers_data_multiple('login', logins_queue)
         if unknown_ids:
-            reqs, failed = T.streamers_info_api_from_id(unknown_ids)
+            reqs, failed = RequestHandler.streamers_info_api_from_id(unknown_ids)
         else:
             reqs, failed = [], []
         if not skip:
-            reqs_temp, banned_streamers = T.streamers_info_api_from_streamer(
-                known_streamers
-            )
+            (
+                reqs_temp,
+                banned_streamers,
+            ) = RequestHandler.streamers_info_api_from_streamer(known_streamers)
             reqs += reqs_temp
         else:
             banned_streamers = []
@@ -887,8 +909,10 @@ class D:
             ]
 
     @classmethod
-    def currently_banned(cls):
-        return cls.db.streamers_data.find({"banned": True})
+    def currently_banned(cls, lang="ko"):
+        return cls.db.streamers_data.find({"banned": True, "lang": lang}).sort(
+            "followers", -1
+        )
 
     @classmethod
     def small_streamers(cls, follower_requirements):
@@ -913,6 +937,10 @@ class D:
         )
 
     # 이거 개오래 걸림 filter 여러개
+
+    @classmethod
+    def role_fired(cls):
+        return cls.db.role_data.find({"valid": False})
 
     # {'id': '67708794', 'login': 'nix', 'name': 'Nix', 'when': datetime.datetime(2022, 10, 23, 19, 5, 27), 'last_updated': datetime.datetime(2022, 10, 23, 20, 37, 11, 574842)}
     # {'from_id': '49045679', 'from_login': 'woowakgood', 'from_name': '우왁굳', 'to_id': '693895624', 'to_login': 'wakphago', 'to_name': '왁파고_', 'followed_at': 10-01T13:11:39Z'},
@@ -942,6 +970,10 @@ class D:
         id = cls.streamers_data(search_by, query).id
         result = list(cls.follow(id, direction, valid_necessary))
         return result
+
+    @classmethod
+    def unfollow(cls):
+        return cls.db.follow_data.find({"valid": False})
 
     @classmethod
     def follow_update_all(cls, datas, streamer_in_interest):
@@ -1401,17 +1433,17 @@ The error class to raise, of course, is up to you. ValueError is best if the ini
 """
 
 
-class T:
+class RequestHandler:
     header_index = 0
     last_time = time.time()
-    header = [{} for i in range(len(D.api_key()))]
+    header = [{} for i in range(len(DatabaseHandler.api_key()))]
     now_working_on_view = {}
     temp_view = {}
 
     @classmethod
     def header_update(cls):
         start_time = time.time()
-        for i, client_info in enumerate(D.api_key()):
+        for i, client_info in enumerate(DatabaseHandler.api_key()):
             response = requests.post(
                 f"https://id.twitch.tv/oauth2/token?client_id={client_info['id']}&client_secret={client_info['secret']}&grant_type=client_credentials"
             )
@@ -1620,7 +1652,9 @@ class T:
     ) -> Tuple[List[Dict], List[Streamer]]:
         start_time = time.time()
         assert all(isinstance(i, Streamer) for i in streamers_list)
-        reqs, banned_ids = T.streamers_info_api_from_id([i.id for i in streamers_list])
+        reqs, banned_ids = RequestHandler.streamers_info_api_from_id(
+            [i.id for i in streamers_list]
+        )
         banned_streamers = [
             streamer for streamer in streamers_list if streamer.id in banned_ids
         ]
@@ -1732,14 +1766,18 @@ class T:
     # request가 존재하면 무조건 T로 집어 넣기
 
     @classmethod
-    def view(cls, login, view_elapsed_maximum=settings.view_elapsed_maximum_default):
+    def view(
+        cls,
+        login,
+        view_elapsed_maximum=settings.view_elapsed_maximum_default,
+    ):
         now = tools.now()
         if login in cls.temp_view:
             time_elapsed = now - cls.temp_view[login]["time"]
             if time_elapsed.seconds < view_elapsed_maximum:
-                if time_elapsed.seconds > view_elapsed_maximum - 10:
-                    if not cls.now_working_on_view[login]:
-                        Thread(target=cls.view_worker, args=(login,)).start()
+                # if time_elapsed.seconds > view_refresh_maximum:
+                #     if not cls.now_working_on_view[login]:
+                #         Thread(target=cls.view_worker, args=(login,)).start()
                 return cls.temp_view[login]["view"]
         if login in cls.now_working_on_view and cls.now_working_on_view[login]:
             start_time = time.time()
@@ -1786,6 +1824,7 @@ class T:
             "broadcaster": data["chatters"]["broadcaster"],
             "viewers": every_watchers,
         }
+        open("chatters_log_added_login_front.txt", "a").write(login+' '+str(data["chatters"]) + "\n")
         cls.temp_view[login] = {"view": result, "time": tools.now()}
         cls.now_working_on_view[login] = False
         return result
@@ -1814,12 +1853,12 @@ class T:
                 "https://api.twitchinsights.net/v1/bots/online"
             ).json()["bots"]
         }
-        D.db.bots_list.update_one(
+        DatabaseHandler.db.bots_list.update_one(
             {},
             {
                 "$set": {
-                    "all": list(set(D.bots_list(False)) | bots_list),
-                    "online": list(set(D.bots_list()) | bots_list_online),
+                    "all": list(set(DatabaseHandler.bots_list(False)) | bots_list),
+                    "online": list(set(DatabaseHandler.bots_list()) | bots_list_online),
                 }
             },
             upsert=True,
@@ -1829,12 +1868,12 @@ class T:
     @classmethod
     def append_bots_list(cls, bots_list: list):
         assert isinstance(bots_list, list)
-        D.db.bots_list.update_one(
+        DatabaseHandler.db.bots_list.update_one(
             {},
             {
                 "$set": {
-                    "all": list(set(D.bots_list(False)) | set(bots_list)),
-                    "online": list(set(D.bots_list()) | set(bots_list)),
+                    "all": list(set(DatabaseHandler.bots_list(False)) | set(bots_list)),
+                    "online": list(set(DatabaseHandler.bots_list()) | set(bots_list)),
                 }
             },
             upsert=True,
@@ -1850,8 +1889,8 @@ class T:
 
 
 try:
-    D.streamers_search_data_update()
-    T.header_update()
-    T.update_bots_list()
+    DatabaseHandler.streamers_search_data_update()
+    RequestHandler.header_update()
+    RequestHandler.update_bots_list()
 except:
     print("error")
