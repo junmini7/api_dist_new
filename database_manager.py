@@ -1,6 +1,7 @@
 from __future__ import annotations
 from pymongo import MongoClient, DeleteOne, ReplaceOne, UpdateOne, UpdateMany, InsertOne
-import tools
+
+import etc_manager
 import requests
 import json
 from typing import List, Set, Dict, Tuple, Any
@@ -12,7 +13,6 @@ from threading import Thread
 import copy
 import settings
 import jinja2
-from tools import button_templete
 
 settings.init()
 
@@ -120,11 +120,11 @@ class Streamer:
 
     @property
     def introduce(self) -> str:
-        return f"{self.country} 내 트위치 팔로워 <a href='{api_url}/twitch/addlogin/?logins={self.login}&skip_already_done=false&give_chance_to_hakko=true'>{self.localrank}위({tools.numtoko(self.followers)}명)</a> 인 {self.name} ({self.login})"  # {tools.tdtoko(tools.now() - self.last_updated)}전 확인)
+        return f"{self.country} 내 트위치 팔로워 <a href='{api_url}/twitch/addlogin/?logins={self.login}&skip_already_done=false&give_chance_to_hakko=true'>{self.localrank}위({etc_manager.numtoko(self.followers)}명)</a> 인 {self.name} ({self.login})"  # {tools.tdtoko(tools.now() - self.last_updated)}전 확인)
 
     @property
     def introduce_image(self):
-        return f"<a href='/twitch/streamer_watching_streamer/?query={self.login}'><img src='{self.profile_image}' width='100' height='100'></a> {self.name} ({self.login}), 팔로워 {tools.numtoko(self.followers)}명, {self.country} {self.localrank}위, {self.last_updated}에 마지막으로 확인"
+        return f"<a href='/twitch/streamer_watching_streamer/?query={self.login}'><img src='{self.profile_image}' width='100' height='100'></a> {self.name} ({self.login}), 팔로워 {etc_manager.numtoko(self.followers)}명, {self.country} {self.localrank}위, {self.last_updated}에 마지막으로 확인"
 
     @property
     def introduce_html(self):
@@ -132,10 +132,10 @@ class Streamer:
             login=self.login,
             image_url=self.profile_image,
             name=self.name,
-            follower=tools.numtoko(self.followers),
+            follower=etc_manager.numtoko(self.followers),
             country=self.country,
             rank=self.localrank,
-            time=tools.tdtoko(tools.now() - self.last_updated),
+            time=etc_manager.passed_time(self.last_updated),
             api_url=api_url,
             login_disp=self.login != self.name.lower(),
         )
@@ -160,10 +160,10 @@ class Streamer:
         dic = {
             "streamer_watching_streamer": f"{self.name}의 방송을 보는 스트리머",
             "watching_broadcasts": self.name + "이 보는 방송",
-            "following": f"{tools.yi(self.name)} 팔로우하는 스트리머",
-            "followed": f"{tools.eul(self.name)} 팔로우하는 스트리머",
+            "following": f"{etc_manager.yi(self.name)} 팔로우하는 스트리머",
+            "followed": f"{etc_manager.eul(self.name)} 팔로우하는 스트리머",
             "managers": f"{self.name}의 매니저 목록",
-            "as_manager": f"{tools.yi(self.name)} 매니저인 방송",
+            "as_manager": f"{etc_manager.yi(self.name)} 매니저인 방송",
             "history": f"{self.name}의 과거 아이디 및 이름들",
         }
         result = [
@@ -173,7 +173,9 @@ class Streamer:
         for menu in dic:
             if not menu in remove:
                 result.append(
-                    button_templete(f"/twitch/{menu}?query={self.login}", dic[menu])
+                    etc_manager.button_templete(
+                        f"/twitch/{menu}?query={self.login}", dic[menu]
+                    )
                 )
         return result
 
@@ -217,7 +219,7 @@ class Streamer:
 
     def update(self, data):
         if "display_name" in data:
-            data["clear_display_name"] = tools.clear_name(data["display_name"])
+            data["clear_display_name"] = etc_manager.clear_name(data["display_name"])
         data["banned"] = False
         update_data = {"$set": data, "$push": {}}
         # If the field is absent in the document to update, $push adds the array field with the value as its element.
@@ -232,7 +234,7 @@ class Streamer:
         return self
 
     def watching_streamers(
-        self, follower_requirements: int = -1, limit=None
+        self, follower_requirements: int = -1,
     ) -> Dict[str, List[Streamer] | List[str] | int]:
         start_time = time.time()
         watchers = RequestHandler.view(self.login)
@@ -268,7 +270,7 @@ class Streamer:
 
         with open("log_new.txt", "a") as f:
             f.write(
-                f'{tools.now().strftime("%Y/%m/%d %H:%M:%S")} {self.abbreviate} {result["count"]} polulariswatching {" ".join([i.abbreviate for i in result["viewers"]])}\n'
+                f'{etc_manager.now().strftime("%Y/%m/%d %H:%M:%S")} {self.abbreviate} {result["count"]} polulariswatching {" ".join([i.abbreviate for i in result["viewers"]])}\n'
             )
 
         print(f"watching streamer for {repr(self)} took {time.time() - start_time}s")
@@ -318,7 +320,7 @@ class Streamer:
 
     def ban(self):
         self.update_with_datas(
-            {"$set": {"banned": True}, "$push": {"banned_history": tools.now()}}
+            {"$set": {"banned": True}, "$push": {"banned_history": etc_manager.now()}}
         )
 
     def update_roles(self):
@@ -333,7 +335,7 @@ class Streamer:
             {
                 "$set": {
                     "followers": RequestHandler.followed(self.id, 100)["total"],
-                    "last_updated": tools.now(),
+                    "last_updated": etc_manager.now(),
                 }
             }
         )
@@ -341,7 +343,7 @@ class Streamer:
     def refresh_followers_num(self):
         if (
             "followers" not in self
-            or self.last_updated < tools.now() - settings.update_after
+            or self.last_updated < etc_manager.now() - settings.update_after
         ):
             self.update_followers_num()
 
@@ -349,7 +351,7 @@ class Streamer:
         print(f"updating following of {self.login}")
         start_time = time.time()
         data = RequestHandler.following(self.id)
-        open("following_api.txt", "a").write(f"{self} {tools.now()}")
+        open("following_api.txt", "a").write(f"{self} {etc_manager.now()}")
         print(f"getting following api took {time.time() - start_time}s")
         DatabaseHandler.follow_update_all(data, self)
 
@@ -360,7 +362,7 @@ class Streamer:
         data = DatabaseHandler.db.follow_data_information.find_one({"id": self.id})
         if not data:
             return False, False
-        if tools.now() - data["last_updated"] > settings.update_after:
+        if etc_manager.now() - data["last_updated"] > settings.update_after:
             return False, data
         return True, data
 
@@ -371,7 +373,7 @@ class Streamer:
                 self.update_followings()
             except:
                 open("twitchapierror.txt", "a").write(
-                    f"{str(crawled_inf)}, {self}, {tools.now()}\n{traceback.format_exc()}\n"
+                    f"{str(crawled_inf)}, {self}, {etc_manager.now()}\n{traceback.format_exc()}\n"
                 )
 
         return DatabaseHandler.follow(self.id, "from", valid_necessary)
@@ -395,7 +397,7 @@ class Streamer:
         data = DatabaseHandler.db.role_data_information.find_one({"id": self.id})
         if not data:
             return False, False
-        if tools.now() - data["last_updated"] > settings.update_after:
+        if etc_manager.now() - data["last_updated"] > settings.update_after:
             return False, data
         return True, data
 
@@ -406,7 +408,7 @@ class Streamer:
                 self.update_roles()
             except:
                 open("twitchapierror.txt", "a").write(
-                    f"{str(crawled_inf)}, {self}, {tools.now()}\n{traceback.format_exc()}\n"
+                    f"{str(crawled_inf)}, {self}, {etc_manager.now()}\n{traceback.format_exc()}\n"
                 )
         return DatabaseHandler.role(self.id, "broadcaster", valid_necessary)
 
@@ -461,7 +463,7 @@ If multiple documents match filter, a sort can be applied."""
 
     @property
     def country(self):
-        return tools.langcode_to_country(self.lang)
+        return etc_manager.langcode_to_country(self.lang)
 
     @property
     def localrank(self):
@@ -622,7 +624,7 @@ class DatabaseHandler:
         data_temp = (
             cls.db.streamers_data.find(
                 {
-                    "clear_display_name": tools.clear_name(query),
+                    "clear_display_name": etc_manager.clear_name(query),
                     "followers": {"$gte": followers_requirements},
                 }
             )
@@ -637,7 +639,7 @@ class DatabaseHandler:
             data_temp = cls.db.streamers_data.find_one({"id": query})
             if data_temp:
                 return Streamer(data_temp)
-        if tools.is_valid_login(query):
+        if etc_manager.is_valid_login(query):
             data_temp = cls.update_from_login([query])["data"]
             if data_temp:
                 return data_temp[0]
@@ -655,7 +657,7 @@ class DatabaseHandler:
     ) -> dict:  # return streamers
         # assert isinstance(logins_queue, (set, list))
         logins_queue = list(set([i.lower() for i in logins_queue]))
-        logins_queue, invalid_logins = tools.collect_valid_logins(logins_queue)
+        logins_queue, invalid_logins = etc_manager.collect_valid_logins(logins_queue)
         known_streamers, unknown_logins = cls.streamers_datas("login", logins_queue)
         # cls.streamers_data_multiple('login', logins_queue)
         if unknown_logins:
@@ -745,7 +747,7 @@ class DatabaseHandler:
     @classmethod
     def streamers_data_insert_one(cls, data):
         assert all(field in data for field in ["id", "login", "display_name"])
-        data["clear_display_name"] = tools.clear_name(data["display_name"])
+        data["clear_display_name"] = etc_manager.clear_name(data["display_name"])
         result = cls.db.streamers_data.insert_one(data)
         # cls.streamers_data_rank_refresh()
         return result
@@ -756,7 +758,9 @@ class DatabaseHandler:
         if datas:
             for data in datas:
                 assert all(field in data for field in ["id", "login", "display_name"])
-                data["clear_display_name"] = tools.clear_name(data["display_name"])
+                data["clear_display_name"] = etc_manager.clear_name(
+                    data["display_name"]
+                )
 
             result = cls.db.streamers_data.insert_many(datas)
             # if datas:
@@ -823,7 +827,7 @@ class DatabaseHandler:
     @classmethod
     def streamers_data_update_general(cls, search_by: str, query: str, data: dict):
         if "display_name" in data:
-            data["clear_display_name"] = tools.clear_name(data["display_name"])
+            data["clear_display_name"] = etc_manager.clear_name(data["display_name"])
         result = cls.db.streamers_data.update_one(
             {search_by: query}, {"$set": data}, upsert=True
         )
@@ -990,7 +994,7 @@ class DatabaseHandler:
             {
                 "$set": {
                     "id": from_id,
-                    "last_updated": tools.now(),
+                    "last_updated": etc_manager.now(),
                     "following_num": len(datas),
                 }
             },
@@ -1007,7 +1011,7 @@ class DatabaseHandler:
             updated_result = cls.db.follow_data.insert_many(datas)
             deleted_result = cls.db.follow_data.update_many(
                 {"from_id": from_id, "to_id": {"$nin": updated_ids}, "valid": True},
-                {"$set": {"valid": False, "last_updated": tools.now()}},
+                {"$set": {"valid": False, "last_updated": etc_manager.now()}},
             )
             # print(f"updating invalid follow took {time.time() - start_time}s")
             # find and modify is deprecated...
@@ -1175,14 +1179,14 @@ class DatabaseHandler:
             {
                 "$set": {
                     "id": broadcaster_id,
-                    "last_updated": tools.now(),
+                    "last_updated": etc_manager.now(),
                     "vips_num": len(datas["vips"]),
                     "moderators_num": len(datas["moderators"]),
                 }
             },
             upsert=True,
         )
-        now = tools.now()
+        now = etc_manager.now()
         for role in roles:
             this_data = datas[role]
             if this_data:
@@ -1278,6 +1282,36 @@ class DatabaseHandler:
 
             # converted follow_datas to streamers in 0.15557217597961426s
             follow_infos = list(follow_datas.sort("when", reverse_option))
+            total_follow = len(follow_infos)
+            follow_ids = [i[counter_key] for i in follow_infos]
+            if follower_requirements != -1:
+                streamer_infos = {
+                    i["id"]: Streamer(i)
+                    for i in cls.db.streamers_data.find(
+                        {
+                            "id": {"$in": follow_ids},
+                            "followers": {"$gte": follower_requirements},
+                        }
+                    )
+                }
+            else:
+                streamer_infos = {
+                    i["id"]: Streamer(i)
+                    for i in cls.db.streamers_data.find({"id": {"$in": follow_ids}})
+                }
+            failed_ids = list(set(follow_ids) - set(streamer_infos))
+            datas = [
+                {
+                    "valid": i["valid"],
+                    "last_updated": i["last_updated"],
+                    "when": i["when"],
+                    "streamer": streamer_infos[i[counter_key]],
+                }
+                for i in follow_infos
+                if i[counter_key] in streamer_infos
+            ]
+        elif sort_by == "canceled":
+            follow_infos = list(follow_datas.sort("when", 1).sort("valid", 1))
             total_follow = len(follow_infos)
             follow_ids = [i[counter_key] for i in follow_infos]
             if follower_requirements != -1:
@@ -1497,8 +1531,11 @@ class RequestHandler:
                 cursor = False
         data = data[:end]
         for i in data:
-            i["started_at"] = tools.twitch_parse(i["started_at"])
-            i["uptime"] = tools.now() - i["started_at"]
+            i["started_at"] = etc_manager.twitch_parse(i["started_at"])
+            i["uptime"] = etc_manager.now() - i["started_at"]
+        open("streams_log.txt", "a").write(
+            str(etc_manager.now()) + " " + str(data) + "\n"
+        )
         # print(len(data))
         return data
 
@@ -1532,8 +1569,8 @@ class RequestHandler:
             result += req
             index += 100
         for i in result:
-            i["started_at"] = tools.twitch_parse(i["started_at"])
-            i["uptime"] = tools.now() - i["started_at"]
+            i["started_at"] = etc_manager.twitch_parse(i["started_at"])
+            i["uptime"] = etc_manager.now() - i["started_at"]
         failed = list(set(id_list) - {i["user_id"] for i in result})
         return result, failed
 
@@ -1551,8 +1588,8 @@ class RequestHandler:
             result += req
             index += 100
         for i in result:
-            i["started_at"] = tools.twitch_parse(i["started_at"])
-            i["uptime"] = tools.now() - i["started_at"]
+            i["started_at"] = etc_manager.twitch_parse(i["started_at"])
+            i["uptime"] = etc_manager.now() - i["started_at"]
         failed = list(set(login_list) - {i["user_login"] for i in result})
         return result, failed
 
@@ -1599,18 +1636,18 @@ class RequestHandler:
         for i in datas:
             i["lang"] = id_to_lang_dict[i["id"]]
             i["banned"] = False
-            i["created_at"] = tools.twitch_parse(i["created_at"])
+            i["created_at"] = etc_manager.twitch_parse(i["created_at"])
 
     @classmethod
     def streamers_info_api_from_login(cls, login_list):
         start_time = time.time()
         assert isinstance(login_list, list)
-        assert tools.is_valid_logins(login_list)
+        assert etc_manager.is_valid_logins(login_list)
         if not login_list:
             return [], []
         # print(len(login_list))
         if "" in login_list:
-            tools.remove_all(login_list, "")
+            etc_manager.remove_all(login_list, "")
         result = []
         index = 0
         while index < len(login_list):
@@ -1671,43 +1708,34 @@ class RequestHandler:
         # ???
         url = f"https://api.twitch.tv/helix/users/follows?to_id={id}&first=100"
         req = cls.twitch_api(url).json()
-
         total = int(req["total"])
-        if total <= end:
-            end = total
-            ended = True
-        else:
-            ended = False
-        if req["total"] <= 100 and req["total"] != len(req["data"]):
-            end = 0
-        while len(req["data"]) < end:
-            cursor = req["pagination"]["cursor"]
-            # except:
-            #     print(req)
-            #     raise ValueError
+        data = copy.deepcopy(req["data"])
+        ended = total <= end  # 실제 데이터 개수는 total과 다르지만 전부 구했으니 노상관
+        # total<100이거나 len(data)<100면 애초에 pagination이 없었을것
+        while req["pagination"] and len(data) < end:
             url = (
                 "https://api.twitch.tv/helix/users/follows?to_id="
                 + id
                 + "&first=100&after="
-                + cursor
+                + req["pagination"]["cursor"]
             )
-            req_temp = cls.twitch_api(url).json()
-            req["data"] += req_temp["data"]
-            req["pagination"] = req_temp["pagination"]
-            if len(req["data"]) > 10000:
+            req = cls.twitch_api(url).json()
+            data += req["data"]
+            if data > 10000:
                 raise OverflowError
-        req["data"] = [
-            {
-                "when": tools.twitch_parse(i["followed_at"]),
-                "last_updated": tools.now(),
-                "from_id": i["from_id"],
-                "to_id": i["to_id"],
-            }
-            for i in req["data"]
-        ]
-        req["ended"] = ended
-        # logins_data.update([i['login'] for i in temp_follow])
-        return req
+        return {
+            "data": [
+                {
+                    "when": etc_manager.twitch_parse(i["followed_at"]),
+                    "last_updated": etc_manager.now(),
+                    "from_id": i["from_id"],
+                    "to_id": i["to_id"],
+                }
+                for i in data
+            ],
+            "ended": ended,
+            "total": total,
+        }
 
     @classmethod
     def following(cls, id):
@@ -1727,8 +1755,8 @@ class RequestHandler:
 
         return [
             {
-                "when": tools.twitch_parse(i["followed_at"]),
-                "last_updated": tools.now(),
+                "when": etc_manager.twitch_parse(i["followed_at"]),
+                "last_updated": etc_manager.now(),
                 "from_id": i["from_id"],
                 "to_id": i["to_id"],
                 "valid": True,
@@ -1745,7 +1773,7 @@ class RequestHandler:
         response = requests.post(
             "https://gql.twitch.tv/gql", headers=headers, data=data
         ).json()[0]["data"]["user"]["vips"]["edges"]
-        vips_list = [i["node"] for i in response if i]
+        vips_list = [i["node"] for i in response if i and i["node"]]
         data = (
             '[{"operationName":"Mods","variables":{"login":"%s"},"extensions":{"persistedQuery":{"version":1,"sha256Hash":"cb912a7e0789e0f8a4c85c25041a08324475831024d03d624172b59498caf085"}}}]'
             % channel
@@ -1753,13 +1781,15 @@ class RequestHandler:
         response = requests.post(
             "https://gql.twitch.tv/gql", headers=headers, data=data
         ).json()[0]["data"]["user"]["mods"]["edges"]
-        mods_list = [i["node"] for i in response if i]
+        mods_list = [i["node"] for i in response if i and i["node"]]
         return {"vips": vips_list, "moderators": mods_list}
 
     @classmethod
     def temp_view_clear(cls, time_interval=settings.temp_view_clear_period):
         for login in cls.temp_view:
-            if (tools.now() - cls.temp_view[login]["time"]).seconds >= time_interval:
+            if (
+                etc_manager.now() - cls.temp_view[login]["time"]
+            ).seconds >= time_interval:
                 del cls.temp_view[login]
 
     # 여기처럼, 중간 단계나 전역 변수가 있는 경우 streamer와 같은 가변 객체에 집어넣으면 안됨
@@ -1771,7 +1801,7 @@ class RequestHandler:
         login,
         view_elapsed_maximum=settings.view_elapsed_maximum_default,
     ):
-        now = tools.now()
+        now = etc_manager.now()
         if login in cls.temp_view:
             time_elapsed = now - cls.temp_view[login]["time"]
             if time_elapsed.seconds < view_elapsed_maximum:
@@ -1784,7 +1814,9 @@ class RequestHandler:
             while cls.now_working_on_view[login]:
                 time.sleep(1)
                 if time.time() - start_time > 20:
-                    open("twitchapierror.txt", "a").write(f"{login}\n")
+                    open("twitchapierror.txt", "a").write(
+                        f"{etc_manager.now()} {login}\n"
+                    )
                     return cls.view_worker(login)
             return cls.temp_view[login]["view"]
         return cls.view_worker(login)
@@ -1814,7 +1846,7 @@ class RequestHandler:
         try:
             data["chatters"]["count"] = int(data["chatter_count"])
         except:
-            open("viewapierror.txt", "a").write(str(tools.now()) + "\n")
+            open("viewapierror.txt", "a").write(str(etc_manager.now()) + "\n")
         every_watchers = (
             data["chatters"]["viewers"]
             + data["chatters"]["vips"]
@@ -1824,8 +1856,10 @@ class RequestHandler:
             "broadcaster": data["chatters"]["broadcaster"],
             "viewers": every_watchers,
         }
-        open("chatters_log_added_login_front.txt", "a").write(login+' '+str(data["chatters"]) + "\n")
-        cls.temp_view[login] = {"view": result, "time": tools.now()}
+        open("chatters_log_added_login_front_added_time_front.txt", "a").write(
+            str(etc_manager.now()) + " " + login + " " + str(data["chatters"]) + "\n"
+        )
+        cls.temp_view[login] = {"view": result, "time": etc_manager.now()}
         cls.now_working_on_view[login] = False
         return result
 

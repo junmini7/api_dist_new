@@ -1,15 +1,13 @@
-from database_manager import DatabaseHandler, RequestHandler, Streamer
+import database_manager
 from threading import Thread, Event
 from pymongo import MongoClient
 import time
 from collections import deque, Counter, defaultdict
-import tools
-from datetime import timedelta as td, datetime as dt
+import datetime
 from typing import List, Set, Dict, Tuple, Any, Deque
 from collections import Counter
 import settings
-from etc_manager import role_to_ko, api_url, role_to_icon, streamer_info_template
-from tools import button_templete
+import etc_manager
 import random
 
 client = MongoClient()
@@ -19,13 +17,13 @@ once_num = 100
 # 그런데 애초에, D,T는 실시간 모듈이 아니라 단순 라이브러리 이므로 threading을 사용하는것이 적합하지 않고, 따라서 이러한 문제가 발생한 것이다.
 
 
-follownum_queue: Deque[Streamer] = deque()
+follownum_queue: Deque[database_manager.Streamer] = deque()
 id_queue: Deque[str] = deque()
 login_queue: Deque[str] = deque()
-following_queue: Deque[Streamer] = deque()
-role_queue: Deque[Streamer] = deque()
-update_queue: Deque[Streamer] = deque()
-watching_queue: Deque[Streamer] = deque()
+following_queue: Deque[database_manager.Streamer] = deque()
+role_queue: Deque[database_manager.Streamer] = deque()
+update_queue: Deque[database_manager.Streamer] = deque()
+watching_queue: Deque[database_manager.Streamer] = deque()
 lang_to_update = "ko"
 popular_streams = []
 
@@ -47,6 +45,8 @@ class StoppableThread(Thread):
     def __init__(self, *args, **kwargs):
         super(StoppableThread, self).__init__(*args, **kwargs)
         self._stop_event = Event()
+        self.last_updated = etc_manager.now()
+        self.daemon = True
 
     def __str__(self):
         return self.__class__.__name__
@@ -61,13 +61,14 @@ class StoppableThread(Thread):
 class GetFromStreamers(StoppableThread):
     def run(self, *args, **kwargs):
         while not self.stopped():
+            self.last_updated = etc_manager.now()
             if update_queue:
                 streamer = update_queue.popleft()
                 self.name = str(streamer)
-                assert isinstance(streamer, Streamer)
+                assert isinstance(streamer, database_manager.Streamer)
                 if (
-                    "followers" not in streamer
-                    or streamer.last_updated < tools.now() - settings.update_after
+                        "followers" not in streamer
+                        or streamer.last_updated < etc_manager.now() - settings.update_after
                 ):
                     id_queue.append(streamer.id)
             else:
@@ -78,12 +79,15 @@ class GetFromStreamers(StoppableThread):
 class GetFromIds(StoppableThread):
     def run(self, *args, **kwargs):
         while not self.stopped():
+            self.last_updated = etc_manager.now()
             if id_queue and len(follownum_queue) < 500:
                 self.name = str(len(follownum_queue))
                 to_get = []
                 while id_queue and len(to_get) < 100:
                     to_get.append(id_queue.popleft())
-                updated_result = DatabaseHandler.update_from_id(to_get, False)["data"]
+                updated_result = database_manager.DatabaseHandler.update_from_id(
+                    to_get, False
+                )["data"]
                 follownum_queue.extend(updated_result)
             else:
                 self.name = "idle"
@@ -93,14 +97,15 @@ class GetFromIds(StoppableThread):
 class GetFromLogins(StoppableThread):
     def run(self, *args, **kwargs):
         while not self.stopped():
+            self.last_updated = etc_manager.now()
             if login_queue and len(follownum_queue) < 500:
                 self.name = str(len(login_queue))
                 to_get = []
                 while login_queue and len(to_get) < 100:
                     to_get.append(login_queue.popleft())
-                updated_result = DatabaseHandler.update_from_login(to_get, False)[
-                    "data"
-                ]
+                updated_result = database_manager.DatabaseHandler.update_from_login(
+                    to_get, False
+                )["data"]
                 follownum_queue.extend(updated_result)
             else:
                 self.name = "idle"
@@ -123,6 +128,7 @@ class GetFromLogins(StoppableThread):
 class GetFollowersNumFromStreamer(StoppableThread):
     def run(self, *args, **kwargs):
         while not self.stopped():
+            self.last_updated = etc_manager.now()
             if follownum_queue:
                 to_update_streamer = follownum_queue.popleft()
                 self.name = str(to_update_streamer)
@@ -135,12 +141,15 @@ class GetFollowersNumFromStreamer(StoppableThread):
 class GetFollowingsFromStreamer(StoppableThread):
     def run(self, *args, **kwargs):
         while not self.stopped():
+            self.last_updated = etc_manager.now()
             if following_queue:
                 streamer = following_queue.popleft()
                 self.name = str(streamer)
                 # print(f'{streamer.name} following get')
-                follow_datas_processed = DatabaseHandler.follow_data_to_streamers(
-                    streamer.follow_from(False, False), "from"
+                follow_datas_processed = (
+                    database_manager.DatabaseHandler.follow_data_to_streamers(
+                        streamer.follow_from(False, False), "from"
+                    )
                 )
                 following_streamers = follow_datas_processed["datas"]
                 failed_ids = follow_datas_processed["failed_ids"]
@@ -158,17 +167,22 @@ class GetFollowingsFromStreamer(StoppableThread):
 class GetRoleFromStreamer(StoppableThread):
     def run(self, *args, **kwargs):
         while not self.stopped():
+            self.last_updated = etc_manager.now()
             if role_queue:
                 streamer = role_queue.popleft()
                 self.name = str(streamer)
-                managers_data_processed = DatabaseHandler.role_data_to_streamers(
-                    streamer.role_broadcaster(False, False), "broadcaster"
+                managers_data_processed = (
+                    database_manager.DatabaseHandler.role_data_to_streamers(
+                        streamer.role_broadcaster(False, False), "broadcaster"
+                    )
                 )
-                follow_datas_processed = DatabaseHandler.follow_data_to_streamers(
-                    streamer.follow_from(False, False), "from"
-                )
+                # follow_datas_processed = (
+                #     database_manager.DatabaseHandler.follow_data_to_streamers(
+                #         streamer.follow_from(False, False), "from"
+                #     )
+                # )
                 processed_putter(managers_data_processed)
-                processed_putter(follow_datas_processed)
+                # processed_putter(follow_datas_processed)
                 time.sleep(5)
             else:
                 self.name = "idle"
@@ -178,10 +192,11 @@ class GetRoleFromStreamer(StoppableThread):
 class GetFollowersNumBackground(StoppableThread):
     def run(self, *args, **kwargs):
         while not self.stopped():
+            self.last_updated = etc_manager.now()
             if len(id_queue) < 500:
                 self.name = str(len(id_queue))
                 to_get = list(
-                    DatabaseHandler.db.streamers_data.find(
+                    database_manager.DatabaseHandler.db.streamers_data.find(
                         {"followers": {"$exists": False}}, {"_id": 0, "id": 1}
                     ).limit(once_num)
                 )
@@ -199,15 +214,16 @@ class GetFollowersNumBackground(StoppableThread):
 class UpdateBackground(StoppableThread):
     def run(self, *args, **kwargs):
         while not self.stopped():
+            self.last_updated = etc_manager.now()
             if len(id_queue) < 500:
                 self.name = str(len(id_queue))
                 to_update = list(
-                    DatabaseHandler.db.streamers_data.find(
+                    database_manager.DatabaseHandler.db.streamers_data.find(
                         {
                             "lang": lang_to_update,
                             "banned": False,
                             "last_updated": {
-                                "$lte": tools.now() - settings.update_after
+                                "$lte": etc_manager.now() - settings.update_after
                             },
                         },
                         {"_id": 0, "id": 1},
@@ -239,8 +255,11 @@ class GetFollowingsBackground(StoppableThread):
 class UpdatePopularStreams(StoppableThread):
     def run(self, *args, **kwargs):
         while not self.stopped():
-            res = DatabaseHandler.stream_data_to_streamers(
-                RequestHandler.streams_info(settings.popular_count, "ko")
+            self.last_updated = etc_manager.now()
+            res = database_manager.DatabaseHandler.stream_data_to_streamers(
+                database_manager.RequestHandler.streams_info(
+                    settings.popular_count, "ko"
+                )
             )
             datas = res["datas"]
             failed = res["failed_ids"]
@@ -255,27 +274,47 @@ class UpdatePopularStreams(StoppableThread):
 class RefreshWatchingStreamers(StoppableThread):
     def run(self, *args, **kwargs):
         while not self.stopped():
+            self.last_updated = etc_manager.now()
             now_streamers = [i[0] for i in popular_streams]
             for streamer in now_streamers:
                 self.name = str(streamer)
-                watching_streamers_daemon(
-                    streamer,
-                    settings.streams_allow_maximum + random.random() * 100,
-                    refresh=False,
-                    wait=False,
-                )
+                if streamer.id in watching_streamers_data:
+                    time_elapsed = (
+                            etc_manager.now() - watching_streamers_data[streamer.id]["time"]
+                    )
+                    if (
+                            time_elapsed.seconds
+                            > settings.streams_allow_maximum + random.random() * 100
+                    ):
+                        watching_streamers_worker(streamer)
+                else:
+                    watching_streamers_worker(streamer)
+
+                # watching_streamers_daemon(
+                #     streamer,
+                #     settings.streams_allow_maximum + random.random() * 100,
+                #     refresh=False,
+                #     wait=False,
+                # )
                 time.sleep(0.5)
 
 
 class GetWatchingStreamersFromStreamer(StoppableThread):
     def run(self, *args, **kwargs):
         while not self.stopped():
+            self.last_updated = etc_manager.now()
             if watching_queue:
                 streamer = watching_queue.popleft()
                 self.name = str(streamer)
-                assert isinstance(streamer, Streamer)
-                watching_streamers_daemon(streamer,0,refresh=False,wait=False)
-                # watching_streamers_daemon(streamer,60,100,1000)  # watching_streamers_worker???
+                assert isinstance(streamer, database_manager.Streamer)
+                if streamer.id in watching_streamers_data:
+                    time_elapsed = (
+                            etc_manager.now() - watching_streamers_data[streamer.id]["time"]
+                    )
+                    if time_elapsed.seconds > settings.refresh_maximum_default:
+                        watching_streamers_worker(streamer)
+                else:
+                    watching_streamers_worker(streamer)
             else:
                 self.name = "idle"
                 time.sleep(0.2)
@@ -344,7 +383,7 @@ def thread_status():
     # result='<br>'.join([f"{['Dead','Alive'][is_alive]}<br>{''.join([f'&emsp;{thread[0]} : {thread[1]}<br>' for thread in threads])}" for is_alive,threads in result_dict.items()])
     return "<br>".join(
         [
-            f"""{thread_type} {' '.join([f'<a href="/twitch/thread_manage?name={thread_type}&num={num}">{num}</a>' for num in range(5)])}<br>&emsp;{",".join([f"<span style='color:{['red', 'black'][thread.is_alive()]}'>{thread.name}</span>" for thread in threads])}"""
+            f"""{thread_type} {' '.join([f'<a href="/twitch/thread_manage?name={thread_type}&num={num}">{num}</a>' for num in range(5)])}<br>&emsp;{",".join([f"<span style='color:{['red', 'black'][thread.is_alive()]}'>{thread.name} {etc_manager.passed_time(thread.last_updated) if not thread.is_alive() else ''}</span>" for thread in threads])}"""
             for thread_type, threads in background_thread_instances.items()
         ]
     )
@@ -396,52 +435,131 @@ def background_add():
 
 watching_streamers_data = {}
 watching_streamers_working_dict = {}
-bots_list = DatabaseHandler.bots_list()
+bots_list = database_manager.DatabaseHandler.bots_list()
 
 
-def watching_streamers_daemon(
-    broadcaster: Streamer,
-    allow_maximum=settings.allow_maximum_default,
-    refresh_maximum=settings.refresh_maximum_default,
-    wait_while_doing=settings.wait_while_doing_default,
-    refresh=True,
-    wait=True,
-):
-    if broadcaster.id in watching_streamers_data:
-        time_elapsed = tools.now() - watching_streamers_data[broadcaster.id]["time"]
-        if time_elapsed.seconds < allow_maximum:
-            if time_elapsed.seconds > refresh_maximum and refresh:
-                if (
-                    broadcaster.id not in watching_streamers_working_dict
-                    or not watching_streamers_working_dict[broadcaster.id]
-                ):
-                    watching_queue.append(broadcaster)
-                    # print(f'reserved work for {broadcaster}')
-                # else:
-                # print(f'already working on {broadcaster}')
+def watching_streamers_daemon(broadcaster: database_manager.Streamer):
+    if broadcaster.id in watching_streamers_data:  # 이전에 한게 있을 때
+        time_elapsed = (
+                etc_manager.now() - watching_streamers_data[broadcaster.id]["time"]
+        )
+        if time_elapsed.seconds < settings.allow_maximum_default:  # 이전에 한게 충분히 좋을때
+            if time_elapsed.seconds > settings.refresh_maximum_default:
+                watching_queue.append(
+                    broadcaster
+                )  # 이 더해주는 프로세스는 worker 외부에 이뤄져야 하므로 daemon필요
+                # print(f'reserved work for {broadcaster}')
+            # else:
+            # print(f'already working on {broadcaster}')
             # print(f'using result of {broadcaster} on {temp_data[broadcaster.id]["time"]}')
             return False
+
     if (
-        broadcaster.id in watching_streamers_working_dict
-        and watching_streamers_working_dict[broadcaster.id]
+            broadcaster.id in watching_streamers_working_dict
+            and watching_streamers_working_dict[broadcaster.id]['status']
+            == "working"  # 이전에 한게 너무 오래되거나, 없어서 일하는 중이면 기다렸다가 하면 됨
     ):
-        if wait:
-            start_time = time.time()
-            while watching_streamers_working_dict[broadcaster.id]:
-                time.sleep(1)
-                if time.time() - start_time > wait_while_doing:
-                    open("watching_streamer_error.txt", "a").write(
-                        f"{Streamer} {allow_maximum} {refresh_maximum} {wait_while_doing}\n"
-                    )
-                    watching_streamers_worker(broadcaster)
-                    break
-                # assert broadcaster.id not in temp_working
-    else:
-        watching_streamers_worker(broadcaster)
+        while True:
+            if watching_streamers_working_dict[broadcaster.id]['status'] == "idle":
+                return True
+            elif watching_streamers_working_dict[broadcaster.id]['status'] == "error":
+                watching_streamers_worker(broadcaster)
+                return True
+            time.sleep(1)
+    watching_streamers_worker(broadcaster)  # 없거나 오래됬는데 안하고 있으면 직접 하기
     return True
 
 
-def watching_streamers_maker(broadcaster: Streamer, follower_requirements: int):
+def watching_streamers_worker(broadcaster: database_manager.Streamer):
+    if (
+            broadcaster.id not in watching_streamers_working_dict
+            or watching_streamers_working_dict[broadcaster.id]['status'] != "working"  # 실행중이지 않을때
+    ):
+        now = etc_manager.now()
+        watching_streamers_working_dict[broadcaster.id] = {'status': "working", "time": etc_manager.now(),
+                                                           'broadcaster': broadcaster}
+        # broadcaster.refresh_followers_num()
+        try:
+            update_queue.append(broadcaster)
+            watchers = broadcaster.watching_streamers(50)
+            start_time = time.time()
+            update_queue.extend(watchers["viewers"])
+            viewers_id = [i.id for i in watchers["viewers"]]
+            following_data = {i["to_id"]: i for i in broadcaster.follow_from()}
+            assert broadcaster.followers >= 0
+            assert broadcaster.localrank
+            followed_data = {i["from_id"]: i for i in broadcaster.follow_to()}
+            role_data = {
+                i["member_id"]: i for i in broadcaster.role_broadcaster(True, False)
+            }
+            role_crawled_watchers_ids = [
+                j["id"]
+                for j in database_manager.DatabaseHandler.db.role_data_information.find(
+                    {"id": {"$in": viewers_id}}
+                )
+            ]
+            follow_crawled_watchers_ids = [
+                j["id"]
+                for j in database_manager.DatabaseHandler.db.follow_data_information.find(
+                    {"id": {"$in": viewers_id}}
+                )
+            ]
+            for streamer in watchers["viewers"]:
+                if streamer.followers > 1000:
+                    if streamer.id not in follow_crawled_watchers_ids:
+                        following_queue.append(streamer)
+                    if streamer.id not in role_crawled_watchers_ids:
+                        role_queue.append(streamer)
+            head = ""
+            if watchers["broadcaster"]:
+                head += f'{broadcaster.name}({broadcaster.login}) 현재 Broadcaster 접속중 <a href="https://twitch.tv/{broadcaster.login}"><img src="https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/3" width="15" height="15"/></a><br>'
+            head += f"{broadcaster.introduce}{etc_manager.onlyeul(broadcaster.name)} 지금 시청 중인 {watchers['count']}명의 로그인 시청자 중 팔로워 수 %d명 이상의 스트리머"
+            buttons = broadcaster.buttons(["streamer_watching_streamer"])
+            streamer_temp_data = []
+
+            for streamer in watchers["viewers"]:
+                if (
+                        streamer.login not in bots_list
+                        and not streamer.banned
+                        and "localrank" in streamer
+                ):
+                    streamer_temp_data.append(
+                        streamer_info_maker(
+                            streamer,
+                            broadcaster,
+                            now,
+                            following_data,
+                            followed_data,
+                            role_data,
+                            streamer.id in follow_crawled_watchers_ids,
+                        )
+                    )
+            # for role in watchers['managers']:
+            #     for streamer in watchers['managers'][role]:
+            #         if streamer.login not in bots_list:
+            #             streamer_temp_data.append(
+            #                 streamer_info_maker(streamer, broadcaster, now, following_data, followed_data, role))
+            streamer_temp_data.sort(key=lambda x: x["followers"], reverse=True)
+            watching_streamers_data[broadcaster.id] = {
+                "broadcaster": broadcaster,
+                "time": now,
+                "head": head,
+                "datas": streamer_temp_data,
+                "buttons": buttons,
+            }
+            print(
+                f"watching_streamers_worker took {time.time() - start_time}s for {broadcaster.name}"
+            )
+            watching_streamers_working_dict[broadcaster.id] = {'status': "idle", "time": etc_manager.now(),
+                                                           'broadcaster': broadcaster}
+        except:
+            watching_streamers_working_dict[broadcaster.id] = {'status': "error", "time": etc_manager.now(),
+                                                           'broadcaster': broadcaster}
+
+
+def watching_streamers_maker(
+        broadcaster: database_manager.Streamer, follower_requirements: int
+):
     start_time = time.time()
     assert broadcaster.id in watching_streamers_data
 
@@ -461,7 +579,7 @@ def watching_streamers_maker(broadcaster: Streamer, follower_requirements: int):
     )
     role_infos = dict(Counter([i["role"] for i in streamer_temp_data if i["role"]]))
     role_infos_gui = ", ".join(
-        [f"{role_to_ko[k]}가 {v}명" for k, v in role_infos.items()]
+        [f"{etc_manager.role_to_ko[k]}가 {v}명" for k, v in role_infos.items()]
     )
 
     if not streamer_temp_data:
@@ -477,8 +595,8 @@ def watching_streamers_maker(broadcaster: Streamer, follower_requirements: int):
         temp += "".join([i["rendered"] for i in streamer_temp_data])
         temp += "</div>"
         buttons.append(
-            button_templete(
-                f"{api_url}/twitch/addlogin/?logins={broadcaster.login}&{'&'.join(['logins=' + k['login'] for k in streamer_temp_data])}&skip_already_done=false&give_chance_to_hakko=true",
+            etc_manager.button_templete(
+                f"{etc_manager.api_url}/twitch/addlogin/?logins={broadcaster.login}&{'&'.join(['logins=' + k['login'] for k in streamer_temp_data])}&skip_already_done=false&give_chance_to_hakko=true",
                 "팔로워 수 업데이트 (오래 걸림)</button>",
                 "update_follow",
             )
@@ -499,12 +617,12 @@ def watching_streamers_maker(broadcaster: Streamer, follower_requirements: int):
     <div class='col-12 col-lg-6'>
     <div class="collapse" id="legend">
       <div class="card card-body">
-        <p><i class='fa-solid fa-heart red'></i> : {tools.gwa(broadcaster.name)} 해당 스트리머가 상호 팔로우</p>
-        <p><i class='fa-solid fa-heart'></i> : 해당 스트리머만 {tools.eul(broadcaster.name)} 팔로우</p>
+        <p><i class='fa-solid fa-heart red'></i> : {etc_manager.gwa(broadcaster.name)} 해당 스트리머가 상호 팔로우</p>
+        <p><i class='fa-solid fa-heart'></i> : 해당 스트리머만 {etc_manager.eul(broadcaster.name)} 팔로우</p>
         <p><i class='fa-solid fa-heart green'></i> : {broadcaster.name}만 해당 스트리머를 팔로우</p>
         <p><i class='fa-regular fa-heart'></i> : 서로 팔로우 하지 않음</p>
         <p><i class='fa-solid fa-question'></i> : 팔로우 목록을 아직 조사하지 않음</p>
-        <p> 날짜는 각 스트리머가 {tools.eul(broadcaster.name)} 팔로우한 일시입니다.</p>
+        <p> 날짜는 각 스트리머가 {etc_manager.eul(broadcaster.name)} 팔로우한 일시입니다.</p>
         </div>
     </div>
     </div>
@@ -533,111 +651,38 @@ def watching_streamers_maker(broadcaster: Streamer, follower_requirements: int):
     return temp
 
 
-def watching_streamers_worker(broadcaster: Streamer):
-    now = tools.now()
-    watching_streamers_working_dict[broadcaster.id] = True
-    # broadcaster.refresh_followers_num()
-    update_queue.append(broadcaster)
-    watchers = broadcaster.watching_streamers()
-    start_time = time.time()
-    update_queue.extend(watchers["viewers"])
-    viewers_id = [i.id for i in watchers["viewers"]]
-    following_data = {i["to_id"]: i for i in broadcaster.follow_from()}
-    assert broadcaster.followers >= 0
-    assert broadcaster.localrank
-    followed_data = {i["from_id"]: i for i in broadcaster.follow_to()}
-    role_data = {i["member_id"]: i for i in broadcaster.role_broadcaster(True, False)}
-    role_crawled_watchers_ids = [
-        j["id"]
-        for j in DatabaseHandler.db.role_data_information.find(
-            {"id": {"$in": viewers_id}}
-        )
-    ]
-    follow_crawled_watchers_ids = [
-        j["id"]
-        for j in DatabaseHandler.db.follow_data_information.find(
-            {"id": {"$in": viewers_id}}
-        )
-    ]
-    for streamer in watchers["viewers"]:
-        if streamer.followers > 1000:
-            if streamer.id not in follow_crawled_watchers_ids:
-                following_queue.append(streamer)
-            if streamer.id not in role_crawled_watchers_ids:
-                role_queue.append(streamer)
-    head = ""
-    if watchers["broadcaster"]:
-        head += f'{broadcaster.name}({broadcaster.login}) 현재 Broadcaster 접속중 <a href="https://twitch.tv/{broadcaster.login}"><img src="https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/3" width="15" height="15"/></a><br>'
-    head += f"{broadcaster.introduce}{tools.onlyeul(broadcaster.name)} 지금 시청 중인 {watchers['count']}명의 로그인 시청자 중 팔로워 수 %d명 이상의 스트리머"
-    buttons = broadcaster.buttons(["streamer_watching_streamer"])
-    streamer_temp_data = []
-
-    for streamer in watchers["viewers"]:
-        if (
-            streamer.login not in bots_list
-            and not streamer.banned
-            and "localrank" in streamer
-        ):
-            streamer_temp_data.append(
-                streamer_info_maker(
-                    streamer,
-                    broadcaster,
-                    now,
-                    following_data,
-                    followed_data,
-                    role_data,
-                    streamer.id in follow_crawled_watchers_ids,
-                )
-            )
-    # for role in watchers['managers']:
-    #     for streamer in watchers['managers'][role]:
-    #         if streamer.login not in bots_list:
-    #             streamer_temp_data.append(
-    #                 streamer_info_maker(streamer, broadcaster, now, following_data, followed_data, role))
-    streamer_temp_data.sort(key=lambda x: x["followers"], reverse=True)
-    watching_streamers_data[broadcaster.id] = {
-        "broadcaster": broadcaster,
-        "time": now,
-        "head": head,
-        "datas": streamer_temp_data,
-        "buttons": buttons,
-    }
-    print(
-        f"watching_streamers_worker took {time.time() - start_time}s for {broadcaster.name}"
-    )
-    watching_streamers_working_dict[broadcaster.id] = False
-
-
 def streamer_info_maker(
-    streamer: Streamer,
-    broadcaster: Streamer,
-    now: dt,
-    following_data: dict,
-    followed_data: dict,
-    role_data: dict,
-    follow_crawled: bool,
+        streamer: database_manager.Streamer,
+        broadcaster: database_manager.Streamer,
+        now: datetime.datetime,
+        following_data: dict,
+        followed_data: dict,
+        role_data: dict,
+        follow_crawled: bool,
 ) -> dict:
     mutual_info = mutual_follow_information(
         following_data, followed_data, broadcaster, streamer, follow_crawled
     )
     if streamer.id in role_data:
         role = role_data[streamer.id]["role"]
-        role_icon = f'<img src="{role_to_icon[role]}" width="15" height="15"/>'
+        role_icon = (
+            f'<img src="{etc_manager.role_to_icon[role]}" width="15" height="15"/>'
+        )
     else:
         role = ""
         role_icon = ""
     followers = streamer.followers
-    rendered = streamer_info_template.render(
+    rendered = etc_manager.streamer_info_template.render(
         login=streamer.login,
         image_url=streamer.profile_image,
         name=streamer.name,
-        follower=tools.numtoko(followers),
+        follower=etc_manager.numtoko(followers),
         country=streamer.country,
         rank=streamer.localrank,
-        time=tools.tdtoko(now - streamer.last_updated),
+        time=etc_manager.passed_time(streamer.last_updated),
         icon=mutual_info[1],
         following=mutual_info[2],
-        api_url=api_url,
+        api_url=etc_manager.api_url,
         login_disp=streamer.login != streamer.name.lower(),
         role_icon=role_icon,
     )
@@ -661,11 +706,11 @@ def streamer_info_maker(
 
 
 def mutual_follow_information(
-    following_data: dict,
-    followed_data: dict,
-    broadcaster: Streamer,
-    streamer: Streamer,
-    follow_crawled: bool,
+        following_data: dict,
+        followed_data: dict,
+        broadcaster: database_manager.Streamer,
+        streamer: database_manager.Streamer,
+        follow_crawled: bool,
 ) -> Tuple[int, str, str]:
     streamer_id = streamer.id
     streamer_login = streamer.login

@@ -4,9 +4,6 @@ popular_count,100
 tolerance_for_watching_broadcasts,600
 temp_view_clear_period,1000
 view_elapsed_maximum_default,60
-allow_maximum_default,100
-refresh_maximum_default,60
-wait_while_doing_default,300
-streams_allow_maximum,400
-streams_refresh_maximum,1000
-streams_wait_while_doing,10000000
+allow_maximum_default,150
+refresh_maximum_default,130
+streams_allow_maximum,600

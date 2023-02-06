@@ -1,10 +1,10 @@
 from pymongo import MongoClient
 import pickle
 import pymongo
-import core as dd
-import tools
+import database_manager as dd
+import etc_manager
 
-a = dd.D()
+a = dd.DatabaseHandler()
 
 
 def load(filename):
@@ -62,7 +62,7 @@ if not db.follow_data_information.find_one():
             temp += [
                 {
                     "id": streamers_data_file[i]["id"],
-                    "last_updated": tools.now(),
+                    "last_updated": etc_manager.now(),
                     "following_num": len(following_data_file[i]),
                 }
             ]

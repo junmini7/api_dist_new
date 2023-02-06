@@ -2,8 +2,7 @@ from datetime import timedelta as td
 
 
 def init():
-    global update_after, popular_count, viewer_minimum, tolerance_for_watching_broadcasts, temp_view_clear_period, \
-        view_elapsed_maximum_default, allow_maximum_default, refresh_maximum_default, wait_while_doing_default, streams_allow_maximum, streams_refresh_maximum, streams_wait_while_doing, data
+    global update_after, popular_count, viewer_minimum, tolerance_for_watching_broadcasts, temp_view_clear_period, view_elapsed_maximum_default, allow_maximum_default, refresh_maximum_default, streams_allow_maximum, data
 
     data_raw = [
         i[:-1].split(",") if i[:-1] == "\n" else i.split(",")
@@ -18,8 +17,5 @@ def init():
     view_elapsed_maximum_default = data["view_elapsed_maximum_default"]
     allow_maximum_default = data["allow_maximum_default"]
     refresh_maximum_default = data["refresh_maximum_default"]
-    wait_while_doing_default = data["wait_while_doing_default"]
     # view_refresh_maximum = data["view_refresh_maximum"]
-    streams_allow_maximum = data['streams_allow_maximum']
-    streams_refresh_maximum = data['streams_refresh_maximum']
-    streams_wait_while_doing = data['streams_wait_while_doing']
+    streams_allow_maximum = data["streams_allow_maximum"]

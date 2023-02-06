@@ -1,30 +1,16 @@
-from database_manager import Streamer, DatabaseHandler, RequestHandler
-from datetime import datetime as dt
+import database_manager
 import traceback
 from fastapi import FastAPI, Query, Request
 from fastapi_utils.tasks import repeat_every
 from typing import List, Optional, Tuple
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse, RedirectResponse, FileResponse
-import tools
+import fastapi.responses
 from collections import Counter
 import settings
 import psutil
 import background_manager
-from etc_manager import (
-    role_to_ko,
-    history_to_ko,
-    order_dict,
-    api_url,
-    home_url,
-    stream_info_template,
-    menu_template,
-    menus,
-    description,
-    follow_description,
-)
+import etc_manager
 
-# pop_data = pickle.load(open('pop.pandas', 'rb'))
 
 app = FastAPI()
 app.add_middleware(
@@ -35,16 +21,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-search_data = DatabaseHandler.streamers_search_data_update()
+search_data = database_manager.DatabaseHandler.streamers_search_data_update()
 
 global_variable_dicts = {
     "search data": search_data,
     "temp data for gui ": background_manager.watching_streamers_data,
     "temp working for gui": background_manager.watching_streamers_working_dict,
     "bot list": background_manager.bots_list,
-    "headers": RequestHandler.header,
-    "now working on view": RequestHandler.now_working_on_view,
-    "temp view": RequestHandler.temp_view,
+    "headers": database_manager.RequestHandler.header,
+    "now working on view": database_manager.RequestHandler.now_working_on_view,
+    "temp view": database_manager.RequestHandler.temp_view,
     "popular streams": background_manager.popular_streams,
 }
 
@@ -57,7 +43,7 @@ global_variable_dicts = {
 
 @app.middleware("http")
 async def logging(request: Request, call_next):
-    whattolog = f'{dt.now().strftime("%Y/%m/%d %H:%M:%S")} {str(request.client.host)} {request.method} {request.url.path} {request.path_params} {request.query_params}\n'
+    whattolog = f'{etc_manager.now().strftime("%Y/%m/%d %H:%M:%S")} {str(request.client.host)} {request.method} {request.url.path} {request.path_params} {request.query_params}\n'
     with open("request_log.txt", "a") as f:
         f.write(whattolog)
     try:
@@ -73,18 +59,22 @@ async def logging(request: Request, call_next):
                 whattolog[:-1] + traceback.format_exc() + "\n"
             )
         # raise HTTPException(status_code=200, detail="error occured, and reported")
-        return HTMLResponse(content="서버에 에러가 발생했습니다...", status_code=200)
+        return fastapi.responses.HTMLResponse(
+            content="서버에 에러가 발생했습니다...", status_code=200
+        )
 
 
 @app.get("/favicon.ico")
 async def favicon():
-    return FileResponse(
+    return fastapi.responses.FileResponse(
         "./favicon.ico", media_type="application/octet-stream", filename="favicon.ico"
     )
 
 
 def streamers_search_recommend_client(query):
-    result = DatabaseHandler.streamers_data_name_search(query, search_data)
+    result = database_manager.DatabaseHandler.streamers_data_name_search(
+        query, search_data
+    )
     temp = f"<meta charset='utf-8'>'{query}'에 해당하는 스트리머가 없습니다. 스트리머의 이름 또는 아이디 둘 다로 검색 가능하니 다시 한번 해보세요. "
     if len(result) == 1:
         temp += f"<br><a href='/twitch/streamer_watching_streamer/?query={result[0]}'>{result[0]}</a>가 찾고 계신 스트리머 인가요? 만약 그렇다면 링크를 누르세요."
@@ -93,8 +83,8 @@ def streamers_search_recommend_client(query):
     return temp
 
 
-def query_parser(query) -> Tuple[str, Streamer]:
-    broadcaster = DatabaseHandler.streamers_search(query)
+def query_parser(query) -> Tuple[str, database_manager.Streamer]:
+    broadcaster = database_manager.DatabaseHandler.streamers_search(query)
     if not broadcaster:
         return "invalid", streamers_search_recommend_client(query)
     if broadcaster.followers == -1:
@@ -113,7 +103,7 @@ def query_parser(query) -> Tuple[str, Streamer]:
     return "active", broadcaster
 
 
-@app.get("/twitch/populariswatchingapi/", response_class=HTMLResponse)
+@app.get("/twitch/populariswatchingapi/", response_class=fastapi.responses.HTMLResponse)
 def watching_streamers_gui(
     request: Request, query: str, follower_requirements: Optional[int] = 100
 ):
@@ -136,7 +126,7 @@ def watching_streamers_gui(
 # f"<div class='row col-12 col-md-11 centering centering_text gx-5'>{} {}</div><br>"
 
 
-@app.get("/twitch/watchingbroadcasts", response_class=HTMLResponse)
+@app.get("/twitch/watchingbroadcasts", response_class=fastapi.responses.HTMLResponse)
 def watching_broadcasts(
     request: Request,
     query: str,
@@ -152,16 +142,23 @@ def watching_broadcasts(
     known_logins = []
     watching_logins = []
     total_viewers = 0
-    for login in list(RequestHandler.temp_view):
-        if (tools.now() - RequestHandler.temp_view[login]["time"]).seconds <= tolerance:
+    for login in list(database_manager.RequestHandler.temp_view):
+        if (
+            etc_manager.now() - database_manager.RequestHandler.temp_view[login]["time"]
+        ).seconds <= tolerance:
             known_logins.append(login)
-            total_viewers += len(RequestHandler.temp_view[login]["view"]["viewers"])
-            if broadcaster.login in RequestHandler.temp_view[login]["view"]["viewers"]:
+            total_viewers += len(
+                database_manager.RequestHandler.temp_view[login]["view"]["viewers"]
+            )
+            if (
+                broadcaster.login
+                in database_manager.RequestHandler.temp_view[login]["view"]["viewers"]
+            ):
                 watching_logins.append(login)
     if known_logins:
         result = f"총 {total_viewers}명이 보고 있는 {len(known_logins)}개의 방송 중 {broadcaster.introduce}가 보고 있는 방송은 "
         if watching_logins:
-            result += f'다음과 같습니다. <br><div class="row" style="margin-left:4px; margin-right:2px;">{"".join([DatabaseHandler.streamers_search(i).introduce_html for i in watching_logins])}</div>'
+            result += f'다음과 같습니다. <br><div class="row" style="margin-left:4px; margin-right:2px;">{"".join([database_manager.DatabaseHandler.streamers_search(i).introduce_html for i in watching_logins])}</div>'
         else:
             result += "없습니다."
     else:
@@ -173,39 +170,42 @@ def watching_broadcasts(
     )
 
 
-@app.get("/twitch/populariswatchingapi/{query}", response_class=HTMLResponse)
-def please_reload(response_class=HTMLResponse):
+@app.get(
+    "/twitch/populariswatchingapi/{query}",
+    response_class=fastapi.responses.HTMLResponse,
+)
+def please_reload(response_class=fastapi.responses.HTMLResponse):
     return "please reload"
 
 
 @app.get("/twitch/populariswatching/")
 async def popular_is_watching_introduce(request: Request):
-    return RedirectResponse(
+    return fastapi.responses.RedirectResponse(
         "https://woowakgood.live/twitch/streamer_watching_streamer/"
     )
 
 
 @app.get("/twitch/populariswatching/{query}")
 async def popular_is_watching(request: Request, query: str):
-    return RedirectResponse(
+    return fastapi.responses.RedirectResponse(
         f"https://woowakgood.live/twitch/streamer_watching_streamer?query={query}"
     )
 
 
 @app.get("/loading.gif")
 async def loadinggif():
-    return RedirectResponse(
+    return fastapi.responses.RedirectResponse(
         "https://woowakgood.live/loading-2.gif"
     )  # FileResponse('loading.gif', media_type='application/octet-stream', filename='loading.gif')
 
 
-@app.get("/twitch/managers/{query}", response_class=HTMLResponse)
+@app.get("/twitch/managers/{query}", response_class=fastapi.responses.HTMLResponse)
 async def managers(request: Request, query: str, refresh: Optional[bool] = False):
     parse_result = query_parser(query)
     if parse_result[0] != "active":
         return parse_result[1]
     broadcaster = parse_result[1]
-    managers_data_processed = DatabaseHandler.role_data_to_streamers(
+    managers_data_processed = database_manager.DatabaseHandler.role_data_to_streamers(
         broadcaster.role_broadcaster(False, refresh), "broadcaster"
     )
     manager_streamers = managers_data_processed["datas"]
@@ -216,13 +216,13 @@ async def managers(request: Request, query: str, refresh: Optional[bool] = False
     #     {'id': {'$in': [i[f"member_id"] for i in managers_data]}})}
     role_infos = dict(Counter([i["role"] for i in manager_streamers if i["valid"]]))
     role_infos_gui = ", ".join(
-        [f"{role_to_ko[k]}가 {v}명" for k, v in role_infos.items()]
+        [f"{etc_manager.role_to_ko[k]}가 {v}명" for k, v in role_infos.items()]
     )
     return (
         f'<meta charset="utf-8">{broadcaster.introduce} 방송에서 활동하는 매니저 혹은 VIP, 스태프들은 총 {total_manager}명 이며, 각각 {role_infos_gui}입니다. <br>'
         + "<br>".join(
             [
-                f"""<a href='{home_url}/twitch/streamer_watching_streamer/?query={inf['streamer'].login}'><img src='{inf['streamer'].profile_image}' width='100' height='100'></a> {inf['streamer'].name} ({inf['streamer'].login}), 팔로워 {inf['streamer'].followers}명, {inf['streamer'].country} {inf['streamer'].localrank}위, {broadcaster.name}의 방송에서 {role_to_ko[inf['role']]} {f'을 했었고 현재는 해고당함' if not inf['valid'] else ''}"""
+                f"""<a href='{etc_manager.home_url}/twitch/streamer_watching_streamer/?query={inf['streamer'].login}'><img src='{inf['streamer'].profile_image}' width='100' height='100'></a> {inf['streamer'].name} ({inf['streamer'].login}), 팔로워 {inf['streamer'].followers}명, {inf['streamer'].country} {inf['streamer'].localrank}위, {broadcaster.name}의 방송에서 {etc_manager.role_to_ko[inf['role']]} {f'을 했었고 현재는 해고당함' if not inf['valid'] else ''}"""
                 for inf in manager_streamers
             ]
         )
@@ -230,27 +230,27 @@ async def managers(request: Request, query: str, refresh: Optional[bool] = False
     )
 
 
-@app.get("/twitch/as_manager/{query}", response_class=HTMLResponse)
+@app.get("/twitch/as_manager/{query}", response_class=fastapi.responses.HTMLResponse)
 async def as_manager(request: Request, query: str, refresh: Optional[bool] = True):
     parse_result = query_parser(query)
     if parse_result[0] != "active":
         return parse_result[1]
     broadcaster = parse_result[1]
-    managers_data_processed = DatabaseHandler.role_data_to_streamers(
+    managers_data_processed = database_manager.DatabaseHandler.role_data_to_streamers(
         broadcaster.role_member(False), "member"
     )
     manager_streamers = managers_data_processed["datas"]
     total_manager = managers_data_processed["total"]
     role_infos = dict(Counter([i["role"] for i in manager_streamers if i["valid"]]))
     role_infos_gui = ", ".join(
-        [f"{role_to_ko[k]}가 {v}명" for k, v in role_infos.items()]
+        [f"{etc_manager.role_to_ko[k]}가 {v}명" for k, v in role_infos.items()]
     )
 
     return (
         f'<meta charset="utf-8">{broadcaster.introduce}가 매니저 혹은 VIP, 스태프로 활동하는 방송들은 총 {total_manager}개 이며, 각각 {role_infos_gui}입니다. <br>'
         + "<br>".join(
             [
-                f"<a href='{home_url}/twitch/streamer_watching_streamer/?query={inf['streamer'].login}'><img src='{inf['streamer'].profile_image}' width='100' height='100'></a> {inf['streamer'].name} ({inf['streamer'].login}), 팔로워 {tools.numtoko(inf['streamer'].followers)}명, {inf['streamer'].country} {inf['streamer'].localrank}위, {tools.yi(broadcaster.name)} 이 방송에서 {role_to_ko[inf['role']]} {'을 했었고 현재는 해고당함' if not inf['valid'] else ''}"
+                f"<a href='{etc_manager.home_url}/twitch/streamer_watching_streamer/?query={inf['streamer'].login}'><img src='{inf['streamer'].profile_image}' width='100' height='100'></a> {inf['streamer'].name} ({inf['streamer'].login}), 팔로워 {etc_manager.numtoko(inf['streamer'].followers)}명, {inf['streamer'].country} {inf['streamer'].localrank}위, {etc_manager.yi(broadcaster.name)} 이 방송에서 {etc_manager.role_to_ko[inf['role']]} {'을 했었고 현재는 해고당함' if not inf['valid'] else ''}"
                 # , {inf['last_updated']}에 마지막으로 확인
                 for inf in manager_streamers
             ]
@@ -259,7 +259,7 @@ async def as_manager(request: Request, query: str, refresh: Optional[bool] = Tru
     )
 
 
-@app.get("/twitch/following/{query}", response_class=HTMLResponse)
+@app.get("/twitch/following/{query}", response_class=fastapi.responses.HTMLResponse)
 def following_by_popular(
     request: Request,
     query: str,
@@ -273,7 +273,7 @@ def following_by_popular(
         return parse_result[1]
     broadcaster = parse_result[1]
     # 기존에 팔로우에서 나온 id를 모듈 측에서 업데이트 하려고 했지만 그걸 굳이 비실시간 모듈에서 하기 보다는 실시간 모듈에서 호출할때 해주는게 맞다.
-    follow_datas_processed = DatabaseHandler.follow_data_to_streamers(
+    follow_datas_processed = database_manager.DatabaseHandler.follow_data_to_streamers(
         broadcaster.follow_from(refresh, valid), "from", by, reverse
     )
     following_streamers = follow_datas_processed["datas"]
@@ -281,7 +281,7 @@ def following_by_popular(
     background_manager.processed_putter(follow_datas_processed)
     # Thread(target=D.get_follower_from_streamers, args=(to_streamers, False)).start()
     return (
-        f'<meta charset="utf-8">{broadcaster.introduce}가 팔로우하는 스트리머들은 총 {total_follow}명입니다. ({order_dict[by][reverse]} 순)<br>'
+        f'<meta charset="utf-8">{broadcaster.introduce}가 팔로우하는 스트리머들은 총 {total_follow}명입니다. ({etc_manager.order_dict[by][reverse]} 순)<br>'
         + (
             f"여기 안보이는 {total_follow - len(following_streamers)}명의 스트리머는 정지당하거나, 현재 업데이트 중이기 때문에 볼 수 없습니다.<br>"
             if total_follow - len(following_streamers) != 0
@@ -289,9 +289,9 @@ def following_by_popular(
         )
         + "<br>".join(
             [
-                f"<a href='{home_url}/twitch/streamer_watching_streamer/?query={inf['streamer'].login}'><img src='{inf['streamer'].profile_image}' width='100' height='100'></a> {inf['streamer'].name} ({inf['streamer'].login}), 팔로워 {tools.numtoko(inf['streamer'].followers)}명, {inf['streamer'].country} {inf['streamer'].localrank}위, {tools.yi(broadcaster.name)} {inf['when']}에 팔로우, {inf['last_updated']}에 마지막으로 확인"
+                f"<a href='{etc_manager.home_url}/twitch/streamer_watching_streamer/?query={inf['streamer'].login}'><img src='{inf['streamer'].profile_image}' width='100' height='100'></a> {inf['streamer'].name} ({inf['streamer'].login}), 팔로워 {etc_manager.numtoko(inf['streamer'].followers)}명, {inf['streamer'].country} {inf['streamer'].localrank}위, {etc_manager.yi(broadcaster.name)} {inf['when']}에 팔로우, {inf['last_updated']}에 마지막으로 확인"
                 if inf["valid"]
-                else f"<a href='{home_url}/twitch/streamer_watching_streamer/?query={inf['streamer'].login}'><img src='{inf['streamer'].profile_image}' width='100' height='100'></a> {inf['streamer'].name} ({inf['streamer'].login}), 팔로워 {tools.numtoko(inf['streamer'].followers)}명, {inf['streamer'].country} {inf['streamer'].localrank}위, {tools.yi(broadcaster.name)} {inf['when']}에 팔로우, 및 {inf['last_updated']}에 팔로우 취소한 것 확인 (확인한 시점)"
+                else f"<a href='{etc_manager.home_url}/twitch/streamer_watching_streamer/?query={inf['streamer'].login}'><img src='{inf['streamer'].profile_image}' width='100' height='100'></a> {inf['streamer'].name} ({inf['streamer'].login}), 팔로워 {etc_manager.numtoko(inf['streamer'].followers)}명, {inf['streamer'].country} {inf['streamer'].localrank}위, {etc_manager.yi(broadcaster.name)} {inf['when']}에 팔로우, 및 {inf['last_updated']}에 팔로우 취소한 것 확인 (확인한 시점)"
                 for inf in following_streamers
             ]
         )
@@ -299,11 +299,13 @@ def following_by_popular(
     )
 
 
-@app.get("/twitch/followedbypopular/{query}", response_class=HTMLResponse)
+@app.get(
+    "/twitch/followedbypopular/{query}", response_class=fastapi.responses.HTMLResponse
+)
 def followed_by_popular(
     request: Request,
     query: str,
-    by: Optional[str] = "time",
+    by: Optional[str] = "canceled",
     reverse: Optional[bool] = False,
     follower_requirements: Optional[int] = 3000,
     valid: Optional[bool] = True,
@@ -312,8 +314,14 @@ def followed_by_popular(
     if parse_result[0] != "active":
         return parse_result[1]
     broadcaster = parse_result[1]
-    followed_streamers_processed = DatabaseHandler.follow_data_to_streamers(
-        broadcaster.follow_to(valid), "to", by, reverse, max(follower_requirements, 10)
+    followed_streamers_processed = (
+        database_manager.DatabaseHandler.follow_data_to_streamers(
+            broadcaster.follow_to(valid),
+            "to",
+            by,
+            reverse,
+            max(follower_requirements, 10),
+        )
     )
     following_streamers = followed_streamers_processed["datas"]
     total_follow = followed_streamers_processed["total"]
@@ -326,12 +334,12 @@ def followed_by_popular(
     # Thread(target=D.get_follower_from_streamers, args=(from_streamers, False)).start()
 
     return (
-        f'<meta charset="utf-8">{broadcaster.introduce}를 팔로우하는 {follower_requirements}명 이상의 팔로워를 가진 스트리머는 {total_follow}명입니다. ({order_dict[by][reverse]} 순)<br>'
+        f'<meta charset="utf-8">{broadcaster.introduce}를 팔로우하는 {follower_requirements}명 이상의 팔로워를 가진 스트리머는 {total_follow}명입니다. ({etc_manager.order_dict[by][reverse]} 순)<br>'
         + "<br>".join(
             [
-                f"<a href='{home_url}/twitch/streamer_watching_streamer/?query={inf['streamer'].login}'><img src='{inf['streamer'].profile_image}' width='100' height='100'></a> {inf['streamer'].name} ({inf['streamer'].login}), 팔로워 {tools.numtoko(inf['streamer'].followers)}명, {inf['streamer'].country} {inf['streamer'].localrank}위, {tools.eul(broadcaster.name)} {inf['when']}에 팔로우, {inf['last_updated']}에 마지막으로 확인"
+                f"<a href='{etc_manager.home_url}/twitch/streamer_watching_streamer/?query={inf['streamer'].login}'><img src='{inf['streamer'].profile_image}' width='100' height='100'></a> {inf['streamer'].name} ({inf['streamer'].login}), 팔로워 {etc_manager.numtoko(inf['streamer'].followers)}명, {inf['streamer'].country} {inf['streamer'].localrank}위, {etc_manager.eul(broadcaster.name)} {inf['when']}에 팔로우, {inf['last_updated']}에 마지막으로 확인"
                 if inf["valid"]
-                else f"<a href='{home_url}/twitch/streamer_watching_streamer/?query={inf['streamer'].login}'><img src='{inf['streamer'].profile_image}' width='100' height='100'></a> {inf['streamer'].name} ({inf['streamer'].login}), 팔로워 {tools.numtoko(inf['streamer'].followers)}명, {inf['streamer'].country} {inf['streamer'].localrank}위, {tools.eul(broadcaster.name)} {inf['when']}에 팔로우, 및 {inf['last_updated']}에 팔로우 취소한 것 확인 (확인한 시점)"
+                else f"<a href='{etc_manager.home_url}/twitch/streamer_watching_streamer/?query={inf['streamer'].login}'><img src='{inf['streamer'].profile_image}' width='100' height='100'></a> {inf['streamer'].name} ({inf['streamer'].login}), 팔로워 {etc_manager.numtoko(inf['streamer'].followers)}명, {inf['streamer'].country} {inf['streamer'].localrank}위, {etc_manager.eul(broadcaster.name)} {inf['when']}에 팔로우, 및 {inf['last_updated']}에 팔로우 취소한 것 확인 (확인한 시점)"
                 for inf in following_streamers
             ]
         )
@@ -339,50 +347,52 @@ def followed_by_popular(
     )
 
 
-@app.get("/twitch/relationship/", response_class=HTMLResponse)
+@app.get("/twitch/relationship/", response_class=fastapi.responses.HTMLResponse)
 async def relationship(logins: List[str] = Query(None)):
     raise NotImplementedError
 
 
-@app.get("/twitch/ranking/", response_class=HTMLResponse)
+@app.get("/twitch/ranking/", response_class=fastapi.responses.HTMLResponse)
 def ranking(request: Request, lang: Optional[str] = "ko", num: Optional[int] = 5000):
-    ranking_datas = list(DatabaseHandler.streamers_data_ranking(num, lang))
+    ranking_datas = list(
+        database_manager.DatabaseHandler.streamers_data_ranking(num, lang)
+    )
     return (
-        f'<meta charset="utf-8">{tools.langcode_to_country(lang)} 내 팔로워 랭킹<br>'
+        f'<meta charset="utf-8">{etc_manager.langcode_to_country(lang)} 내 팔로워 랭킹<br>'
         + f'트위치에서 정지당한 스트리머는 본 목록에 뜨지 않으므로 다음을 참조하세요. <a href="/twitch/banned">정지당한 스트리머 목록</a><br>'
         + "<br>".join(
             [
-                f"<a href='{home_url}/twitch/streamer_watching_streamer/?query={v['login']}'><img src='{v['profile_image_url']}' width='100' height='100'></a> {v['display_name']} ({v['login']}), 팔로워 {v['followers']}명, {tools.langcode_to_country(v['lang'])} {v['localrank']}위 (last update on {v['last_updated']})"
+                f"<a href='{etc_manager.home_url}/twitch/streamer_watching_streamer/?query={v['login']}'><img src='{v['profile_image_url']}' width='100' height='100'></a> {v['display_name']} ({v['login']}), 팔로워 {v['followers']}명, {etc_manager.langcode_to_country(v['lang'])} {v['localrank']}위 (last update on {v['last_updated']})"
                 for v in ranking_datas
             ]
         )
     )
 
 
-@app.get("/twitch/banned/", response_class=HTMLResponse)
+@app.get("/twitch/banned/", response_class=fastapi.responses.HTMLResponse)
 def banned_ui(request: Request, lang: Optional[str] = "ko"):
-    banned_list = list(DatabaseHandler.currently_banned(lang))
+    banned_list = list(database_manager.DatabaseHandler.currently_banned(lang))
     return (
         f'<meta charset="utf-8">현재 트위치에서 정지당한 스트리머들 목록<br>'
         + "<br>".join(
             [
-                f"<a href='{home_url}/twitch/streamer_watching_streamer/?query={v['login']}'><img src='{v['profile_image_url']}' width='100' height='100'></a> {v['display_name']} ({v['login']}) ({tools.tdtoko(dt.now() - v['banned_history'][-1])}전에 마지막으로 밴먹은것 확인) {'팔로워 %d명, %s, %s전에 마지막으로 확인' % (v['followers'], str(v['localrank']), tools.tdtoko(dt.now() - v['last_updated'])) if 'followers' in v and 'localrank' in v else ''}"
+                f"<a href='{etc_manager.home_url}/twitch/streamer_watching_streamer/?query={v['login']}'><img src='{v['profile_image_url']}' width='100' height='100'></a> {v['display_name']} ({v['login']}) ({etc_manager.passed_time(v['banned_history'][-1])}전에 마지막으로 밴먹은것 확인) {'팔로워 %d명, %s, %s전에 마지막으로 확인' % (v['followers'], str(v['localrank']), etc_manager.passed_time(v['last_updated'])) if 'followers' in v and 'localrank' in v else ''}"
                 for v in banned_list
             ]
         )
-        + f"<br><a href='{api_url}/twitch/addlogin/?{'&'.join(['logins=' + k['login'] for k in banned_list])}&skip_already_done=false&give_chance_to_banned=true'>여기 등장하는 {len(banned_list)}명의 정지당한 스트리머들 새로고침하기"
+        + f"<br><a href='{etc_manager.api_url}/twitch/addlogin/?{'&'.join(['logins=' + k['login'] for k in banned_list])}&skip_already_done=false&give_chance_to_banned=true'>여기 등장하는 {len(banned_list)}명의 정지당한 스트리머들 새로고침하기"
     )
 
 
-@app.get("/twitch/fired", response_class=HTMLResponse)
+@app.get("/twitch/fired", response_class=fastapi.responses.HTMLResponse)
 def fired_ui(request: Request, lang: Optional[str] = "ko"):
-    fired_list = list(DatabaseHandler.role_fired())
+    fired_list = list(database_manager.DatabaseHandler.role_fired())
     ids_set = {i["broadcaster_id"] for i in fired_list} | {
         i["member_id"] for i in fired_list
     }
     id_to_data = {
-        i["id"]: Streamer(i)
-        for i in DatabaseHandler.db.streamers_data.find(
+        i["id"]: database_manager.Streamer(i)
+        for i in database_manager.DatabaseHandler.db.streamers_data.find(
             {
                 "id": {"$in": list(ids_set)},
                 "lang": lang,
@@ -394,22 +404,22 @@ def fired_ui(request: Request, lang: Optional[str] = "ko"):
     result_second = ""
     for fired in fired_list:
         if fired["broadcaster_id"] in id_to_data and fired["member_id"] in id_to_data:
-            result_first += f"{id_to_data[fired['member_id']]}는 {id_to_data[fired['broadcaster_id']]}의 {role_to_ko[fired['role']]}이었으나 해고됨 ({fired['last_updated']}에 확인)<br>"
+            result_first += f"{id_to_data[fired['member_id']]}는 {id_to_data[fired['broadcaster_id']]}의 {etc_manager.role_to_ko[fired['role']]}이었으나 해고됨 ({fired['last_updated']}에 확인)<br>"
         else:
-            result_second += f"{fired['member_id']}는 {fired['broadcaster_id']}의 {role_to_ko[fired['role']]}이었으나 해고됨 ({fired['last_updated']}에 확인)<br>"
+            result_second += f"{fired['member_id']}는 {fired['broadcaster_id']}의 {etc_manager.role_to_ko[fired['role']]}이었으나 해고됨 ({fired['last_updated']}에 확인)<br>"
 
     return result_first + result_second
 
 
-@app.get("/twitch/unfollow", response_class=HTMLResponse)
+@app.get("/twitch/unfollow", response_class=fastapi.responses.HTMLResponse)
 def unfollow_ui(request: Request, lang: Optional[str] = "ko"):
-    unfollow_list = list(DatabaseHandler.unfollow())
+    unfollow_list = list(database_manager.DatabaseHandler.unfollow())
     ids_set = {i["from_id"] for i in unfollow_list} | {
         i["to_id"] for i in unfollow_list
     }
     id_to_data = {
-        i["id"]: Streamer(i)
-        for i in DatabaseHandler.db.streamers_data.find(
+        i["id"]: database_manager.Streamer(i)
+        for i in database_manager.DatabaseHandler.db.streamers_data.find(
             {
                 "id": {"$in": list(ids_set)},
                 "lang": lang,
@@ -438,7 +448,7 @@ def unfollow_ui(request: Request, lang: Optional[str] = "ko"):
 #     return intersect
 
 
-@app.get("/twitch/streams", response_class=HTMLResponse)
+@app.get("/twitch/streams", response_class=fastapi.responses.HTMLResponse)
 async def streams(request: Request, number: Optional[int] = 4):
     result = ""
     for j, i in enumerate(background_manager.popular_streams):
@@ -449,8 +459,8 @@ async def streams(request: Request, number: Optional[int] = 4):
             .replace("{width}", "1280")
             .replace("{height}", "720")
         )
-        viewer_count = tools.numtoko(stream["viewer_count"])
-        follower = tools.numtoko(streamer.followers)
+        viewer_count = etc_manager.numtoko(stream["viewer_count"])
+        follower = etc_manager.numtoko(streamer.followers)
         # uptime = tools.tdtoko(stream['uptime'])
         stream_country = "한국"
         stream_rank = j + 1
@@ -464,7 +474,7 @@ async def streams(request: Request, number: Optional[int] = 4):
                     ][:number]
                 ]
             )
-            result += stream_info_template.render(
+            result += etc_manager.stream_info_template.render(
                 thumb_url=thumb_url,
                 login=streamer.login,
                 title=stream["title"],
@@ -482,7 +492,7 @@ async def streams(request: Request, number: Optional[int] = 4):
             )
 
         else:
-            result += stream_info_template.render(
+            result += etc_manager.stream_info_template.render(
                 thumb_url=thumb_url,
                 login=streamer.login,
                 title=stream["title"],
@@ -506,11 +516,11 @@ async def multipleiswatching(
     request: Request, streamer: str, ids: List[str] = Query(None)
 ):
     ip = str(request.client.host)
-    peop = RequestHandler.view(streamer)
+    peop = database_manager.RequestHandler.view(streamer)
     result = list(set(peop) & set(ids))
     with open("log.txt", "a") as f:
         f.write(
-            f'{dt.now().strftime("%Y/%m/%d %H:%M:%S")} multiple {" ".join(ids)} iswatching {streamer} from {ip} {" ".join(map(str, result))}\n'
+            f'{etc_manager.now().strftime("%Y/%m/%d %H:%M:%S")} multiple {" ".join(ids)} iswatching {streamer} from {ip} {" ".join(map(str, result))}\n'
         )
 
     return result
@@ -518,20 +528,20 @@ async def multipleiswatching(
 
 def streamers_data_update_to_ko(result, follow_result):
     explanation = "<meta charset='utf-8'> 데이터베이스 추가/업데이트 작업이 완료되었습니다."
-    for i in description:
+    for i in etc_manager.description:
         if result[i]:
-            explanation += "<br>" + description[i] % (
+            explanation += "<br>" + etc_manager.description[i] % (
                 ", ".join([str(j) for j in result[i]])
             )
-    for i in follow_description:
+    for i in etc_manager.follow_description:
         if follow_result[i]:
-            explanation += "<br>" + follow_description[i] % (
+            explanation += "<br>" + etc_manager.follow_description[i] % (
                 ", ".join([str(j) for j in follow_result[i]])
             )
     return explanation
 
 
-@app.get("/twitch/addlogin/", response_class=HTMLResponse)
+@app.get("/twitch/addlogin/", response_class=fastapi.responses.HTMLResponse)
 def add_logins(
     request: Request,
     logins: List[str] = Query(None),
@@ -539,17 +549,17 @@ def add_logins(
     update_follow: Optional[bool] = True,
     follower_requirements: Optional[int] = 3000,
 ):
-    if not tools.is_valid_logins(logins):
+    if not etc_manager.is_valid_logins(logins):
         return "make sure if the ID is made up of only alphabets, numbers and under bar"
     background_manager.login_queue.extend(logins)
-    update_result = DatabaseHandler.update_from_login(logins, skip)
-    follow_update_result = DatabaseHandler.get_follower_from_streamers(
+    update_result = database_manager.DatabaseHandler.update_from_login(logins, skip)
+    follow_update_result = database_manager.DatabaseHandler.get_follower_from_streamers(
         update_result["data"], update_follow
     )
     return streamers_data_update_to_ko(update_result, follow_update_result)
 
 
-@app.get("/twitch/history/{query}", response_class=HTMLResponse)
+@app.get("/twitch/history/{query}", response_class=fastapi.responses.HTMLResponse)
 def past_logins(request: Request, query: str):
     parse_result = query_parser(query)
     if parse_result[0] != "active":
@@ -561,22 +571,22 @@ def past_logins(request: Request, query: str):
             result[i] = broadcaster[i]
     if not result:
         return f"{broadcaster.introduce}는 과거 기록이 없습니다."
-    return f"{broadcaster.introduce}의 {', '.join([f'{tools.eun(history_to_ko[k])} {v}' for k, v in result.items()])}<br>(11월 전에는 아이디만 바뀌어도 정지되었다고 판단하는 바람에 그 당시의 정지기록은 의미가 없습니다.)"
+    return f"{broadcaster.introduce}의 {', '.join([f'{etc_manager.eun(etc_manager.history_to_ko[k])} {v}' for k, v in result.items()])}<br>(11월 전에는 아이디만 바뀌어도 정지되었다고 판단하는 바람에 그 당시의 정지기록은 의미가 없습니다.)"
 
 
-@app.get("/twitch/stats", response_class=HTMLResponse)
+@app.get("/twitch/stats", response_class=fastapi.responses.HTMLResponse)
 def statistics():
     return (
-        f"전체 스트리머 수 {DatabaseHandler.db.streamers_data.count_documents({})}<br>"
-        f"팔로워 수 정보가 있는 스트리머 수 {DatabaseHandler.db.streamers_data.count_documents({'followers': {'$exists': True}})}<br>"
-        f"팔로잉 수 정보가 있는 스트리머 수 {DatabaseHandler.db.follow_data_information.count_documents({})}<br>"
-        f"팔로워 관계 수 {DatabaseHandler.db.follow_data.count_documents({})}<br>"
-        f"한국 스트리머 수 {DatabaseHandler.db.streamers_data.count_documents({'lang': 'ko'})}<br>"
-        f"로컬 랭크가 있는 스트리머 수 {DatabaseHandler.db.streamers_data.count_documents({'localrank': {'$exists': True}})}<br>"
-        f"글로벌 랭크가 있는 스트리머 수 {DatabaseHandler.db.streamers_data.count_documents({'globalrank': {'$exists': True}})}<br>"
-        f"밴 당한 스트리머 수 {DatabaseHandler.db.streamers_data.count_documents({'banned': True})}<br>"
-        f"매니저 정보가 있는 스트리머 수 {DatabaseHandler.db.role_data_information.count_documents({})}<br>"
-        f"매니저 관계 수 {DatabaseHandler.db.role_data.count_documents({})}<br>"
+        f"전체 스트리머 수 {database_manager.DatabaseHandler.db.streamers_data.count_documents({})}<br>"
+        f"팔로워 수 정보가 있는 스트리머 수 {database_manager.DatabaseHandler.db.streamers_data.count_documents({'followers': {'$exists': True}})}<br>"
+        f"팔로잉 수 정보가 있는 스트리머 수 {database_manager.DatabaseHandler.db.follow_data_information.count_documents({})}<br>"
+        f"팔로워 관계 수 {database_manager.DatabaseHandler.db.follow_data.count_documents({})}<br>"
+        f"한국 스트리머 수 {database_manager.DatabaseHandler.db.streamers_data.count_documents({'lang': 'ko'})}<br>"
+        f"로컬 랭크가 있는 스트리머 수 {database_manager.DatabaseHandler.db.streamers_data.count_documents({'localrank': {'$exists': True}})}<br>"
+        f"글로벌 랭크가 있는 스트리머 수 {database_manager.DatabaseHandler.db.streamers_data.count_documents({'globalrank': {'$exists': True}})}<br>"
+        f"밴 당한 스트리머 수 {database_manager.DatabaseHandler.db.streamers_data.count_documents({'banned': True})}<br>"
+        f"매니저 정보가 있는 스트리머 수 {database_manager.DatabaseHandler.db.role_data_information.count_documents({})}<br>"
+        f"매니저 관계 수 {database_manager.DatabaseHandler.db.role_data.count_documents({})}<br>"
     )
 
 
@@ -585,7 +595,7 @@ def statistics():
 #     return threading.active_count()
 
 
-@app.get("/twitch/status", response_class=HTMLResponse)
+@app.get("/twitch/status", response_class=fastapi.responses.HTMLResponse)
 def status():
     return "<br>".join(
         [
@@ -597,7 +607,8 @@ def status():
         ]
     )
 
-      #      memory_status(),
+    #      memory_status(),
+
 
 def settings_status():
     return "<br>".join([f"{k}:{v}" for k, v in settings.data.items()])
@@ -605,34 +616,35 @@ def settings_status():
 
 def memory_status():
     return "<br>".join(
-        [f"{i}:{tools.obj_size_str(j)}" for i, j in global_variable_dicts.items()]
+        [f"{i}:{etc_manager.obj_size_str(j)}" for i, j in global_variable_dicts.items()]
     )
 
 
 def temp_variable_status():
     result = {
+        "watching_streamers_working_dict_status": "".join(
+            [
+                f"{value['broadcaster']} {value['status']} {etc_manager.passed_time(value['time'])}<br>"
+                for value in background_manager.watching_streamers_working_dict.values()
+                if value['status'] != "idle"
+            ]
+        ),
+        "watching_streamers_data_status": "".join(
+            [
+                f"{value['broadcaster']} {etc_manager.passed_time(value['time'])}<br>"
+                for value in background_manager.watching_streamers_data.values()
+            ]
+        ),
         "temp_view_status": "".join(
             [
-                f"{login} {len(data['view']['viewers'])} {tools.tdtoko(tools.now()-data['time'])}<br>"
-                for login, data in RequestHandler.temp_view.items()
+                f"{login} {len(data['view']['viewers'])} {etc_manager.passed_time(data['time'])}<br>"
+                for login, data in database_manager.RequestHandler.temp_view.items()
             ]
         ),
         "now_working_on_view_status": "".join(
             [
                 f"{login} {value}<br>"
-                for login, value in RequestHandler.now_working_on_view.items()
-            ]
-        ),
-        "watching_streamers_data_status": "".join(
-            [
-                f"{value['broadcaster']} {tools.tdtoko(tools.now()-value['time'])}<br>"
-                for value in background_manager.watching_streamers_data.values()
-            ]
-        ),
-        "watching_streamers_working_dict_status": "".join(
-            [
-                f"{login} {value}<br>"
-                for login, value in background_manager.watching_streamers_working_dict.items()
+                for login, value in database_manager.RequestHandler.now_working_on_view.items()
             ]
         ),
     }
@@ -656,25 +668,16 @@ def temp_status():
         return ""
 
 
-@app.get("/settings", response_class=HTMLResponse)
+@app.get("/settings", response_class=fastapi.responses.HTMLResponse)
 def settings_refresh():
     settings.init()
     return f"{settings.data} 새로고침 완료"
 
 
-@app.get("/twitch/thread_manage", response_class=RedirectResponse)
+@app.get("/twitch/thread_manage", response_class=fastapi.responses.RedirectResponse)
 def thread_manager(name: str, num: int):
     background_manager.thread_num_manager(name, num)
     return "/twitch/status"
-
-
-@app.get("/twitch/menu", response_class=HTMLResponse)
-def menu_provider(remove: List[str] = Query(default=[], max_length=50)):
-    result = ""
-    for menu, content in menus.items():
-        if menu not in remove:
-            result += menu_template.render(link=content[0], menu_name=content[1])
-    return result
 
 
 # 헷갈린 이유가, 이거의 목적이 첫번째는 100명 크롤링해서 보는 사람 알려주는거고 두번째는 쫙 목록 보여주는거
@@ -685,7 +688,7 @@ def menu_provider(remove: List[str] = Query(default=[], max_length=50)):
 @app.on_event("startup")
 @repeat_every(seconds=1000)
 def get_new_header() -> None:
-    RequestHandler.header_update()
+    database_manager.RequestHandler.header_update()
 
 
 # @app.on_event("startup")
@@ -693,29 +696,29 @@ def get_new_header() -> None:
 @app.on_event("startup")
 @repeat_every(seconds=1800)
 def refresh_search_database() -> None:
-    search_data[:] = DatabaseHandler.streamers_search_data_update()
+    search_data[:] = database_manager.DatabaseHandler.streamers_search_data_update()
 
 
 @app.on_event("startup")
 @repeat_every(seconds=100)
 def rank_refresh() -> None:
-    DatabaseHandler.streamers_data_rank_refresh()
+    database_manager.DatabaseHandler.streamers_data_rank_refresh()
 
 
 @app.on_event("startup")
 @repeat_every(seconds=3600)
 def update_bot_list() -> None:
-    RequestHandler.update_bots_list()
-    background_manager.bots_list[:] = DatabaseHandler.bots_list()
+    database_manager.RequestHandler.update_bots_list()
+    background_manager.bots_list[:] = database_manager.DatabaseHandler.bots_list()
 
 
 @app.on_event("startup")
 @repeat_every(seconds=200)
 def temp_clear_daemon() -> None:
-    RequestHandler.temp_view_clear()
+    database_manager.RequestHandler.temp_view_clear()
     for i in background_manager.watching_streamers_data:  # temp data 로 인한 메모리 증가세 막기
         time_elapsed = (
-            tools.now() - background_manager.watching_streamers_data[i]["time"]
+            etc_manager.now() - background_manager.watching_streamers_data[i]["time"]
         )
         if time_elapsed.seconds > 200:
             del background_manager.watching_streamers_data[i]
